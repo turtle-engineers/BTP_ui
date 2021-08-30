@@ -1,4 +1,9 @@
-# test
+# BTP_ui
+
+## Project start
+```
+npm run serve
+```
 
 ## Project setup
 ```
