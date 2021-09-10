@@ -10,6 +10,8 @@ import Settings from "./views/Settings";
 import MissionList from "./views/MissionList";
 import About from "./views/About";
 import Story from "./views/Story";
+import NotFoundPage from "./views/NotFoundPage";
+
 
 Vue.use(VueRouter);
 
@@ -29,7 +31,9 @@ const router = new VueRouter({
         {path:"/missionList", component: MissionList},
 
         {path:"/about", component: About},        
-        {path:"/story", component: Story}
+        {path:"/story", component: Story},
+
+        {path:"*", component: NotFoundPage}
     ]
 });
 
