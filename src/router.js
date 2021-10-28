@@ -11,6 +11,7 @@ import MissionList from "./views/MissionList";
 import About from "./views/About";
 import Story from "./views/Story";
 import NotFoundPage from "./views/NotFoundPage";
+import LoginElement from "./views/LoginElement";
 
 
 Vue.use(VueRouter);
@@ -32,6 +33,8 @@ const router = new VueRouter({
 
         {path:"/about", component: About},        
         {path:"/story", component: Story},
+
+        {path:"/LoginElement", component: LoginElement},
 
         {path:"*", component: NotFoundPage}
     ]
