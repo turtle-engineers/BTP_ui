@@ -1,0 +1,58 @@
+.sub-title {
+    margin-bottom: 36px;
+
+    f1 { 
+        font-size: 25px;
+        font-weight: bold;
+        color: #FFFFFF;
+        display: block;
+        margin-bottom: 16px;
+    }
+    f2 { 
+        font-size: 16px;
+        color: #D2D2D2;
+    }
+    .circle {
+        width: 26px; height: 26px;
+        background-color: #6FA7FF;
+        border-radius: 100%;
+    }
+}
+
+.calendar-pad {
+    background-size: cover;
+
+    .calendar-card {
+        width: 830px;
+
+        hr {
+            color: #FFFFFF;
+        }
+    
+        img {
+            margin: 192px 0 32px 0;
+        }
+    }
+}
+
+.calender-card {
+    width: 830px; height: 742px;
+    background-color: #FFFFFF;
+    border-radius: 44px;
+}
+
+.mission-card {
+    width: 808px; height: 86px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+    .circle {
+        width: 56px; height: 56px;
+        background-color: #6FA7FF;
+        border-radius: 100%;
+    
+        font-size: 40px;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}
