@@ -1,0 +1,32 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+
+$btpfont: 'Noto Sans KR', sans-serif;
+$btpblack:#343A40;
+$mainblue: #1A5EFF;
+$mainsand: #FFF492;
+$btpgray:#d2d2d2;
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+//blue mainpage
+.main {
+  // 임시 height
+  height: 500px;
+}
+
+//bottom
+.foot {
+  height: 200px;
+  background-color: $mainsand;
+}
+
+

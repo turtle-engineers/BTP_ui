@@ -1,0 +1,83 @@
+header { box-sizing: border-box; }
+header a {text-decoration: none; outline: none }
+
+// top black bar
+.bar {
+  padding: 0 8%; //임의
+  height: 48px;
+  background-color: $btpblack;
+  line-height: 48px;
+  vertical-align: middle;
+  color: $btpgray;
+}
+
+.music-player{
+  float: left;
+  width: 500px;
+}
+.clock{
+  float: right;
+}
+
+// LOGO
+.header {
+  background-color: white;
+  width: 100%;
+  height: 252px;
+  box-shadow: 0 6px 8px -7px black;
+}
+
+.header-logo {
+  text-align: center;
+  padding: 60px 0 40px 0;
+}
+
+//MENU
+nav {
+  text-align: center;
+}
+
+nav ul {
+  display: inline;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+.header ul img {
+// (임시) 이후에 이모티콘 받으면 고칠 부분! //
+  display: inline-block;
+  margin: 0 0;
+  height: 15px;
+}
+
+//MENU
+.menu {
+  display: block;
+  margin: 0 auto;
+  padding: 0 0 40px 0;
+}
+
+.menu-item {
+  font-size: 17px;
+  color: $btpblack;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.menu-text {
+  margin-right: 15px;
+}
+
+//PRIVATE MENU
+.my-menu {
+  position: absolute;
+  top: 277px;
+  right: 13%; //임의
+}
+.my-menu img{
+  display: inline-block;
+}
