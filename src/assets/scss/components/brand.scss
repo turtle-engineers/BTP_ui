@@ -1,0 +1,52 @@
+//banner
+.banner-img{
+  display: block;
+  width: 100%;
+  background-position: center;
+}
+
+//-> brand
+.brand {
+  position: relative;
+  height: 650px;
+  margin: 160px auto 160px 178px;
+}
+.brand-desc {
+  display: inline-block;
+}
+.brand-desc h1 {
+  height: 88px;
+  margin-top: 56px;
+  margin-bottom: 62px;
+  font-family:$btpfont, bold;
+  font-weight: bold;
+  font-size: 106px;
+  line-height: 88px;
+  vertical-align: middle;  
+  color: white;
+}
+.brand-desc p {
+  font-size:20px;
+  color: $btpgray;
+  margin-bottom: 56px;
+}
+
+.morebtn {
+  display: inline-block;
+  text-align: center;
+  font-size: 26px;
+  color: white;
+  font-weight: bold;
+  background-color: $btpblack;
+  width: 148.5px;
+  padding:3px;
+  border-radius: 22px;
+}
+
+.brand-img{
+  display: inline-block;
+  position: absolute; 
+  width: 858px;
+  top:230px;
+  right: 178px;
+}

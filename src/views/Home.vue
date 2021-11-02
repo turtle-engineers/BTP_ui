@@ -34,22 +34,38 @@
       </div>
     </nav>
   </header>
-  
    <!-- banner -->
   <div class="banner">
+    <img class="banner-img" src="../assets/images/banner.png">
   </div>
   <!-- main -->
   <div class="main">
+    <!-- 브랜드 소개 -->
+    <div class="brand">
+      <div class="brand-img"><img src="../assets/images/brand.png"></div>
+      <div class="brand-desc">
+        <h1>BTP PROJECT</h1>
+        <p>
+          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br>
+          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br>
+          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br>
+          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.
+        </p>
+        <a href="#"><div class="morebtn">MORE</div></a>
+      </div>
+    </div>
   </div>
+
+
   <!-- 모래부분 -->
   <footer class="foot">
   </footer>
-
   </body>
 </template>
 <style lang="scss" scoped>
-    @import '../assets/scss/components/main.scss';
+    @import '../assets/scss/components/home.scss';
     @import '../assets/scss/components/header.scss';
+    @import '../assets/scss/components/brand.scss';
     @import '../assets/scss/variables.scss';
     @import '../assets/scss/common.scss';
 </style>
