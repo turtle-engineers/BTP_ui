@@ -7,6 +7,7 @@ $btpblack:#343A40;
 $mainblue: #1A5EFF;
 $mainsand: #FFF492;
 $btpgray:#d2d2d2;
+$redbtn:#FF6B6B;
 
 *{
   box-sizing: border-box;
@@ -20,6 +21,101 @@ body{
 //blue mainpage
 .main {
   margin: 0 0;
+}
+
+
+// 메인 프로젝트
+
+.title{
+  padding-left: 178px;
+  padding-bottom: 70px;
+}
+.circle{
+  display: inline-block;
+  border-radius: 50%;
+  background-color: green;
+  width: 26px;
+  height: 26px;
+  margin-right:16px;
+  vertical-align: middle;
+}
+.title h1{
+  display: inline-block;
+  margin: 0 0 0 0 ;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.title p{
+  margin: 0 0;
+  color:#D2D2D2;
+  padding-left:42px;
+  font-size: 16px;
+}
+
+.project-menu{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 178px;
+  margin-bottom: 164px;
+}
+
+.project-item{
+  position: relative;
+  background-color: white;
+  height: 284px+40px+40px;
+  width: 1310px-92px;
+  border-radius:20px;
+  box-shadow: 0 6px 8px -7px black;
+  margin-bottom: 72px;
+  padding: 40px 52px 40px 40px;
+}
+.project-icon{
+  display: inline-block;
+}
+.project-desc{
+  display: inline-block;
+  position: absolute;
+  top:128px;
+  left:284px+84px+40px;
+}
+
+.project-item h1{
+  font-size: 51px;
+  font-weight: bold;
+  margin: 0 0;
+  color: $btpblack;
+}
+
+.project-item h2{
+  margin: 0 0;
+  font-weight: bold;
+  color: $btpblack;
+}
+
+.project-item .circle{
+  //테스트 및 배치+임시용 V 버튼
+  position: absolute;
+  right: 52px;
+  width: 45px;
+  height: 45px;
+  background-color: lightgray;
+}
+
+.start{
+  display: inline-block;
+  position: absolute;
+  top: 228px;
+  right: 52px;
+  width: 220.68;
+  border-radius: 20px;
+  background-color: $redbtn;
+  font-size: 34px;
+  line-height: 34px;
+  font-weight: bold;
+  color: white;
+  padding: 15px 21px;
 }
 
 //bottom
