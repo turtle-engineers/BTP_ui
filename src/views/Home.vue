@@ -12,19 +12,19 @@
         <ul>
           <a href="#" class="menu-item">
             <li class="menu-text">스트레칭 가이드</li>
-            <img src="..\assets\icon\menu.png">
+            <img src="..\assets\icon\header_menu_arrow.png">
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text">마이 루틴</li>
-            <img src="..\assets\icon\menu.png">
+            <img src="..\assets\icon\header_menu_arrow.png">
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text"> 랜덤 챌린지</li>
-            <img src="..\assets\icon\menu.png">
+            <img src="..\assets\icon\header_menu_arrow.png">
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text">이용안내</li>
-            <img src="..\assets\icon\menu.png">
+            <img src="..\assets\icon\header_menu_arrow.png">
           </a> 
         </ul>
 
