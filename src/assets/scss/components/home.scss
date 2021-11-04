@@ -25,35 +25,37 @@ body{
 
 
 // 메인 프로젝트
-
-.title{
-  padding-left: 178px;
-  padding-bottom: 70px;
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 178px;
+  margin-bottom: 70px;
+  vertical-align: middle;
+  width: 368px;
 }
-.circle{
+.circle {
   display: inline-block;
-  border-radius: 50%;
-  background-color: green;
-  width: 26px;
-  height: 26px;
   margin-right:16px;
   vertical-align: middle;
 }
-.title h1{
+.title h1 {
   display: inline-block;
-  margin: 0 0 0 0 ;
   color: white;
   font-weight: bold;
   font-size: 25px;
+  line-height: 100%;
+  margin-bottom: 16px;
 }
-.title p{
+
+.title p {
   margin: 0 0;
+  line-height: 100%;
   color:#D2D2D2;
   padding-left:42px;
   font-size: 16px;
 }
 
-.project-menu{
+.project-menu {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -61,7 +63,7 @@ body{
   margin-bottom: 164px;
 }
 
-.project-item{
+.project-item {
   position: relative;
   background-color: white;
   height: 284px+40px+40px;
@@ -71,39 +73,36 @@ body{
   margin-bottom: 72px;
   padding: 40px 52px 40px 40px;
 }
-.project-icon{
+.project-icon {
   display: inline-block;
 }
-.project-desc{
+.project-desc {
   display: inline-block;
   position: absolute;
   top:128px;
   left:284px+84px+40px;
 }
 
-.project-item h1{
+.project-item h1 {
   font-size: 51px;
   font-weight: bold;
   margin: 0 0;
   color: $btpblack;
 }
 
-.project-item h2{
+.project-item h2 {
   margin: 0 0;
   font-weight: bold;
   color: $btpblack;
 }
 
-.project-item .circle{
+.showbtn {
   //테스트 및 배치+임시용 V 버튼
   position: absolute;
   right: 52px;
-  width: 45px;
-  height: 45px;
-  background-color: lightgray;
 }
 
-.start{
+.start {
   display: inline-block;
   position: absolute;
   top: 228px;

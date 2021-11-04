@@ -59,7 +59,8 @@
 
     <!-- 메인 프로젝트 -->
     <div class="title">
-        <div class="circle"></div><h1>MAIN PROJECT</h1>
+        <div class="circle"><img src="../assets/icon/circle-green.png"></div>
+        <h1>MAIN PROJECT</h1>
         <p>본 프로젝트로 계획된 플랜을 살펴볼 수 있습니다.</p>
     </div>
 
@@ -69,27 +70,27 @@
         <img class="project-icon" src="../assets/images/stretching.png">
         <div class="project-desc">
           <h1>스트레칭 가이드</h1>
-          <h2>My Stretching Routine</h2>
+          <h2>Stretching Guide</h2>
         </div>
-        <div class="circle"></div>
+        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START! ▶</div></a>
       </div>
       <div class="project-item">
         <img class="project-icon" src="../assets/images/myroutine.png">
         <div class="project-desc">
-          <h1>스트레칭 가이드</h1>
+          <h1>마이 루틴</h1>
           <h2>My Stretching Routine</h2>
         </div>
-        <div class="circle"></div>
+        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START! ▶</div></a>
       </div>
       <div class="project-item">
         <img class="project-icon" src="../assets/images/random_challenge.png">
         <div class="project-desc">
-          <h1>스트레칭 가이드</h1>
-          <h2>My Stretching Routine</h2>
+          <h1>랜덤 챌린지</h1>
+          <h2>Random Challeng</h2>
         </div>
-        <div class="circle"></div>
+        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START! ▶</div></a>
       </div>
     </div>
