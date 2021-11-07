@@ -1,58 +1,222 @@
-.sub-title {
-    margin-bottom: 36px;
+.card-main {
 
-    f1 { 
-        font-size: 25px;
+    color: #FFFFFF;
+    
+    .card-view { 
+        min-height: 408px;
+        padding: 40px 70px;
+        border-radius: 20px;
+    }
+    .card-w {
+        background-color: $color-w;
+    }
+    .card-g {
+        background-color: $color-g;
+    }
+    
+    .card-layout {
+        position: relative;
+        height: 100%;
+
+        img { 
+            width: 253px;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        cm-t {
+            position: absolute;
+            top:0;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        cm-m {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            
+            input[type="checkbox"] {
+                display:none;
+            }
+            input[type="checkbox"] + label {
+                font-size: 35px;
+                margin-bottom: 32px;
+            }
+            input[type="checkbox"] + label span {
+                display:inline-block;
+                width:40px;
+                height:40px;
+                margin-right: 20px;
+                vertical-align:middle;
+                border: 5px solid #FFFFFF;
+                border-radius: 100%;
+                cursor:pointer;
+            }
+            input[type="checkbox"]:checked + label span {
+                background-color: #FFFFFF;
+                border-radius: 100%;
+            }
+            
+        }
+        cm-b {
+            position: absolute;
+            bottom: 0; right: 0;
+    
+            f1 {
+                font-size: 34px;
+                font-weight: bold;
+                margin-right: 15px;
+            }
+            f2 {
+                font-size: 51px;
+                font-weight: bold;
+                color: rgb(0,0,0,0);
+                -webkit-text-stroke: 1px #FFF;
+            }
+        }
+    }
+    
+}
+
+.calendar-title {
+
+    margin: 64px 0 32px 0;
+
+    img { margin-right:16px; }
+
+    h1 {
+        display: inline-block;
+        font-size: 26px;
         font-weight: bold;
-        color: #FFFFFF;
-        display: block;
-        margin-bottom: 16px;
+        
+        margin:0;
+        vertical-align: middle;
     }
-    f2 { 
+
+    p { 
         font-size: 16px;
-        color: #D2D2D2;
+        margin-top: 16px;
+        margin-left: 42px;
     }
-    .circle {
-        width: 26px; height: 26px;
-        background-color: #6FA7FF;
-        border-radius: 100%;
-    }
+
+}
+.title-g {
+    img { content:url("../assets/icon/circle-green.png"); }
+    h1 { color: #FFFFFF; }
+    p { color: #D2D2D2; }
+}
+.title-w {
+    img { content:url("../assets/icon/circle-white.png"); }
+    h1 { color: #343A40; }
 }
 
 .calendar-pad {
-    background-size: cover;
+    position: relative;
 
+    .calendar-pad-img {
+        position: absolute;
+    }
     .calendar-card {
+        position: absolute;
+        z-index: 1;
         width: 830px;
+
+        .calendar-logo {
+            display: block;
+            margin: 192px auto 32px auto;
+        }
 
         hr {
             color: #FFFFFF;
+            border: solid 3px #FFFFFF;
         }
-    
-        img {
-            margin: 192px 0 32px 0;
+
+        .calender-card {
+            width: 830px; height: 742px;
+            background-color: #FFFFFF;
+            border-radius: 44px;
+            margin: 0 auto;
+            padding: 50px 50px;
+
+            .calender-date {
+                font-size: 54px;
+                font-weight: bold;
+                color: #343A40;
+            }
+
+            .calender-goal {
+                margin: 30px 0;
+                color: #343A40;
+                .f1 {
+                    font-size: 25px;
+                }
+                .f2 {
+                    font-size: 71px;
+                    font-weight: bold;
+                }
+            }
+
+            .day {
+                width: 99px; height: 87px;
+                border-radius: 28px;
+                font-size: 51px;
+                text-align: center;
+            }
+
+            .day-d {
+                color: rgb(0,0,0,0);
+                -webkit-text-stroke: 1px #A5B1B5;
+                background-color: #D9E0E2;
+            }
+            .day-b {
+                color: #FFFFFF;
+                background-color: $color-b;
+            }
+            .day-w {
+                color: #343A40;
+                background-color: #FFDF4D;
+            }
+            .day-g {
+                color: rgb(0,0,0,0);
+                -webkit-text-stroke: 1px #D9E0E2;
+                background-color: #A5B1B5;
+            }
+            
+        }
+        
+        .mission-card {
+            width: 808px; height: 86px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            position: relative;
+
+            table {
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%,-50%);
+
+                border-spacing: 16px;
+                border-collapse: separate;
+            }
+
+            .circle {
+                width: 56px; height: 56px;
+                background-color: #6FA7FF;
+                border-radius: 100%;
+            
+                font-size: 40px;
+                color: #FFFFFF;
+
+                position: relative;
+
+                span {
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate(-53%,-53%);
+                }
+            }
         }
     }
 }
 
-.calender-card {
-    width: 830px; height: 742px;
-    background-color: #FFFFFF;
-    border-radius: 44px;
-}
-
-.mission-card {
-    width: 808px; height: 86px;
-    background-color: #FFFFFF;
-    border-radius: 20px;
-
-    .circle {
-        width: 56px; height: 56px;
-        background-color: #6FA7FF;
-        border-radius: 100%;
-    
-        font-size: 40px;
-        color: #FFFFFF;
-        text-align: center;
-    }
-}
