@@ -3,6 +3,7 @@ header a {text-decoration: none; outline: none }
 
 // top black bar
 .bar {
+  display: flex;
   padding: 0 8%; //임의
   height: 48px;
   background-color: $btpblack;
@@ -12,11 +13,10 @@ header a {text-decoration: none; outline: none }
 }
 
 .music-player{
-  float: left;
-  width: 500px;
+  flex: none;
 }
 .clock{
-  float: right;
+  margin-left: auto;
 }
 
 // LOGO
@@ -58,11 +58,11 @@ nav ul li {
   font-size: 17px;
   color: $btpblack;
   text-decoration: none;
-  margin-right: 30px;
+  margin: 0 15px;
 }
 
 .menu-text {
-  margin-right: 15px;
+  margin: 0 7.5px;
 }
 
 //PRIVATE MENU

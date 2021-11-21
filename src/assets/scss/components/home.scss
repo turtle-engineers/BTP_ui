@@ -6,7 +6,7 @@ $btpfont: 'Noto Sans KR', sans-serif;
 $btpblack:#343A40;
 $mainblue: #1A5EFF;
 $mainsand: #FFF492;
-$btpgray:#d2d2d2;
+$btpgray:#EBEBEB;
 $redbtn:#FF6B6B;
 
 *{
@@ -15,106 +15,106 @@ $redbtn:#FF6B6B;
 
 body{
   padding: 0;
-  margin: 0;
+  margin: 0 0;
 }
 
 //blue mainpage
 .main {
-  margin: 0 0;
+  width: 1200px; 
+  margin: 0 auto;
 }
-
 
 // 메인 프로젝트
+.btp-menu {
+  margin-left: auto;
+  margin-right: auto;
 .title {
+  margin-bottom: 49px;
+  padding-left: 16px;
+    h1 {
+      display: inline-block;
+      margin: 0;
+      font-weight: bold;
+      font-size: 50px;
+      vertical-align: middle;
+      line-height: 50px;
+      color:white;
+    }
+    p {
+      margin-top: 25px;
+      line-height: 100%;
+      padding-left:42px;
+      font-size: 16px;
+      margin-bottom: 70px;
+      color: $btpgray;
+    }
+    img{
+      width: 18px;
+      margin-right: 16px;
+    }
+  }
+}
+
+//project menu
+.project-menu{
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 178px;
-  margin-bottom: 70px;
-  vertical-align: middle;
-  width: 368px;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 253px;
+  text-align: center;
 }
-.circle {
-  display: inline-block;
-  margin-right:16px;
-  vertical-align: middle;
-}
-.title h1 {
-  display: inline-block;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 100%;
-  margin-bottom: 16px;
-}
-
-.title p {
-  margin: 0 0;
-  line-height: 100%;
-  color:#D2D2D2;
-  padding-left:42px;
-  font-size: 16px;
-}
-
-.project-menu {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-left: 178px;
-  margin-bottom: 164px;
-}
-
 .project-item {
   position: relative;
-  background-color: white;
-  height: 284px+40px+40px;
-  width: 1310px-92px;
-  border-radius:20px;
-  box-shadow: 0 6px 8px -7px black;
-  margin-bottom: 72px;
-  padding: 40px 52px 40px 40px;
+  margin: 0 23px;
+  width: 369px;
+  border-radius: 25px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    h1 {
+      margin: 0 0;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 36px;
+      text-align: center;
+      color: $btpblack;
+    }
+    h2 {
+      margin: 0 0;
+      font-weight: bold;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+    }
 }
 .project-icon {
   display: inline-block;
-}
-.project-desc {
-  display: inline-block;
-  position: absolute;
-  top:128px;
-  left:284px+84px+40px;
-}
-
-.project-item h1 {
-  font-size: 51px;
-  font-weight: bold;
-  margin: 0 0;
-  color: $btpblack;
-}
-
-.project-item h2 {
-  margin: 0 0;
-  font-weight: bold;
-  color: $btpblack;
+  height: 214px;
+  margin: 44px auto 50px auto;
 }
 
 .showbtn {
-  //테스트 및 배치+임시용 V 버튼
+  margin: 0 0;
   position: absolute;
-  right: 52px;
+  width: 35px;
+  top:24.45px;
+  right: 19.76px;
 }
 
 .start {
   display: inline-block;
-  position: absolute;
-  top: 228px;
-  right: 52px;
-  width: 220.68;
-  border-radius: 20px;
+  border-radius: 15px;
+  margin-top: 57px;
+  margin-bottom: 43px;
+  width: 130px;
+  height: 50px;
   background-color: $redbtn;
-  font-size: 34px;
-  line-height: 34px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
-  padding: 15px 21px;
+  line-height: 50px;
+  vertical-align: middle;
 }
 
 //bottom

@@ -7,14 +7,14 @@
 
 //-> brand
 .brand {
-  position: relative;
-  height: 650px;
-  margin: 160px auto 160px 178px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 160px auto;
+  text-align: center;
 }
-.brand-desc {
-  display: inline-block;
-}
-.brand-desc h1 {
+.brand h1 {
   height: 88px;
   margin-top: 56px;
   margin-bottom: 62px;
@@ -25,28 +25,22 @@
   vertical-align: middle;  
   color: white;
 }
-.brand-desc p {
-  font-size:20px;
+.brand p {
+  margin-top: 41px;
+  margin-bottom: 100px; //
+  font-weight: 500;
+  font-size:21px;
+  line-height: 32px;
   color: $btpgray;
-  margin-bottom: 56px;
 }
-
 .morebtn {
   display: inline-block;
+  width: 148.5px;
+  padding:3px;
+  border-radius: 15px;
   text-align: center;
   font-size: 26px;
   color: white;
   font-weight: bold;
   background-color: $btpblack;
-  width: 148.5px;
-  padding:3px;
-  border-radius: 22px;
-}
-
-.brand-img{
-  display: inline-block;
-  position: absolute; 
-  width: 858px;
-  top:230px;
-  right: 178px;
 }
