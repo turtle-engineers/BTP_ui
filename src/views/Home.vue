@@ -12,27 +12,22 @@
         <ul>
           <a href="#" class="menu-item">
             <li class="menu-text">스트레칭 가이드</li>
-            <!-- <img src="..\assets\icon\header_menu_arrow.png"> -->
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text">마이 루틴</li>
-            <!-- <img src="..\assets\icon\header_menu_arrow.png"> -->
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text"> 랜덤 챌린지</li>
-            <!-- <img src="..\assets\icon\header_menu_arrow.png"> -->
           </a> 
           <a href="#" class="menu-item">
             <li class="menu-text">이용안내</li>
-            <!-- <img src="..\assets\icon\header_menu_arrow.png"> -->
           </a> 
         </ul>
-
-        <div class ="my-menu">
+      </nav>
+      <div class ="my-menu">
           <a href="#" class="menu-text"><img src="../assets/icon/mypage.png"></a>
           <a href="#" class="menu-text"><img src="../assets/icon/notification.png"></a>
-        </div>
-      </nav>
+      </div>
     </header>
 
     <!-- banner -->
@@ -66,14 +61,16 @@
     <div class="project-menu">
       <div class="project-item">
         <img class="project-icon" src="../assets/images/stretching.png">
-        <h1>스트레칭 가이드</h1>
-        <h2>Stretching Guide</h2>
+        <div class="container">
+          <h1>스트레칭 가이드</h1>
+          <h2>Stretching Guide</h2>
+        </div>
         <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START</div></a>
       </div>
       <div class="project-item">
         <img class="project-icon" src="../assets/images/myroutine.png">
-        <div class="project-desc">
+        <div class="container">
           <h1>마이 루틴</h1>
           <h2>My Stretching Routine</h2>
         </div>
@@ -82,7 +79,7 @@
       </div>
       <div class="project-item">
         <img class="project-icon" src="../assets/images/random_challenge.png">
-        <div class="project-desc">
+        <div class="container">
           <h1>랜덤 챌린지</h1>
           <h2>Random Challenge</h2>
         </div>

@@ -9,6 +9,8 @@ $mainsand: #FFF492;
 $btpgray:#EBEBEB;
 $redbtn:#FF6B6B;
 
+$mobile: 895px;
+
 *{
   box-sizing: border-box;
 }
@@ -20,7 +22,6 @@ body{
 
 //blue mainpage
 .main {
-  width: 1200px; 
   margin: 0 auto;
 }
 
@@ -124,3 +125,97 @@ body{
 }
 
 
+
+
+@media (max-width: $mobile) {
+
+  .btp-menu .title {
+    margin-bottom: 49px;
+    padding-left: 16px;
+    img {display: none;}
+    h1 {
+        font-size: 25px;
+        line-height: 25px;
+        margin-bottom: 14px;
+    }
+    p {
+        padding-left: 0px;
+        font-size: 10px;
+        margin-top: 0px;
+        margin-bottom: 27px;
+        color: $btpgray;
+    }
+    img{
+        width: 18px;
+        margin-right: 16px;
+    }
+  }
+  
+  .project-menu {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27px;
+    text-align: left;
+  }
+  .project-item {
+    position: relative;
+    background-color: white;
+    margin-bottom: 27px;
+    padding: 18px;
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      display: inline-block;
+      position: absolute;
+      width: auto;
+      top: 43px;
+    }
+    h1 {
+      display: inline-block;
+      position: relative;
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bold;
+      margin: 0 0;
+      color: $btpblack;
+    }
+    h2 {
+      font-size: 10px;
+      line-height:10px;
+      margin: 5px 0;
+      font-weight: bold;
+      color: $btpblack;
+    }
+  }
+  .project-icon {
+    margin: 0;
+    height: 103px;
+  }
+
+  .showbtn {
+    //테스트 및 배치+임시용 V 버튼
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 30px;
+    height: 30px;
+  }
+  .start {
+    display: inline-block;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    margin: 0;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 8px;
+    font-size: 15px; //임의
+    
+    margin: 0;
+  }
+
+  
+}

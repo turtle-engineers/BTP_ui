@@ -29,22 +29,23 @@ header a {text-decoration: none; outline: none }
 
 .header-logo {
   text-align: center;
-  padding: 60px 0 40px 0;
+  img{
+    margin: 60px 0 40px 0;
+  }
 }
 
 //MENU
 nav {
   text-align: center;
-}
-
-nav ul {
-  display: inline;
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline-block;
+  ul {
+    display: inline;
+    list-style: none;
+    padding: 0;
+    
+    li {
+      display: inline-block;
+    }
+  }
 }
 
 //MENU
@@ -73,4 +74,35 @@ nav ul li {
 }
 .my-menu img{
   display: inline-block;
+}
+
+
+@media (max-width: $mobile) {
+  .bar{
+    display: none;
+  }
+
+  .header {
+    height: 86px;
+  }
+  .header-logo img{
+    margin: 18px 0 86px 0;
+    height: 40px;
+  }
+
+  nav{
+    display: none;
+  }
+
+  .my-menu {
+    position: absolute;
+    top: 34px;
+    right: 5%; //임의
+  }
+  .my-menu img{
+    display: inline-block;
+    width: 20px;
+    margin-left: 15px;
+  }
+
 }
