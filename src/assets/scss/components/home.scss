@@ -8,8 +8,9 @@ $mainblue: #1A5EFF;
 $mainsand: #FFF492;
 $btpgray:#EBEBEB;
 $redbtn:#FF6B6B;
+$mob-gray:#D2D2D2;
 
-$mobile: 895px;
+$mobile: 768px;
 
 *{
   box-sizing: border-box;
@@ -22,6 +23,7 @@ body{
 
 //blue mainpage
 .main {
+  width: max-content;
   margin: 0 auto;
 }
 
@@ -69,7 +71,7 @@ body{
   position: relative;
   margin: 0 23px;
   width: 369px;
-  border-radius: 25px;
+  border-radius: 15px;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     h1 {
@@ -128,26 +130,27 @@ body{
 
 
 @media (max-width: $mobile) {
-
-  .btp-menu .title {
-    margin-bottom: 49px;
-    padding-left: 16px;
-    img {display: none;}
-    h1 {
-        font-size: 25px;
-        line-height: 25px;
-        margin-bottom: 14px;
-    }
-    p {
-        padding-left: 0px;
-        font-size: 10px;
-        margin-top: 0px;
-        margin-bottom: 27px;
-        color: $btpgray;
-    }
-    img{
-        width: 18px;
-        margin-right: 16px;
+  .btp-menu {
+    .title {
+      margin-bottom: 49px;
+      padding-left: 16px;
+      img {display: none;}
+      h1 {
+          font-size: 25px;
+          line-height: 25px;
+          margin-bottom: 14px;
+      }
+      p {
+          padding-left: 0px;
+          font-size: 10px;
+          margin-top: 0px;
+          margin-bottom: 27px;
+          color: $btpgray;
+      }
+      img{
+          width: 18px;
+          margin-right: 16px;
+      }
     }
   }
   
