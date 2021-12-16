@@ -1,9 +1,35 @@
+$bn-title: white;
+$bn-desc: white;
+
 //banner
-.banner-img{
+.banner-text{
+  float: left;
+}
+.banner {
   display: block;
   width: 100%;
-  background-position: center;
+  height: 668px;
+  background-size: cover;
+  background-position: 80% center;
+  background-image: url('../assets/images/banner.png');
+  background-color: cadetblue;
 }
+
+.banner-text{
+  // margin-left: 15%;
+  margin: 80px 0 110px 15%;
+  h1{
+    color: $bn-title;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 49px;
+  }
+  p{
+    color: $bn-desc;
+    font-size: 20px;
+  }
+}
+
 
 //-> brand
 .brand {
@@ -27,8 +53,7 @@
 
   p {
     margin-top: 41px;
-    margin-bottom: 100px; //
-    font-weight: 500;
+    margin-bottom: 100px;
     font-size:21px;
     line-height: 32px;
     color: $btpgray;
@@ -48,18 +73,41 @@
 }
 
 @media (max-width: $mobile) {
+  .banner{
+    .banner-text{
+      margin: 0 0 0 45px;
+    }
+    background-image: url('../assets/images/banner_m.png');
+    background-position: 80% 80%;
+    height:  300px;
+    h1{
+      font-size: 30px;
+      margin-top: 42px;
+      margin-bottom: 17px;
+    }
+    p{
+      margin-bottom: 32px;
+      font-weight: regular;
+      font-size: 10px;
+      line-height: 15px;
+      color: $mob-gray;
+    }
+  }
+
   .brand{
     text-align: left;
-    margin: 0 18px;
+    margin: 0 auto;
     justify-content: flex-start;
     align-items: flex-start;
-    width: max-content;
+    width: 350px;
 
     :nth-child(1){
       order: 1;
     }
     :nth-child(2){
       order: 3;
+      margin-left: auto;
+      margin-right: auto;
     }
     :nth-child(3){
       order: 2;

@@ -4,7 +4,7 @@ header a {text-decoration: none; outline: none }
 // top black bar
 .bar {
   display: flex;
-  padding: 0 8%; //임의
+  padding: 0 15%; //임의
   height: 48px;
   background-color: $btpblack;
   line-height: 48px;
@@ -23,7 +23,7 @@ header a {text-decoration: none; outline: none }
 .header {
   background-color: white;
   width: 100%;
-  height: 252px;
+  height: 236px;
   box-shadow: 0 6px 8px -7px black;
 }
 
@@ -36,11 +36,15 @@ header a {text-decoration: none; outline: none }
 
 //MENU
 nav {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 0 15%;
+  white-space:nowrap;
   ul {
     display: inline;
     list-style: none;
     padding: 0;
+    margin: 0;
     
     li {
       display: inline-block;
@@ -56,24 +60,22 @@ nav {
 }
 
 .menu-item {
-  font-size: 17px;
   color: $btpblack;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0px 15px;
+  font-size: 18px;
 }
 
 .menu-text {
-  margin: 0 7.5px;
+  margin: 0 8.3px;
 }
 
 //PRIVATE MENU
 .my-menu {
-  position: absolute;
-  top: 220px;
-  right: 13%; //임의
-}
-.my-menu img{
-  display: inline-block;
+  margin-left: auto;
+  a{
+    margin-left:40px;
+  }
 }
 
 
@@ -90,7 +92,7 @@ nav {
     height: 40px;
   }
 
-  nav{
+  nav ul{
     display: none;
   }
 
@@ -98,6 +100,7 @@ nav {
     position: absolute;
     top: 34px;
     right: 5%; //임의
+    a{ margin-left: 20px;}
   }
   .my-menu img{
     display: inline-block;

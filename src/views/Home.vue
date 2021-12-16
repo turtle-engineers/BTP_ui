@@ -17,22 +17,27 @@
             <li class="menu-text">마이 루틴</li>
           </a> 
           <a href="#" class="menu-item">
-            <li class="menu-text"> 랜덤 챌린지</li>
-          </a> 
-          <a href="#" class="menu-item">
-            <li class="menu-text">이용안내</li>
+            <li class="menu-text">프로젝트 소개</li>
           </a> 
         </ul>
+        <div class ="my-menu">
+          <a href="#"><img src="../assets/icon/mypage.png"></a>
+          <a href="#"><img src="../assets/icon/notification.png"></a>
+        </div>
       </nav>
-      <div class ="my-menu">
-          <a href="#" class="menu-text"><img src="../assets/icon/mypage.png"></a>
-          <a href="#" class="menu-text"><img src="../assets/icon/notification.png"></a>
-      </div>
     </header>
 
     <!-- banner -->
     <div class="banner">
-      <img class="banner-img" src="../assets/images/banner.png">
+      <div class="banner-text">
+        <h1>BTP PROJECT</h1>
+        <p>현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br>
+          거북이가 되면 육지를 떠나야한다는 사실을 알고 계십니까?<br>
+          BTP 프로젝트는 인류의 거북이화를 예방하기 위한 프로젝트로서<br>
+          당신은 이 프로젝트에 자유롭게 참여할 수 있습니다.<br>
+        </p>
+      </div>
+      <!-- <img class="banner-img" src="../assets/images/banner.png"> -->
     </div>
 
     <!-- main -->
@@ -77,7 +82,7 @@
         <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START</div></a>
       </div>
-      <div class="project-item">
+      <!-- <div class="project-item">
         <img class="project-icon" src="../assets/images/random_challenge.png">
         <div class="container">
           <h1>랜덤 챌린지</h1>
@@ -85,7 +90,7 @@
         </div>
         <img class="showbtn" src="../assets/icon/circle-down-btn.png">
         <a href="#"><div class="start">START</div></a>
-      </div>
+      </div> -->
     </div>
   </div>
   </div>
