@@ -340,14 +340,14 @@
                 hr {
                     color: #FFFFFF;
                     border: solid 3px #FFFFFF;
-                    margin: 3rem 0;
+                    margin: 2.5rem 0;
                 }
         
                 .calender-card {
                     background-color: #FFFFFF;
-                    border-radius: 2rem;
+                    border-radius: 1.5rem;
                     margin: 0 auto;
-                    padding: 3rem 2rem 1.5rem 2rem;
+                    padding: 0.5rem;
         
                     .arrow-left {
                         transform: rotate(90deg);
@@ -367,13 +367,13 @@
                         color: #343A40;
         
                         .f1 {
-                            font-size: 2rem;
+                            font-size: 1.8rem;
                             margin-right: 1rem;
                         }
                         .f2 {
-                            font-size: 3rem;
+                            font-size: 2.5rem;
                             font-weight: bold;
-                            line-height: 71px;
+                            line-height: 3.5rem;
                             margin-right: 1rem;
                         }
                     }
@@ -381,7 +381,7 @@
                     #calender_target {
                         width: 100%;
                         border-collapse: separate;
-                        border-spacing: 1rem 1rem;
+                        border-spacing: 0.5rem;
                     }
         
                     .day {

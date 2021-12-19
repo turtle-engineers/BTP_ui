@@ -134,7 +134,7 @@ body{
 
   .title{
     margin-left: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
   
     img { display: none; }
     h1 {
@@ -150,6 +150,9 @@ body{
     }
   }
   .title-g {
+    
+    margin-bottom: 3rem;
+
     img { content:url("../assets/icon/circle-green.png"); }
     h1 { 
         color: #FFFFFF;
@@ -158,6 +161,7 @@ body{
     p { color: #D2D2D2; }
   }
   .title-w {
+    margin-bottom: 1.5rem;
     img { content:url("../assets/icon/circle-white.png"); }
     h1 { 
         color: #343A40;
@@ -167,7 +171,8 @@ body{
   
   .main {
     // width: 700px;
-    width: max-content;
+    // width: max-content;
+    width: 100%;
     margin: 0 auto 10rem auto;
   }
   
