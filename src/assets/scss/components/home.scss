@@ -19,43 +19,52 @@ body{
   margin: 0 0;
 }
 
+.title{
+  margin-bottom: 3rem;
+
+  img { 
+      width: 18px;
+      margin-right:16px; 
+  }
+  h1 {
+      display: inline-block;
+      margin:0;
+      font-weight: bold;
+      vertical-align: middle;
+  }
+  p { 
+      font-size: 2rem;
+      margin-top: 16px;
+      margin-left: 42px;
+  }
+}
+.title-g {
+  img { content:url("../assets/icon/circle-green.png"); }
+  h1 { 
+      color: #FFFFFF;
+      font-size: 5rem;
+  }
+  p { color: #D2D2D2; }
+}
+.title-w {
+  img { content:url("../assets/icon/circle-white.png"); }
+  h1 { 
+      color: #343A40;
+      font-size: 2.6rem;
+  }
+}
+
 //blue mainpage
 .main {
   width: 1200px;
   // width: max-content;
-  margin: 0 auto;
-  margin-bottom: 23rem;
+  margin: 0 auto 23rem auto;
 }
 
 // 메인 프로젝트
 .btp-menu {
   margin-left: auto;
   margin-right: auto;
-.title {
-  margin-bottom: 49px;
-  padding-left: 16px;
-    h1 {
-      display: inline-block;
-      margin: 0;
-      font-weight: bold;
-      font-size: 50px;
-      vertical-align: middle;
-      line-height: 50px;
-      color:white;
-    }
-    p {
-      margin-top: 25px;
-      line-height: 100%;
-      padding-left:42px;
-      font-size: 16px;
-      margin-bottom: 70px;
-      color: $btpgray;
-    }
-    img{
-      width: 18px;
-      margin-right: 16px;
-    }
-  }
 }
 
 //project menu
@@ -122,34 +131,44 @@ body{
 
 
 @media (max-width: $mobile) {
-  .main {
-    // width: 1200px;
-    width: max-content;
-    margin: 0 auto;
-  }
 
-  .btp-menu {
-    .title {
-      margin-left: 5px;
-      margin-bottom: 27px;
-      img {display: none;}
-      h1 {
-          font-size: 25px;
-          line-height: 25px;
-          margin-bottom: 14px;
-      }
-      p {
-          padding-left: 0px;
-          font-size: 10px;
-          margin-top: 0px;
-          margin-bottom: 27px;
-          color: $btpgray;
-      }
-      img{
-          width: 18px;
-          margin-right: 16px;
-      }
+  .title{
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+  
+    img { display: none; }
+    h1 {
+        display: inline-block;
+        margin:0;
+        font-weight: bold;
+        vertical-align: middle;
     }
+    p { 
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+  }
+  .title-g {
+    img { content:url("../assets/icon/circle-green.png"); }
+    h1 { 
+        color: #FFFFFF;
+        font-size: 2.5rem;
+    }
+    p { color: #D2D2D2; }
+  }
+  .title-w {
+    img { content:url("../assets/icon/circle-white.png"); }
+    h1 { 
+        color: #343A40;
+        font-size: 1.5rem;
+    }
+  }
+  
+  .main {
+    // width: 700px;
+    width: max-content;
+    margin: 0 auto 10rem auto;
   }
   
   .project-menu {

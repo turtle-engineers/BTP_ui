@@ -59,13 +59,13 @@
 
             <!-- 나의 거북이, 오늘의 목표 -->
             <b-container>
-                <b-row class="goal-main" align-h="between">
-                    <b-col class="goal-title">
+                <b-row class="myturtle" align-h="between">
+                    <b-col class="myturtle-title">
                         <h1>BTP<br>PROJECT</h1>
                         <img :src="require('@/assets/images/main_arrow.png')" />
                     </b-col>
-                    <b-col class="goal-view">
-                        <div class="goal-layout card-w">
+                    <b-col>
+                        <div class="view card-w">
                             <cm-t>나의 거북이</cm-t>
                             <img :src="require('@/assets/images/turtle.png')" />
                             <cm-b>
@@ -74,15 +74,15 @@
                             </cm-b>
                         </div>
                     </b-col>
-                    <b-col class="goal-view card-goal">
-                        <div class="goal-layout card-g">
+                    <b-col class="goal">
+                        <div class="view card-g">
                             <cm-t>오늘의 목표</cm-t>
                             <cm-m>
-                                <input type="checkbox" id="g1" name="today-goal" />
+                                <input type="checkbox" id="g1" name="today-goal" disabled />
                                 <label for="g1"><span></span>스트레칭 합산 5분 이상</label><br>
-                                <input type="checkbox" id="g2" name="today-goal" />
+                                <input type="checkbox" id="g2" name="today-goal" disabled/>
                                 <label for="g2"><span></span>랜덤 챌린지 3회 이상</label><br>
-                                <input type="checkbox" id="g3" name="today-goal" />
+                                <input type="checkbox" id="g3" name="today-goal" disabled />
                                 <label for="g3"><span></span>랜덤 챌린지 3회 이상</label>
                             </cm-m>
                             <cm-b>
@@ -96,7 +96,7 @@
 
             <!-- 메인 프로젝트 -->
             <div class="btp-menu">
-                <div class="title">
+                <div class="title title-g">
                     <img src="../assets/icon/circle-green.png">
                     <h1>MAIN PROJECT</h1>
                     <p>본 프로젝트로 계획된 플랜을 살펴볼 수 있습니다.</p>
@@ -139,7 +139,7 @@
 
             <!-- 스트레칭 캘린더 -->
             <div class="calender-menu">
-                <div class="calendar-title title-g">
+                <div class="title title-g">
                     <img>
                     <h1>RESEARCH RECORD</h1>
                     <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
@@ -149,7 +149,7 @@
                     <div class="calendar-card">
                         <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />
                         <hr>
-                        <div class="calendar-title title-w">
+                        <div class="title title-w">
                             <img>
                             <h1>STRETCHING CALENDAR</h1>
                         </div>
