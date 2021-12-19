@@ -1,4 +1,4 @@
-.card-main {
+.goal-main {
 
     color: #FFFFFF;
     margin-bottom: 20rem;
@@ -18,7 +18,7 @@
         }
     }
 
-    .card-view { 
+    .goal-view { 
         min-height: 30rem;
         margin-left: 1.5rem;
         .card-w {
@@ -32,7 +32,7 @@
         min-width: 37%;
     }
     
-    .card-layout {
+    .goal-layout {
         height: 100%;
         position: relative;
         padding: 2rem 3rem;
@@ -263,5 +263,6 @@
 }
 
 @media ( max-width: $mobile ) {
+
 
 }

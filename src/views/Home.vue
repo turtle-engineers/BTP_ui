@@ -59,13 +59,13 @@
 
             <!-- 나의 거북이, 오늘의 목표 -->
             <b-container>
-                <b-row class="card-main" align-h="between">
+                <b-row class="goal-main" align-h="between">
                     <b-col class="goal-title">
                         <h1>BTP<br>PROJECT</h1>
                         <img :src="require('@/assets/images/main_arrow.png')" />
                     </b-col>
-                    <b-col class="card-view">
-                        <div class="card-layout card-w">
+                    <b-col class="goal-view">
+                        <div class="goal-layout card-w">
                             <cm-t>나의 거북이</cm-t>
                             <img :src="require('@/assets/images/turtle.png')" />
                             <cm-b>
@@ -74,8 +74,8 @@
                             </cm-b>
                         </div>
                     </b-col>
-                    <b-col class="card-view card-goal">
-                        <div class="card-layout card-g">
+                    <b-col class="goal-view card-goal">
+                        <div class="goal-layout card-g">
                             <cm-t>오늘의 목표</cm-t>
                             <cm-m>
                                 <input type="checkbox" id="g1" name="today-goal" />
@@ -336,7 +336,7 @@
 
         }
 
-        let calenderM = year + "." + (thisMonth + 1);
+        let calenderM = year + "." + (thisMonth + 1).toString().padStart(2, "0");
         document.getElementById("calender_date").innerText = calenderM;
         document.getElementById("calender_target").innerHTML = tag;
     }
