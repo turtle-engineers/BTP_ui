@@ -21,8 +21,10 @@ body{
 
 //blue mainpage
 .main {
-  width: max-content;
+  width: 1200px;
+  // width: max-content;
   margin: 0 auto;
+  margin-bottom: 23rem;
 }
 
 // 메인 프로젝트
@@ -120,6 +122,12 @@ body{
 
 
 @media (max-width: $mobile) {
+  .main {
+    // width: 1200px;
+    width: max-content;
+    margin: 0 auto;
+  }
+
   .btp-menu {
     .title {
       margin-left: 5px;

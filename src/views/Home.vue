@@ -144,7 +144,7 @@
                     <h1>RESEARCH RECORD</h1>
                     <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
                 </div>
-                <b-row class="calendar-pad justify-content-md-center">
+                <b-row class="calendar-pad">
                     <img class="calendar-pad-img" :src="require('@/assets/images/ipad.png')" />
                     <div class="calendar-card">
                         <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />

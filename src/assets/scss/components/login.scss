@@ -20,6 +20,7 @@
 
     .card-view { 
         min-height: 30rem;
+        margin-left: 1.5rem;
         .card-w {
             background-color: $color-w;
         }
@@ -29,7 +30,6 @@
     }
     .card-goal {
         min-width: 37%;
-        margin-left: 1.5rem;
     }
     
     .card-layout {
@@ -140,9 +140,6 @@
 .calendar-pad {
     position: relative;
 
-    .calendar-pad-img {
-        position: absolute;
-    }
     .calendar-card {
         position: absolute;
         padding: 10%;
