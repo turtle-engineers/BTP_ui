@@ -5,12 +5,10 @@
 $btpfont: 'Noto Sans KR', sans-serif;
 $btpblack:#343A40;
 $mainblue: #1A5EFF;
-$mainsand: #FFF492;
 $btpgray:#EBEBEB;
 $redbtn:#FF6B6B;
 $mob-gray:#D2D2D2;
 
-$mobile: 768px;
 
 *{
   box-sizing: border-box;
@@ -119,14 +117,6 @@ body{
   line-height: 50px;
   vertical-align: middle;
 }
-
-//bottom
-.foot {
-  height: 200px;
-  background-color: $mainsand;
-}
-
-
 
 
 @media (max-width: $mobile) {
