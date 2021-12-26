@@ -76,58 +76,111 @@ body{
   margin-bottom: 253px;
   text-align: center;
 }
-.project-item {
+.project-item-front {
   position: relative;
   margin: 0 23px;
   width: 369px;
+  height: 520px;
   border-radius: 15px;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    h1 {
+    
+    .project-title{
+      h1 {
+        margin: 0 0;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 36px;
+        color: $btpblack;
+      }
+      h2 {
+        margin: 0 0;
+        font-weight: bold;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+      }
+    } 
+    .container{
+      text-align: center;
+      p {
+        opacity: 0%;
+      }
+    }
+
+    .project-icon {
+      display: inline-block;
+      height: 214px;
+      margin: 44px auto 50px auto;
+    }
+    
+    .showbtn {
       margin: 0 0;
+      position: absolute;
+      width: 35px;
+      top:24.45px;
+      right: 19.76px;
+    }
+    .start {
+      margin: 0;
+      border-radius: 15px;
+      width: 130px;
+      height: 50px;
+      background-color: $redbtn;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      line-height: 50px;
+      vertical-align: middle;
+
+      position: absolute;
+      bottom: 43px-25px;
+      left: 50%;
+      transform:translate(-50%, -50%); 
+    }
+}
+
+.project-item-back{
+  @extend .project-item-front;
+
+  .project-title{
+    position: absolute;
+    top: 38px;
+    left: 47px;
+    text-align: left;
+    h1 {
       font-weight: bold;
       font-size: 25px;
-      line-height: 36px;
-      text-align: center;
-      color: $btpblack;
     }
     h2 {
-      margin: 0 0;
-      font-weight: bold;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 26px;
+      font-size: 16px;
     }
-}
-.project-icon {
-  display: inline-block;
-  height: 214px;
-  margin: 44px auto 50px auto;
-}
+  }
+  .container {
+    text-align: left;
+    width: fit-content;
+    position: absolute;
+    bottom: 131px;
+    left: 47px; 
+    p {
+      margin: 0;
+      opacity: 100%;
+      font-size: 18px;
+      line-height: 40px;
+    }
+  }
+  .project-icon {
+    position: absolute;
+    height: 128px;
+    top: 84px;
+    right: 30px;
+    margin: 0;
+  }
 
-.showbtn {
-  margin: 0 0;
-  position: absolute;
-  width: 35px;
-  top:24.45px;
-  right: 19.76px;
-}
+} 
 
-.start {
-  display: inline-block;
-  border-radius: 15px;
-  margin-top: 57px;
-  margin-bottom: 43px;
-  width: 130px;
-  height: 50px;
-  background-color: $redbtn;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  line-height: 50px;
-  vertical-align: middle;
-}
+
 
 
 @media (max-width: $mobile) {
@@ -182,7 +235,8 @@ body{
     margin-bottom: 27px;
     text-align: left;
   }
-  .project-item {
+
+  .project-item-front{
     position: relative;
     background-color: white;
     margin-bottom: 27px;
@@ -213,33 +267,34 @@ body{
       font-weight: bold;
       color: $btpblack;
     }
-  }
-  .project-icon {
-    margin: 0;
-    height: 103px;
-  }
-
-  .showbtn {
-    //테스트 및 배치+임시용 V 버튼
-    position: absolute;
-    right: 18px;
-    top: 18px;
-    width: 22px;
-  }
-  .start {
-    display: inline-block;
-    position: absolute;
-    bottom: 18px;
-    right: 18px;
-    text-align: center;
-    width: 103px;
-    height: 32px;
-    line-height: 30px;
-    border-radius: 8px;
-    font-size: 15px; //임의
     
-    margin: 0;
-  }
+    .project-icon {
+      margin: 0;
+      height: 103px;
+    }
 
+    .showbtn {
+      //테스트 및 배치+임시용 V 버튼
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 22px;
+    }
+    .start {
+      display: inline-block;
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      text-align: center;
+      width: 103px;
+      height: 32px;
+      line-height: 30px;
+      border-radius: 8px;
+      font-size: 15px; //임의
+      
+      margin: 0;
+    }
+
+  }
   
 }

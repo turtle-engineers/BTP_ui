@@ -53,7 +53,7 @@
                     당신은 이 프로젝트에 자유롭게 참여할 수 있습니다.<br>
                 </p>
                 <a href="#">
-                    <div class="morebtn">MORE</div>
+                    <div class="showMore">MORE</div>
                 </a>
             </div>
 
@@ -103,22 +103,38 @@
                 </div>
                 <!-- 상세 메뉴 -->
                 <div class="project-menu">
-                    <div class="project-item">
+                    <div class="project-item-front">
                         <img class="project-icon" src="../assets/images/stretching.png">
+                        <div class="project-title">
+                          <h1>스트레칭 가이드</h1>
+                          <h2>Stretching Guide</h2>
+                        </div>
                         <div class="container">
-                            <h1>스트레칭 가이드</h1>
-                            <h2>Stretching Guide</h2>
+                            <p>
+                                <b>스트레칭가이드 사용방법 예시</b><br>
+                                1. 스트레칭을 할 부위를 고릅니다.<br>
+                                2. 지속 시간을 선택해주세요.<br>
+                                3. 진행에 맞추어 스트레칭 해주세요.
+                            </p>
                         </div>
                         <img class="showbtn" src="../assets/icon/circle-down-btn.png">
                         <a href="#">
                             <div class="start">START</div>
                         </a>
                     </div>
-                    <div class="project-item">
+                    <div class="project-item-front">
                         <img class="project-icon" src="../assets/images/myroutine.png">
+                        <div class="project-title">
+                          <h1>마이 루틴</h1>
+                          <h2>My Stretching Routine</h2>
+                        </div>
                         <div class="container">
-                            <h1>마이 루틴</h1>
-                            <h2>My Stretching Routine</h2>
+                            <p>
+                                <b>스트레칭가이드 사용방법 예시</b><br>
+                                1. 스트레칭을 할 부위를 고릅니다.<br>
+                                2. 지속 시간을 선택해주세요.<br>
+                                3. 진행에 맞추어 스트레칭 해주세요.
+                            </p>
                         </div>
                         <img class="showbtn" src="../assets/icon/circle-down-btn.png">
                         <a href="#">
@@ -340,4 +356,16 @@
         document.getElementById("calender_date").innerText = calenderM;
         document.getElementById("calender_target").innerHTML = tag;
     }
+    // const showBtn = document.getElementsByClassName("showbtn");
+    // for (let i=0; i < showBtn.length; i++){
+    //   showBtn[i].addEventListener("click", showDesc);
+    // }
+    // function showDesc(){
+    //   alert('test!');
+
+      // if(showMore.classList=="YES"){
+      //     toggleBtn.value="NO";}
+      // else if(toggleBtn.value=="NO"){
+      //     toggleBtn.value="YES";}
+    // }
 </script>
