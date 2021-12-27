@@ -103,7 +103,8 @@
                 </div>
                 <!-- 상세 메뉴 -->
                 <div class="project-menu">
-                    <div class="project-item-front">
+                    <div :class = "[side1 ? 'project-item-front' : 'project-item-back']">
+                    <!-- <div class="project-item-front"> -->
                         <img class="project-icon" src="../assets/images/stretching.png">
                         <div class="project-title">
                           <h1>스트레칭 가이드</h1>
@@ -117,12 +118,13 @@
                                 3. 진행에 맞추어 스트레칭 해주세요.
                             </p>
                         </div>
-                        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
+                        <button @click="showDesc1()"><img class="showbtn" src="../assets/icon/circle-down-btn.png"></button>
                         <a href="#">
                             <div class="start">START</div>
                         </a>
                     </div>
-                    <div class="project-item-front">
+                    <div :class = "[side2 ? 'project-item-front' : 'project-item-back']">
+                    <!-- <div class="project-item-front"> -->
                         <img class="project-icon" src="../assets/images/myroutine.png">
                         <div class="project-title">
                           <h1>마이 루틴</h1>
@@ -136,7 +138,7 @@
                                 3. 진행에 맞추어 스트레칭 해주세요.
                             </p>
                         </div>
-                        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
+                        <button @click="showDesc2"><img class="showbtn" src="../assets/icon/circle-down-btn.png"></button>
                         <a href="#">
                             <div class="start">START</div>
                         </a>
@@ -220,11 +222,29 @@
     @import '../assets/scss/common.scss';
     @import '@/assets/scss/components/login.scss';
 </style>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script>
-   
-   export default {
-        data() {},
-    };
+    export default {
+        data() {
+            return{
+                side1 : true,
+                side2 : true,
+
+                // toggleOn : false,
+            }
+        },
+        methods: {
+          showDesc1(){
+            this.side1 = !this.side1;
+          },
+          showDesc2(){
+            this.side2 = !this.side2;
+          },
+        //   toggleOnOff(){
+        //       this.toggleOn = !this.toggleOn ;
+        //   }
+        },
+    }
 
     window.addEventListener('load', function() {
         const arrowLeft = document.getElementById("arrow-left");
@@ -356,16 +376,4 @@
         document.getElementById("calender_date").innerText = calenderM;
         document.getElementById("calender_target").innerHTML = tag;
     }
-    // const showBtn = document.getElementsByClassName("showbtn");
-    // for (let i=0; i < showBtn.length; i++){
-    //   showBtn[i].addEventListener("click", showDesc);
-    // }
-    // function showDesc(){
-    //   alert('test!');
-
-      // if(showMore.classList=="YES"){
-      //     toggleBtn.value="NO";}
-      // else if(toggleBtn.value=="NO"){
-      //     toggleBtn.value="YES";}
-    // }
 </script>
