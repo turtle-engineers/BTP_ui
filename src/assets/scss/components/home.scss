@@ -84,7 +84,7 @@ body{
   border-radius: 15px;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+  color: $btpblack;
     .project-title{
       h1 {
         margin: 0 0;
@@ -116,53 +116,62 @@ body{
     }
     
     .showbtn {
-      margin: 0 0;
       position: absolute;
-      width: 35px;
       top:24.45px;
       right: 19.76px;
+      img {
+        margin: 0 0;
+        width: 35px; //이거 머더라??
+      }
     }
-    .start {
-      margin: 0;
-      border-radius: 15px;
-      width: 130px;
-      height: 50px;
-      background-color: $redbtn;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-      line-height: 50px;
-      vertical-align: middle;
 
+    a {
       position: absolute;
       bottom: 43px-25px;
       left: 50%;
       transform:translate(-50%, -50%); 
+
+      .start {
+        margin: 0;
+        border-radius: 15px;
+        width: 130px;
+        height: 50px;
+        background-color: $redbtn;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        line-height: 50px;
+        vertical-align: middle;
+      }
     }
+    
 }
 
 .project-item-back{
   @extend .project-item-front;
 
-  .project-title{
-    position: absolute;
-    top: 38px;
-    left: 47px;
-    text-align: left;
-    h1 {
-      font-weight: bold;
-      font-size: 25px;
-    }
-    h2 {
-      font-size: 16px;
-    }
-  }
   .container {
     text-align: left;
     width: fit-content;
-    position: absolute;
-    bottom: 131px;
-    left: 47px; 
+    margin: 0 auto;
+    padding: 0;
+    
+    .project-title{
+      // position: absolute;
+      // top: 38px;
+      // left: 47px;
+      text-align: left;
+      width: fit-content;
+      margin: 38px 0 135px 0;
+      h1 {
+        font-weight: bold;
+        font-size: 25px;
+      }
+      h2 {
+        font-size: 16px;
+      }
+    }
+
     p {
       margin: 0;
       opacity: 100%;
@@ -172,8 +181,8 @@ body{
   }
   .project-icon {
     position: absolute;
-    height: 128px;
-    top: 84px;
+    height: auto;
+    bottom: 308px;
     right: 30px;
     margin: 0;
   }
@@ -241,60 +250,110 @@ body{
     background-color: white;
     margin-bottom: 27px;
     padding: 18px;
-    width: 335px; //크기
-    .container{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      display: inline-block;
-      position: absolute;
-      top: 40px;
-      margin-left: 15px; //임의
-      width: max-content;
-    }
-    h1 {
-      display: inline-block;
-      font-size: 20px;
-      line-height: 20px;
-      font-weight: bold;
-      margin: 0 0;
-      color: $btpblack;
-    }
-    h2 {
-      font-size: 10px;
-      line-height:10px;
-      margin: 5px 0 13px 0;
-      font-weight: bold;
-      color: $btpblack;
-    }
-    
+    width: 330px; //크기
+    height: max-content;
+
     .project-icon {
       margin: 0;
       height: 103px;
     }
 
-    .showbtn {
+    
+    .container {
+      text-align: left;
+      display: inline-block;
+      width: fit-content;
+
+      .project-title{
+        display: inline-block;
+        margin-left: 15px;
+        h1 {
+          display: inline-block;
+          font-size: 20px;
+          line-height: 20px;
+          font-weight: bold;
+          margin: 0 0;
+          color: $btpblack;
+        }
+        h2 {
+          font-size: 10px;
+          line-height:10px;
+          margin: 5px 0 13px 0;
+          font-weight: bold;
+          color: $btpblack;
+        }
+      }
+      p{
+        display: none;
+      }
+      
+    }
+    
+    .showbtn{
       //테스트 및 배치+임시용 V 버튼
       position: absolute;
       right: 18px;
       top: 18px;
-      width: 22px;
-    }
-    .start {
-      display: inline-block;
-      position: absolute;
-      bottom: 18px;
-      right: 18px;
-      text-align: center;
-      width: 103px;
-      height: 32px;
-      line-height: 30px;
-      border-radius: 8px;
-      font-size: 15px; //임의
-      
-      margin: 0;
-    }
 
+      img{
+      width: 22px;
+      }
+    }
+    a {
+      position: absolute;
+      transform: none;
+      left: auto;
+      bottom: 18px;
+      right:18px;
+
+      .start { //몹ㅏ일
+        display: inline-block;
+        text-align: center;
+        width: 103px;
+        height: 32px;
+        line-height: 30px;
+        border-radius: 8px;
+        font-size: 15px; //임의      
+        margin: 0;
+      }
+      
+    }
+  }
+  
+  .project-item-back{
+    .project-icon{
+      display: none;
+    }
+    .container {
+      margin-bottom: 44px;
+      margin-left: 20px;//임의
+      .project-title{
+        width: 100px;
+        margin: 0 0;
+        h1{
+          line-height: 33px;
+          font-size: 25px;
+          font-weight: bold;
+        }
+        h2{
+          font-size: 10px;
+          margin: 8px 0 24px 0;
+        }
+      }
+      p{
+        b{
+          line-height: 18px;
+        }
+        display: block;
+        white-space:nowrap;
+        font-size: 10px;
+        line-height: 16px;
+        
+      }
+    }
+    a{
+      bottom: 44px;
+    }
   }
   
 }

@@ -35,11 +35,15 @@ header a {text-decoration: none; outline: none }
 }
 
 //MENU
+.nav-container{
+  display: flex;
+  white-space:nowrap;
+  margin: 0 10%;
+}
 nav {
   display: flex;
   align-items: center;
-  margin: 0 15%;
-  white-space:nowrap;
+  
   ul {
     display: inline;
     list-style: none;
@@ -83,7 +87,6 @@ nav {
   .bar{
     display: none;
   }
-
   .header {
     height: 86px;
   }
@@ -91,11 +94,9 @@ nav {
     margin: 18px 0 86px 0;
     height: 40px;
   }
-
-  nav ul{
-    display: none;
+  nav {
+    display:none;
   }
-
   .my-menu {
     position: absolute;
     top: 34px;
@@ -107,5 +108,4 @@ nav {
     width: 20px;
     margin-left: 15px;
   }
-
 }

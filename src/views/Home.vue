@@ -8,8 +8,10 @@
         <!-- 헤더(흰색) -->
         <header class="header">
             <div class="header-logo"><a href="#"><img src="..\assets\images\logo\logo.png"></a></div>
+            <!-- <button @click="toggleOnOff"><img src="../assets/icon/menu.png"></button> -->
+            <div class="nav-container">
             <nav>
-                <ul>
+                <ul div v-if="toggleOn">
                     <a href="#" class="menu-item">
                         <li class="menu-text">스트레칭 가이드</li>
                     </a>
@@ -20,11 +22,12 @@
                         <li class="menu-text">프로젝트 소개</li>
                     </a>
                 </ul>
+            </nav>
                 <div class="my-menu">
                     <a href="#"><img src="../assets/icon/mypage.png"></a>
                     <a href="#"><img src="../assets/icon/notification.png"></a>
                 </div>
-            </nav>
+            </div>
         </header>
 
         <!-- banner -->
@@ -105,12 +108,13 @@
                 <div class="project-menu">
                     <div :class = "[side1 ? 'project-item-front' : 'project-item-back']">
                     <!-- <div class="project-item-front"> -->
-                        <img class="project-icon" src="../assets/images/stretching.png">
-                        <div class="project-title">
-                          <h1>스트레칭 가이드</h1>
-                          <h2>Stretching Guide</h2>
-                        </div>
+                        <img class="project-icon" :src="require(`../assets/images/stretching${imgName1}.png`)">
+                        
                         <div class="container">
+                            <div class="project-title">
+                                <h1>스트레칭 가이드</h1>
+                                <h2>Stretching Guide</h2>
+                            </div>
                             <p>
                                 <b>스트레칭가이드 사용방법 예시</b><br>
                                 1. 스트레칭을 할 부위를 고릅니다.<br>
@@ -118,19 +122,19 @@
                                 3. 진행에 맞추어 스트레칭 해주세요.
                             </p>
                         </div>
-                        <button @click="showDesc1()"><img class="showbtn" src="../assets/icon/circle-down-btn.png"></button>
+                        <button class="showbtn" @click="showDesc1"><img  src="../assets/icon/question-btn.png"></button>
                         <a href="#">
                             <div class="start">START</div>
                         </a>
                     </div>
                     <div :class = "[side2 ? 'project-item-front' : 'project-item-back']">
-                    <!-- <div class="project-item-front"> -->
-                        <img class="project-icon" src="../assets/images/myroutine.png">
-                        <div class="project-title">
-                          <h1>마이 루틴</h1>
-                          <h2>My Stretching Routine</h2>
-                        </div>
+                    <!-- <div class="project-item-back"> -->
+                        <img class="project-icon" :src="require(`../assets/images/myroutine${imgName2}.png`)">
                         <div class="container">
+                            <div class="project-title">
+                            <h1>마이 루틴</h1>
+                            <h2>My Stretching Routine</h2>
+                            </div>
                             <p>
                                 <b>스트레칭가이드 사용방법 예시</b><br>
                                 1. 스트레칭을 할 부위를 고릅니다.<br>
@@ -138,7 +142,7 @@
                                 3. 진행에 맞추어 스트레칭 해주세요.
                             </p>
                         </div>
-                        <button @click="showDesc2"><img class="showbtn" src="../assets/icon/circle-down-btn.png"></button>
+                        <button class="showbtn" @click="showDesc2"><img src="../assets/icon/question-btn.png"></button>
                         <a href="#">
                             <div class="start">START</div>
                         </a>
@@ -228,21 +232,34 @@
         data() {
             return{
                 side1 : true,
+                imgName1 : "",
+                
                 side2 : true,
+                imgName2 : "",
 
-                // toggleOn : false,
+                toggleOn : true, //이따 false
             }
         },
         methods: {
           showDesc1(){
+            if (this.side1){
+                this.imgName1 = '_back';
+            } else {
+                this.imgName1 = "";
+            };
             this.side1 = !this.side1;
           },
           showDesc2(){
+              if (this.side2){
+                this.imgName2 = '_back';
+            } else {
+                this.imgName2 = "";
+            };
             this.side2 = !this.side2;
           },
-        //   toggleOnOff(){
-        //       this.toggleOn = !this.toggleOn ;
-        //   }
+          toggleOnOff(){
+              this.toggleOn = !this.toggleOn ;
+          }
         },
     }
 
