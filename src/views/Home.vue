@@ -1,14 +1,9 @@
 <template>
     <body>
-        <!-- 검은색 바 -->
-        <div class="bar">
-            <div class="music-player">▶ This is playing music</div>
-            <div class="clock"> 10 : 50 AM </div>
-        </div>
         <!-- 헤더(흰색) -->
         <header class="header">
             <div class="header-logo"><a href="#"><img src="..\assets\images\logo\logo.png"></a></div>
-            <!-- <button @click="toggleOnOff"><img src="../assets/icon/menu.png"></button> -->
+            <!-- <button @click="toggleOnOff" v-cli><img src="../assets/icon/menu.png"></button> -->
             <div class="nav-container">
             <nav>
                 <ul div v-if="toggleOn">

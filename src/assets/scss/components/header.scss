@@ -1,24 +1,6 @@
 header { box-sizing: border-box; }
 header a {text-decoration: none; outline: none }
 
-// top black bar
-.bar {
-  display: flex;
-  padding: 0 15%; //임의
-  height: 48px;
-  background-color: $btpblack;
-  line-height: 48px;
-  vertical-align: middle;
-  color: $btpgray;
-}
-
-.music-player{
-  flex: none;
-}
-.clock{
-  margin-left: auto;
-}
-
 // LOGO
 .header {
   background-color: white;
@@ -95,7 +77,8 @@ nav {
     height: 40px;
   }
   nav {
-    display:none;
+    background-color: white;
+    // display:none;
   }
   .my-menu {
     position: absolute;
