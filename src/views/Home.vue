@@ -6,7 +6,6 @@
             <button @click="toggleOnOff" :class = "[toggleOn ? 'toggleClose' : 'toggleOpen']"><img src="../assets/icon/menu.png"></button>
             <div class="toggle-menu" v-if="toggleOn">
               <ToggleMenu></ToggleMenu>
-              <div class="outside"></div>
             </div>
             <div class="nav-container">
               <nav>
