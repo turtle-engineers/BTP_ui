@@ -3,26 +3,30 @@
         <!-- 헤더(흰색) -->
         <header class="header">
             <div class="header-logo"><a href="#"><img src="..\assets\images\logo\logo.png"></a></div>
-            <!-- <button @click="toggleOnOff" v-cli><img src="../assets/icon/menu.png"></button> -->
-            <div class="nav-container">
-            <nav>
-                <ul div v-if="toggleOn">
-                    <a href="#" class="menu-item">
-                        <li class="menu-text">스트레칭 가이드</li>
-                    </a>
-                    <a href="#" class="menu-item">
-                        <li class="menu-text">마이 루틴</li>
-                    </a>
-                    <a href="#" class="menu-item">
-                        <li class="menu-text">프로젝트 소개</li>
-                    </a>
-                </ul>
-            </nav>
-                <div class="my-menu">
-                    <a href="#"><img src="../assets/icon/mypage.png"></a>
-                    <a href="#"><img src="../assets/icon/notification.png"></a>
-                </div>
+            <button @click="toggleOnOff" :class = "[toggleOn ? 'toggleClose' : 'toggleOpen']"><img src="../assets/icon/menu.png"></button>
+            <div class="toggle-menu" v-if="toggleOn">
+              <ToggleMenu></ToggleMenu>
+              <div class="outside"></div>
             </div>
+            <div class="nav-container">
+              <nav>
+                  <ul>
+                      <a href="#" class="menu-item">
+                          <li class="menu-text">스트레칭 가이드</li>
+                      </a>
+                      <a href="#" class="menu-item">
+                          <li class="menu-text">마이 루틴</li>
+                      </a>
+                      <a href="story" class="menu-item">
+                          <li class="menu-text">프로젝트 소개</li>
+                      </a>
+                  </ul>
+              </nav>
+              <div class="my-menu">
+                  <a href="#"><img src="../assets/icon/mypage.png"></a>
+                  <a href="#"><img src="../assets/icon/notification.png"></a>
+              </div>
+            </div>  
         </header>
 
         <!-- banner -->
@@ -223,7 +227,11 @@
 </style>
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script>
+import  ToggleMenu from "../components/ToggleMenu.vue";
     export default {
+      components:{
+        ToggleMenu,
+      },
         data() {
             return{
                 side1 : true,
@@ -232,7 +240,7 @@
                 side2 : true,
                 imgName2 : "",
 
-                toggleOn : true, //이따 false
+                toggleOn : false, //이따 false
             }
         },
         methods: {

@@ -17,6 +17,9 @@ header a {text-decoration: none; outline: none }
 }
 
 //MENU
+button{
+  display: none;
+}
 .nav-container{
   display: flex;
   white-space:nowrap;
@@ -58,6 +61,7 @@ nav {
 
 //PRIVATE MENU
 .my-menu {
+  vertical-align: middle;
   margin-left: auto;
   a{
     margin-left:40px;
@@ -66,23 +70,47 @@ nav {
 
 
 @media (max-width: $mobile) {
-  .bar{
-    display: none;
-  }
   .header {
+    position: relative;
     height: 86px;
   }
   .header-logo img{
-    margin: 18px 0 86px 0;
+    margin: 18px 0 0px 0;
     height: 40px;
   }
+  .toggleOpen{
+    display: inline-block;
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+  }
+  .toggleClose {
+    display: inline-block;
+    position: fixed;
+    left: 331px;
+    top: 67px;
+    z-index: 100;
+    img { width: 50px; }
+  }
+
+  .outside{
+    height: 1vh;
+    width: 1vw;
+    background-color: black;
+    opacity: 30%;
+    z-index: 99;
+  }
+
   nav {
     background-color: white;
-    // display:none;
+    display: none;
+  }
+  .nav-container{
+    position: relative;
   }
   .my-menu {
     position: absolute;
-    top: 34px;
+    bottom: 0px;
     right: 5%; //임의
     a{ margin-left: 20px;}
   }
