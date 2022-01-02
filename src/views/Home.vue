@@ -113,7 +113,7 @@
                                 <h1>스트레칭 가이드</h1>
                                 <h2>Stretching Guide</h2>
                             </div>
-                            <p>
+                            <p class="project-text">
                                 <b>스트레칭가이드 사용방법 예시</b><br>
                                 1. 스트레칭을 할 부위를 고릅니다.<br>
                                 2. 지속 시간을 선택해주세요.<br>
@@ -133,7 +133,7 @@
                             <h1>마이 루틴</h1>
                             <h2>My Stretching Routine</h2>
                             </div>
-                            <p>
+                            <p  class="project-text"> 
                                 <b>스트레칭가이드 사용방법 예시</b><br>
                                 1. 스트레칭을 할 부위를 고릅니다.<br>
                                 2. 지속 시간을 선택해주세요.<br>
