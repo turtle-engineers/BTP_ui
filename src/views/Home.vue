@@ -2,8 +2,8 @@
     <body>
         <!-- 헤더(흰색) -->
         <header class="header">
-            <div class="header-logo"><a href="#"><img src="..\assets\images\logo\logo.png"></a></div>
-            <button @click="toggleOnOff" :class = "[toggleOn ? 'toggleClose' : 'toggleOpen']"><img src="../assets/icon/menu.png"></button>
+            <div class="header-logo"><a href="#"><img src="..\assets\images\logo\logo.svg"></a></div>
+            <button @click="toggleOnOff" :class = "[toggleOn ? 'toggleClose' : 'toggleOpen']"><img src="../assets/icon/menu.svg"></button>
             <div class="toggle-menu" v-if="toggleOn">
               <ToggleMenu></ToggleMenu>
             </div>
@@ -22,8 +22,8 @@
                   </ul>
               </nav>
               <div class="my-menu">
-                  <a href="#"><img src="../assets/icon/mypage.png"></a>
-                  <a href="#"><img src="../assets/icon/notification.png"></a>
+                  <a href="#"><img src="../assets/icon/mypage.svg"></a>
+                  <a href="#"><img src="../assets/icon/notification.svg"></a>
               </div>
             </div>  
         </header>
@@ -133,7 +133,7 @@
                             <h1>마이 루틴</h1>
                             <h2>My Stretching Routine</h2>
                             </div>
-                            <p  class="project-text"> 
+                            <p class="project-text"> 
                                 <b>스트레칭가이드 사용방법 예시</b><br>
                                 1. 스트레칭을 할 부위를 고릅니다.<br>
                                 2. 지속 시간을 선택해주세요.<br>
@@ -145,15 +145,26 @@
                             <div class="start">START</div>
                         </a>
                     </div>
-                    <!-- <div class="project-item">
-                        <img class="project-icon" src="../assets/images/random_challenge.png">
+                    <div :class = "[side3 ? 'project-item-front' : 'project-item-back']">
+                    <!-- <div class="project-item-back"> -->
+                        <img class="project-icon" :src="require(`../assets/images/random_challenge${imgName3}.png`)">
                         <div class="container">
-                        <h1>랜덤 챌린지</h1>
-                        <h2>Random Challenge</h2>
+                            <div class="project-title">
+                             <h1>랜덤 챌린지</h1>
+                            <h2>Random Challenge</h2>
+                            </div>
+                            <p  class="project-text"> 
+                                <b>스트레칭가이드 사용방법 예시</b><br>
+                                1. 스트레칭을 할 부위를 고릅니다.<br>
+                                2. 지속 시간을 선택해주세요.<br>
+                                3. 진행에 맞추어 스트레칭 해주세요.
+                            </p>
                         </div>
-                        <img class="showbtn" src="../assets/icon/circle-down-btn.png">
-                        <a href="#"><div class="start">START</div></a>
-                    </div> -->
+                        <button class="showbtn" @click="showDesc3"><img src="../assets/icon/question-btn.png"></button>
+                        <a href="#">
+                            <div class="start">START</div>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -214,6 +225,8 @@
                 </b-row>
             </div>
         </div>
+
+        <button id="topBtn"><a href="#"><img src="../assets/icon/to-up-btn.png"></a></button>
     </body>
 </template>
 <style lang="scss" scoped>
@@ -239,6 +252,9 @@ import  ToggleMenu from "../components/ToggleMenu.vue";
                 side2 : true,
                 imgName2 : "",
 
+                side3 : true,
+                imgName3 : "",
+
                 toggleOn : false, //이따 false
             }
         },
@@ -258,6 +274,14 @@ import  ToggleMenu from "../components/ToggleMenu.vue";
                 this.imgName2 = "";
             };
             this.side2 = !this.side2;
+          },
+          showDesc3(){
+              if (this.side3){
+                this.imgName3 = '_back';
+            } else {
+                this.imgName3 = "";
+            };
+            this.side3 = !this.side3;
           },
           toggleOnOff(){
               this.toggleOn = !this.toggleOn ;

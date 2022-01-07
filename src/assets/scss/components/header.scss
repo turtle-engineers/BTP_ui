@@ -12,6 +12,7 @@ header a {text-decoration: none; outline: none }
 .header-logo {
   text-align: center;
   img{
+    height: 78px;
     margin: 60px 0 40px 0;
   }
 }
@@ -66,6 +67,9 @@ nav {
   a{
     margin-left:40px;
   }
+  img {
+    width: 25px;
+  }
 }
 
 
@@ -83,23 +87,25 @@ nav {
     position: absolute;
     bottom: 30px;
     left: 40px;
+    img { width: 40px; }
   }
+
   .toggleClose {
     display: inline-block;
     position: fixed;
     left: 331px;
     top: 67px;
     z-index: 100;
-    img { width: 50px; }
+    img { width: 40px; }
   }
 
-  .outside{
-    height: 1vh;
-    width: 1vw;
-    background-color: black;
-    opacity: 30%;
-    z-index: 99;
-  }
+  // .outside{
+  //   height: 1vh;
+  //   width: 1vw;
+  //   background-color: black;
+  //   opacity: 30%;
+  //   z-index: 99;
+  // }
 
   nav {
     background-color: white;

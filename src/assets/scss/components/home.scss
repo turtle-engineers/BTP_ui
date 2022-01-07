@@ -11,6 +11,13 @@ body{
   margin: 0 0;
 }
 
+#topBtn {
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  z-index: 97;
+}
+
 .title{
   margin-bottom: 3rem;
 
@@ -55,6 +62,7 @@ body{
 
 // 메인 프로젝트
 .btp-menu {
+  // width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
@@ -73,7 +81,7 @@ body{
   margin: 0 23px;
   width: 369px;
   height: 520px;
-  border-radius: 15px;
+  border-radius: $btp-border;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: $btpblack;
@@ -125,7 +133,7 @@ body{
 
       .start {
         margin: 0;
-        border-radius: 15px;
+        border-radius: $btn-border;
         width: 130px;
         height: 50px;
         background-color: $redbtn;
@@ -166,9 +174,9 @@ body{
     .project-text {
       display: inline-block;
       margin: 0;
-      opacity: 100%;
       font-size: 18px;
       line-height: 40px;
+      color: $btpblack;
     }
   }
   .project-icon {
@@ -248,9 +256,7 @@ body{
     .project-icon {
       margin: 0;
       height: 103px;
-    }
-
-    
+    }    
     .container {
       text-align: left;
       display: inline-block;
@@ -275,7 +281,7 @@ body{
           color: $btpblack;
         }
       }
-      p{
+      .project-text{
         display: none;
       }
       
@@ -304,7 +310,7 @@ body{
         width: 100px;
         height: 32px;
         line-height: 30px;
-        border-radius: 8px;
+        border-radius: 8px 8px 0 8px;
         font-size: 15px; //임의      
         margin: 0;
       }
@@ -320,7 +326,7 @@ body{
       margin-bottom: 26px;
       margin-left: 20px;//임의
       .project-title{
-        width: 100px;
+        // width: 100px;
         margin: 0 0;
         h1{
           line-height: 33px;
@@ -340,7 +346,7 @@ body{
         white-space:nowrap;
         font-size: 10px;
         line-height: 16px;
-        
+        color: $btpblack;
       }
     }
     a{
