@@ -1,0 +1,62 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: $btpblack;
+}
+
+#desc{
+  padding-top: 292.55px;
+  margin-bottom: 136px;
+  text-align: center;
+  color: white;
+  h1{
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 136px;
+  }
+  p{
+    font-size: 20px;
+    line-height: 27px;
+  }
+}
+
+#story-container{
+  display: flex;
+  width: 86%;
+  margin: 0 auto;
+}
+
+#slider{
+  position: relative;
+  width: 100%;
+  margin: 0 7%;
+  .card {
+    width: 100%;
+    height: auto;
+    border: 0px;
+  }
+  #finalimg{
+    position: relative;
+    .story-btn{
+      max-width: 31%;
+      height: auto;
+      position: absolute;
+      top: 17%;
+      left: 34.6%;
+    }
+    @keyframes blink-effect {
+      50% {
+        opacity: 0;
+      }
+    }
+    #blink {
+      animation: blink-effect 1s step-end infinite;
+    }
+  }
+
+}
