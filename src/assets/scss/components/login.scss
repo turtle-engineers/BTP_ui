@@ -34,7 +34,9 @@
         position: relative;
         margin-left: 1.5rem;
         padding: 2rem 3rem;
-        border-radius: 2rem;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        border-bottom-left-radius: 2rem;
 
         img { 
             width: 55%;
@@ -95,15 +97,20 @@
     
 }
 .calender-menu {
+
+    width: 90%;
+    margin: auto;
+    
     .calendar-pad {
         position: relative;
-    
+
         .calendar-card {
             position: absolute;
             padding: 10%;
             z-index: 1;
     
             .calendar-logo {
+                width: 30%;
                 display: block;
                 margin: 0 auto;
             }
@@ -157,9 +164,10 @@
                 }
     
                 .day {
-                    height: 12rem;
-                    line-height: 11rem;
-                    border-radius: 2rem;
+                    height: 10rem;
+                    border-top-left-radius: 2rem;
+                    border-top-right-radius: 2rem;
+                    border-bottom-left-radius: 2rem;
                     font-size: 6rem;
                     text-align: center;
                 }
@@ -227,26 +235,37 @@
 
         color: #FFFFFF;
         margin-bottom: 10rem;
+        padding: 0rem 3rem;
 
         .myturtle-title {
             position: relative;
             
             h1 {
-                font-size: 3rem;
+                font-size: 4.2rem;
                 font-weight: bold;
                 margin-right: 1rem;
+
+                position: absolute;
+                left: 0; bottom: 1rem;
             }
     
             img {
                 position: absolute;
-                right: 0;
+                right: 0; bottom: 0;
+                height: 2rem;
             }
         }
-    
+        
+        .turtle {
+            min-width: 50%;
+            margin-left: 2rem;
+        }
+        
         .goal {
             min-width: 100%;
+            margin-top: 3rem;
         }
-    
+
         .card-w {
             background-color: $color-w;
         }
@@ -255,14 +274,17 @@
         }
         
         .view {
-            min-height: 25rem;
+            min-width: 60%;
+            min-height: 20rem;
             position: relative;
             margin-left: 0rem;
-            padding: 2rem 3rem;
-            border-radius: 2rem;
+            padding: 1.5rem 3rem;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
     
             img { 
-                width: 55%;
+                width: 50%;
                 position: absolute;
                 top: 50%; left: 50%;
                 transform: translate(-50%,-50%);
@@ -270,25 +292,25 @@
     
             cm-t {
                 display: block;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 font-weight: bold;
             }
             cm-m {
                 position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
+                top: 55%;
+                transform: translateY(-55%);
                 
                 input[type="checkbox"] {
                     display:none;
                 }
                 input[type="checkbox"] + label {
-                    font-size: 2.5rem;
+                    font-size: 2.2rem;
                     margin-bottom: 1rem;
                 }
                 input[type="checkbox"] + label span {
                     display:inline-block;
-                    width:2rem; height:2rem;
-                    margin-right: 1rem;
+                    width:3rem; height:3rem;
+                    margin-right: 2rem;
                     vertical-align:middle;
                     border: 3px solid #FFFFFF;
                     border-radius: 100%;
@@ -317,6 +339,12 @@
                 }
             }
         }
+
+        .goal > .view {
+            height: 25rem;
+            padding: 2.5rem 5rem;
+        }
+        .goal > .view > cm-b { bottom: 2rem; right: 3rem;}
         
     }
 
