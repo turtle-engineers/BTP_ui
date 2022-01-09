@@ -65,7 +65,7 @@
                         <h1>BTP<br>PROJECT</h1>
                         <img :src="require('@/assets/images/main_arrow.png')" />
                     </b-col>
-                    <b-col>
+                    <b-col class="turtle">
                         <div class="view card-w">
                             <cm-t>나의 거북이</cm-t>
                             <img :src="require('@/assets/images/turtle.png')" />
@@ -169,14 +169,16 @@
             </div>
 
             <!-- 스트레칭 캘린더 -->
+            <div class="title title-g">
+                <img>
+                <h1>RESEARCH RECORD</h1>
+                <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
+            </div>
             <div class="calender-menu">
-                <div class="title title-g">
-                    <img>
-                    <h1>RESEARCH RECORD</h1>
-                    <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
-                </div>
                 <b-row class="calendar-pad">
-                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad.png')" />
+                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad_top.png')" />
+                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad_middle.png')" />
+                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
                     <div class="calendar-card">
                         <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />
                         <hr>
@@ -346,13 +348,14 @@ import  ToggleMenu from "../components/ToggleMenu.vue";
         let prevMonthDay = new Date(nowDate.getFullYear(), thisMonth).getDay(); // eslint-disable-line no-unused-vars
 
         let thisDate = month[thisMonth];
-        let date = lastDay[thisMonth];
+        let date = lastDay[thisMonth]; // 이번달의 마지막 요일
 
         // 오늘 날짜
         let day = nowDate.getDate();
 
-
+        //이번 달의 처음 요일
         const thisMonthDay = new Date(year, thisMonth).getDay();
+        console.log(thisMonthDay);
 
 
         //*실제 달력 만드는 코드
@@ -370,8 +373,16 @@ import  ToggleMenu from "../components/ToggleMenu.vue";
 
         let dateColor = "";
         let dateNum = "";
+        let week = 5;
+        
+        // 1일이 토요일부터 시작할 경우 6주
+        if(thisMonthDay == 6 && date >= 30) {
+            week = 6;
+        }
+
+
         //지난달의 마지막 요일 이후부터 이번달의 마지막일까지 반복
-        for (let i = 1; i <= 35 - thisMonthDay; i++) {
+        for (let i = 1; i <= 7 * week - thisMonthDay; i++) {
 
             // 색 지정
             if (i <= day) {
