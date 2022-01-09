@@ -46,7 +46,7 @@
             <!-- 브랜드 소개 -->
             <div class="brand">
                 <h1>BTP PROJECT</h1>
-                <img src="../assets/images/brand.png">
+                <img src="../assets/images/brand.svg">
                 <p>
                     현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br>
                     거북이가 되면 육지를 떠나야한다는 사실을 알고 계십니까?<br>
