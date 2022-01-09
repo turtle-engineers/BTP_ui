@@ -134,9 +134,9 @@
                             <h2>My Stretching Routine</h2>
                             </div>
                             <p class="project-text"> 
-                                <b>스트레칭가이드 사용방법 예시</b><br>
-                                1. 스트레칭을 할 부위를 고릅니다.<br>
-                                2. 지속 시간을 선택해주세요.<br>
+                                <b>마이 루틴 사용방법 예시</b><br>
+                                1. 선호하는 스트레칭을 고릅니다.<br>
+                                2. 마이 루틴에 추가해주세요.<br>
                                 3. 진행에 맞추어 스트레칭 해주세요.
                             </p>
                         </div>
@@ -154,10 +154,10 @@
                             <h2>Random Challenge</h2>
                             </div>
                             <p  class="project-text"> 
-                                <b>스트레칭가이드 사용방법 예시</b><br>
-                                1. 스트레칭을 할 부위를 고릅니다.<br>
-                                2. 지속 시간을 선택해주세요.<br>
-                                3. 진행에 맞추어 스트레칭 해주세요.
+                                <b>랜덤 챌린지 사용방법 예시</b><br>
+                                1. 랜덤 챌린지 알람을 켜주세요.<br>
+                                2. 정각마다 프로젝트가 제공됩니다.<br>
+                                3. 제공된 내용에 맞춰 진행하면 성공!
                             </p>
                         </div>
                         <button class="showbtn" @click="showDesc3"><img src="../assets/icon/question-btn.png"></button>

@@ -58,7 +58,9 @@ $bn-desc: white;
     line-height: 32px;
     color: $btpgray;
   }
-
+  img {
+    width: 70vw;
+  }
 }
 .showMore {
   display: inline-block;
@@ -99,13 +101,14 @@ $bn-desc: white;
     margin: 0 auto;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 350px;
+    width: max-content;
 
     :nth-child(1){
       order: 1;
     }
     :nth-child(2){
       order: 3;
+      width: 71vw;
       margin-left: auto;
       margin-right: auto;
     }

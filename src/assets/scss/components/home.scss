@@ -55,7 +55,6 @@ body{
 
 //blue mainpage
 .main {
-  width: 1200px;
   // width: max-content;
   margin: 0 auto 23rem auto;
 }
@@ -250,8 +249,10 @@ body{
     background-color: white;
     margin-bottom: 27px;
     padding: 18px;
-    width: 330px; //크기
+    width: auto; //크기
     height: max-content;
+    white-space:nowrap;
+    min-width: 300px;
 
     .project-icon {
       margin: 0;
@@ -267,20 +268,22 @@ body{
         margin-left: 15px;
         h1 {
           display: inline-block;
-          font-size: 20px;
+          font-size: 2rem;
+          // font-size: 20px;
           line-height: 20px;
           font-weight: bold;
           margin: 0 0;
           color: $btpblack;
         }
         h2 {
-          font-size: 10px;
+          font-size: 1rem;
           line-height:10px;
           margin: 5px 0 13px 0;
           font-weight: bold;
           color: $btpblack;
-        }
+        }  
       }
+
       .project-text{
         display: none;
       }
