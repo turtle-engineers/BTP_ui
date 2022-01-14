@@ -16,7 +16,7 @@
                       <a href="#" class="menu-item">
                           <li class="menu-text">마이 루틴</li>
                       </a>
-                      <a href="story" class="menu-item">
+                      <a href="/story" class="menu-item">
                           <li class="menu-text">프로젝트 소개</li>
                       </a>
                   </ul>
