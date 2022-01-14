@@ -1,0 +1,66 @@
+
+//헤더
+$menu-gray : #757E86;
+
+.logo {
+  display: inline-block;
+    width: 134px;
+}
+
+ol, ul {
+  display: inline-block;
+  list-style: none;
+  margin:0px;
+  padding:0px;
+}
+
+#header {
+  height: 100px;
+  min-width: 800px;
+  background-color: white;
+  white-space: nowrap;
+}
+#header-box {
+  display: flex;
+  height: 100%;
+  margin: 0 10%;
+  align-items: center;
+  .my-menu {
+    margin-left: auto ;
+  }
+  a {
+    width: max-content;
+    .logo{
+      margin: 0 50%;
+    }
+  }
+
+}
+
+.nav-text{
+  display: inline;
+  font-size: 18px;
+  color: $menu-gray;
+} 
+.nav-item:not(:last-child) {
+  margin-right: 3.5vw;
+  white-space: nowrap;
+}
+
+#now-page {
+  font-weight: bold;
+  color: $btpblack;
+}
+
+.my-menu {
+  display: inline;
+  img {
+    display: inline-block;
+    width: 25.5px;
+  }
+  a:last-child{
+    margin-left: 2.2vw;
+  }
+}
+
+//여기까지
