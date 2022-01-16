@@ -10,15 +10,15 @@
             <div class="nav-container">
               <nav>
                   <ul>
-                      <a href="#" class="menu-item">
+                      <router-link to="/stretchingGuide"  class="menu-item">
                           <li class="menu-text">스트레칭 가이드</li>
-                      </a>
-                      <a href="#" class="menu-item">
+                      </router-link>
+                      <router-link to="/myroutine"  class="menu-item">
                           <li class="menu-text">마이 루틴</li>
-                      </a>
-                      <a href="/story" class="menu-item">
+                      </router-link>
+                      <router-link to="/story"  class="menu-item">
                           <li class="menu-text">프로젝트 소개</li>
-                      </a>
+                      </router-link>
                   </ul>
               </nav>
               <div class="my-menu">
