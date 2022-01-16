@@ -3,15 +3,15 @@
     <div id="header-box">
       <nav>
         <ul>
-          <a href="#" class="nav-item">
+         <router-link to="/stretchingGuide" class="nav-item">
             <li class="nav-text">스트레칭 가이드</li>
-          </a>
-          <a href="#" class="nav-item">
+         </router-link>
+          <router-link to="/myroutine" class="nav-item">
             <li class="nav-text">마이 루틴</li>
-          </a>
-          <a href="/story" class="nav-item">
+          </router-link>
+          <router-link to="/story" class="nav-item">
             <li class="nav-text">프로젝트 소개</li>
-          </a>
+          </router-link>
         </ul>
       </nav>
       <a href="/"><img class="logo" src="..\..\assets\images\logo\logo.svg"/></a>

@@ -7,24 +7,25 @@ $menu-gray : #757E86;
     width: 134px;
 }
 
-ol, ul {
-  display: inline-block;
-  list-style: none;
-  margin:0px;
-  padding:0px;
-}
-
 #header {
   height: 100px;
   min-width: 800px;
   background-color: white;
   white-space: nowrap;
+  border: 1px solid rgba($color: #000000, $alpha: 0.3)
 }
+
 #header-box {
   display: flex;
   height: 100%;
   margin: 0 10%;
   align-items: center;
+  nav {
+    ul {
+      margin: 0px;
+      padding:0px;
+    }
+  }
   .my-menu {
     margin-left: auto ;
   }
