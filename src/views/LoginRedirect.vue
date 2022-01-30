@@ -37,20 +37,21 @@ export default {
   methods: {
     create() {
       this.codes = this.$route.query.code;
-      this.getUser();
+      // this.getUser();
+      this.login();
     },
-    getUser() {
-      axios
-        .get(
-          "http://127.0.0.1:3000/oauth/kakao/callback?authorize_code=" +
-            this.codes
-        )
-        .then((res) => {
-          //   console.log(res);
-          document.cookie = `connect.sid=${res.data}`;
-          this.login();
-        });
-    },
+    // getUser() {
+    //   axios
+    //     .get(
+    //       "http://127.0.0.1:3000/oauth/kakao/callback?authorize_code=" +
+    //         this.codes
+    //     )
+    //     .then((res) => {
+    //       //   console.log(res);
+    //       document.cookie = `connect.sid=${res.data}`;
+    //       this.login();
+    //     });
+    // },
     login() {
       //VueCookies.set("connect.sid", this.sessionId)
       axios.get("http://127.0.0.1:3000/user/info").then((res) => {
