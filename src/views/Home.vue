@@ -22,7 +22,7 @@
                   </ul>
               </nav>
               <div class="my-menu">
-                  <a href="#"><img src="../assets/icon/mypage.svg"></a>
+                  <router-link to="/Login"><img src="../assets/icon/mypage.svg"></router-link>
                   <a href="#"><img src="../assets/icon/notification.svg"></a>
               </div>
             </div>  
@@ -96,7 +96,7 @@
             </b-container>
 
             <!-- 메인 프로젝트 -->
-            <div class="btp-menu">
+            <div class="btp-menu btp-container">
                 <div class="title title-g">
                     <img src="../assets/icon/circle-green.png">
                     <h1>MAIN PROJECT</h1>
