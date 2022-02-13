@@ -175,18 +175,20 @@
                 <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
             </div>
             <div class="calender-menu">
-                <b-row class="calendar-pad">
+                <b-row class="calendar-top" align-v="end">
                     <img class="calendar-pad-img" :src="require('@/assets/images/ipad_top.png')" />
+                </b-row>
+                <b-row class="calendar-middle">
                     <img class="calendar-pad-img" :src="require('@/assets/images/ipad_middle.png')" />
-                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
-                    <div class="calendar-card">
+                    <div class="calendar-body">
                         <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />
                         <hr>
+                        
                         <div class="title title-w">
                             <img>
                             <h1>STRETCHING CALENDAR</h1>
                         </div>
-                        <div class="calender-card">
+                        <div class="calendar-card">
                             <b-row>
                                 <b-col><img id="arrow-left" class="arrow-left" src="../assets/icon/circle-down-btn.png"></b-col>
                                 <b-col id="calender_date" class="calender-date text-center"></b-col>
@@ -205,25 +207,28 @@
                         </div>
 
                         <!-- <div class="calendar-title title-w">
-                            <img><h1>MISSION TEN TIMES</h1>
-                        </div>
-                        <div class="mission-card">
-                            <table>
-                                <tr>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                    <td><div class="circle"><span>C</span></div></td>
-                                </tr>
-                            </table>
-                        </div> -->
+                        <img><h1>MISSION TEN TIMES</h1>
                     </div>
+                    <div class="mission-card">
+                        <table>
+                            <tr>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                                <td><div class="circle"><span>C</span></div></td>
+                            </tr>
+                        </table>
+                    </div> -->
+                    </div>
+                </b-row>
+                <b-row class="calendar-bottom">
+                    <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
                 </b-row>
             </div>
         </div>
@@ -232,11 +237,11 @@
     </body>
 </template>
 <style lang="scss" scoped>
-    @import '../assets/scss/components/home.scss';
-    @import '../assets/scss/components/header.scss';
-    @import '../assets/scss/components/brand.scss';
-    @import '../assets/scss/variables.scss';
-    @import '../assets/scss/common.scss';
+    @import '@/assets/scss/components/home.scss';
+    @import '@/assets/scss/components/header.scss';
+    @import '@/assets/scss/components/brand.scss';
+    @import '@/assets/scss/variables.scss';
+    @import '@/assets/scss/common.scss';
     @import '@/assets/scss/components/login.scss';
 </style>
 <script src="{{ asset('js/app.js') }}" defer></script>
