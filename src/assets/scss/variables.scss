@@ -15,6 +15,29 @@ $mainblue: #1A5EFF;
 $btpgray:#EBEBEB;
 $redbtn:#FF6B6B;
 $mob-gray:#D2D2D2;
+$btp-light-gray: #BFBFBF;
 
 $btp-border: 25px 25px 0 25px;
 $btn-border:  15px 15px 0 15px;
+
+.btp-container {
+  margin: 0 auto;
+  max-width: 1300px;
+  width: 80%;
+}
+
+.btp-title {
+  padding: 70px 0;
+  h1 {
+    font-size: 49px;
+    color: $btpblack; 
+    font-weight: 700;
+    line-height: 61.35px;
+  }
+  p{ 
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  }
+}
