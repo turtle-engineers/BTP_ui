@@ -2,6 +2,14 @@ body {
   background-color: white;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+
 .mypage {
   display: flex;
   text-align: center;
@@ -81,9 +89,22 @@ body {
   width: fit-content;
   font-weight: bold;
   margin: 0 auto;
+  .progress-title {
+    display: flex;
+    margin-bottom: 30px;
+    vertical-align: top;
+  }
+  .turtle_grow {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    margin-left: 18px;
+    opacity: 20%;
+  }
   h2 {
     font-size: 32px;
-    margin-bottom: 30px;
+    line-height: 32px;
+    margin: 0;
   }
   h1 {
     display: inline;

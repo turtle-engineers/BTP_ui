@@ -16,7 +16,9 @@
             <!-- </div> -->
             <p id="name">{{ name }}</p>
             <p id="email">{{ email }}</p>
-            <button type="button" class="user-btn">설정</button>
+            <router-link to="/myprofile">
+              <button type="button" class="user-btn">설정</button>
+            </router-link>
             <button type="button" class="user-btn">로그아웃</button>
 
             <hr />
@@ -27,13 +29,27 @@
           <div class="mypage-turtle">
             <img src="../assets/images/turtle-progress.png" />
             <div id="progress">
-              <h2>오늘의 거북이 진행도</h2>
+              <div class="progress-title">
+                <h2>오늘의 거북이 진행도</h2>
+                <button type="button">
+                  <img
+                    class="turtle_grow"
+                    src="@/assets/icon/question-mark.png"
+                    alt="거북이 진행도 예시"
+                  />
+                </button>
+              </div>
               <h1>{{ progress }}</h1>
               <h3>%</h3>
               <progress v-bind:value="progress" max="100"></progress>
             </div>
-            <button type="button" class="turtle-btn">마이 루틴</button>
-            <button type="button" class="turtle-btn">스트레칭 가이드</button>
+            <router-link to="/myroutine">
+              <button type="button" class="turtle-btn">마이 루틴</button>
+            </router-link>
+
+            <router-link to="/stretchingGuide">
+              <button type="button" class="turtle-btn">스트레칭 가이드</button>
+            </router-link>
           </div>
         </section>
       </div>
