@@ -7,7 +7,6 @@
           <h1>마이 페이지</h1>
           <!-- <button type="button" v-on:click="getUser">getUser</button> -->
         </section>
-
         <section class="mypage">
           <!-- green profile -->
           <div class="mypage-profile">
@@ -62,7 +61,6 @@
 @import "../assets/scss/components/account.scss";
 </style>
 <script>
-import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
@@ -76,29 +74,6 @@ export default {
   },
   components: {
     simpleheader,
-  },
-  methods: {
-    login() {
-      //VueCookies.set("connect.sid", this.sessionId)
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
-        if (res.data != null) {
-          this.results = res.data.results;
-          //   this.$router.push("/");
-        }
-        //   console.log(res);
-      });
-    },
-    getUser() {
-      // promise 기반 객체
-      axios
-        .get("http://localhost:3000/user/info")
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
   },
 };
 </script>
