@@ -15,7 +15,7 @@
             <!-- </div> -->
             <p id="name">{{ name }}</p>
             <p id="email">{{ email }}</p>
-            <router-link to="/myprofile">
+            <router-link to="/Settings">
               <button type="button" class="user-btn">설정</button>
             </router-link>
             <button type="button" class="user-btn">로그아웃</button>
