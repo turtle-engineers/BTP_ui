@@ -22,7 +22,7 @@
                   </ul>
               </nav>
               <div class="my-menu">
-                  <a href="#"><img src="../assets/icon/mypage.svg"></a>
+                  <a href="#"><img src="../assets/icon/mypage.svg" @click="loginAtBackServer()"></a>
                   <a href="#"><img src="../assets/icon/notification.svg"></a>
               </div>
             </div>  
@@ -246,6 +246,7 @@
 </style>
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script>
+import axios from "axios";
 import  ToggleMenu from "../components/ToggleMenu.vue";
     export default {
       components:{
@@ -263,9 +264,51 @@ import  ToggleMenu from "../components/ToggleMenu.vue";
                 imgName3 : "",
 
                 toggleOn : false, //이따 false
+
+                sessionId: "",
+
+                results: {
+                    id: "",
+                    provider: "",
+                    providerId: "",
+                    picture: "",
+                    nickname: "",
+                    title: "",
+                    level: "",
+                    point: "",
+                    createdAt: "",
+                    updatedAt: "",
+                    alarmValid: "",
+                    monthTimes: "",
+                    dd: "",
+                    todayTimes: "",
+                },
             }
         },
         methods: {
+          loginAtBackServer() {
+              let user = this.login();
+              if(user){
+                  window.location.replace("/Account");
+              }else{
+                   window.location.replace("http://127.0.0.1:3000/oauth/kakao");
+              }
+            
+          },
+          login() {
+            //VueCookies.set("connect.sid", this.sessionId)
+            axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+                if (res.data != null) {
+                this.results = res.data.results;
+                //   this.$router.push("/");
+                }
+                // console.log(res);
+                
+                  
+            });
+
+            return this.results;
+        },
           showDesc1(){
             if (this.side1){
                 this.imgName1 = '_back';
