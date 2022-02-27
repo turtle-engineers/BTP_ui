@@ -5,10 +5,10 @@
       <div class="btp-container">
         <section class="btp-title">
           <h1>마이 페이지</h1>
-          <!-- <button type="button" v-on:click="getUser">getUser</button> -->
+          <!-- <button type="button" v-on:click="login">getUser</button> -->
         </section>
         <section class="mypage">
-          <!-- green profile -->
+          <!-- green profile -->s
           <div class="mypage-profile">
             <!-- <div > -->
             <img class="profile-pic" :src="imgsrc" />
@@ -21,7 +21,7 @@
             <button type="button" class="user-btn">로그아웃</button>
 
             <hr />
-            <p id="cal-title">이번 달 훈련 횟수 {{ stretch }}회</p>
+            <p id="cal-title">이번 달 훈련 횟수 {{ todayTimes }}회</p>
             <div id="cal">달력</div>
           </div>
 
@@ -61,19 +61,38 @@
 @import "../assets/scss/components/account.scss";
 </style>
 <script>
+import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
     return {
+      // 기본 샘플
       imgsrc: require("../assets/images/turtle.svg"),
       name: "Sample",
       email: "Sample@sample.btp",
-      stretch: 0,
+      todayTimes: 0,
       progress: 50,
     };
   },
   components: {
     simpleheader,
+  },
+  created() {
+      this.login();
+    },
+  methods: {
+    login() {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+        if (res.data != null) {
+          const loginData = res.data.results;
+          this.imgsrc = loginData.picture;
+          this.name = loginData.nickname;
+          this.email = loginData.point;
+          this.todayTimes = loginData.todayTimes;
+          this.progress = loginData.point;
+        }
+      });
+    },
   },
 };
 </script>
