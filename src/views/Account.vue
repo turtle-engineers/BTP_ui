@@ -8,7 +8,7 @@
           <!-- <button type="button" v-on:click="login">getUser</button> -->
         </section>
         <section class="mypage">
-          <!-- green profile -->s
+          <!-- green profile -->
           <div class="mypage-profile">
             <!-- <div > -->
             <img class="profile-pic" :src="imgsrc" />
@@ -18,7 +18,7 @@
             <router-link to="/Settings">
               <button type="button" class="user-btn">설정</button>
             </router-link>
-            <button type="button" class="user-btn">로그아웃</button>
+            <button type="button" class="user-btn" v-on:click="logout">로그아웃</button>
 
             <hr />
             <p id="cal-title">이번 달 훈련 횟수 {{ todayTimes }}회</p>
@@ -93,6 +93,16 @@ export default {
         }
       });
     },
+    logout() {
+      axios.get("http://127.0.0.1:3000/oauth/logout").then((res) => {
+        console.log(res.data.result === 'OK');
+        //로그아웃 성공 시
+         if (res.data.resultcode === '0') {
+          //  alert(res.data.message); //로그아웃 완료 메세지
+           window.location.replace('/'); //메인화면으로
+         }
+      });
+    }
   },
 };
 </script>
