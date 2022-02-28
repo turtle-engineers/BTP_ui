@@ -19,12 +19,14 @@
                 <input type="text" name="firstname" required />
               </div>
               <div class="name">
-                <label for="lastname" class="profile-label">성</label>
-                <input type="text" name="lastname" required />
+                <label for="title" class="profile-label">성</label>
+                <input type="text" name="title" />
               </div>
             </div>
             <hr />
-            <span class="quit">탈퇴하기</span>
+            <button type="submit">
+              <span class="quit">탈퇴하기</span>
+            </button>
           </div>
         </section>
       </div>
@@ -38,6 +40,7 @@
 </style>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -46,6 +49,19 @@ export default {
   },
   components: {
     simpleheader,
+  },
+  created() {
+    this.login();
+  },
+  methods: {
+    login() {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+        if (res.data != null) {
+          const loginData = res.data.results;
+          this.imgsrc = loginData.picture;
+        }
+      });
+    },
   },
 };
 </script>
