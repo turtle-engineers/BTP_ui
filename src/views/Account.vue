@@ -87,8 +87,8 @@ export default {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
           this.name = loginData.nickname;
-          this.email = loginData.point;
-          this.todayTimes = loginData.todayTimes;
+          this.email = loginData.title;
+          this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
         }
       });
