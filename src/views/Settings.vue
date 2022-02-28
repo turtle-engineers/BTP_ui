@@ -24,7 +24,7 @@
               </div>
             </div>
             <hr />
-            <button type="submit">
+            <button type="submit" v-on:click="putUserInfo">
               <span class="quit">탈퇴하기</span>
             </button>
           </div>
@@ -61,6 +61,26 @@ export default {
           this.imgsrc = loginData.picture;
         }
       });
+    },
+    putUserInfo() {
+      //임시로 이름
+      const name = document.getElementsByName("firstname")[0].value;
+      //임시로 타이틀
+      const title =
+        document.getElementsByName("title")[0].value != null
+          ? document.getElementsByName("title")[0].value
+          : "";
+      //변경
+      axios
+        .put("http://127.0.0.1:3000/user/info", {
+          newNickname: name,
+          newTitle: title,
+        })
+        .then((res) => {
+          console.log(res);
+          location.reload(); 
+          alert("수정이 완료되었습니다.");
+        });
     },
   },
 };
