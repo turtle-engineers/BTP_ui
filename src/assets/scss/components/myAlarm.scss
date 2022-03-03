@@ -29,14 +29,43 @@ $btp-y: #ffdf4d;
 .onoff-button {
   display: inline-block;
   position: absolute;
-  top: 46px;
+  top: 46px-15px; //왜 15px이 자꾸 뜰까요
   right: 40px;
-  height: 28px;
-  width: 62px;
-  border-radius: 28px;
-  background-color: $btp-y;
+  input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    position: relative;
+  }
+  label {
+    cursor: pointer;
+    background-color: $btpblack;
+    margin: auto 0;
+    display: block;
+    height: 28px;
+    width: 62px;
+    border-radius: 28px;
+    transition: 0.1s;
+  }
+  label:after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    background: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    transition: 0.2s;
+  }
+  input:checked + label {
+    background: $btp-y;
+  }
+  input:checked + label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+  }
 }
-
 .alarm-container {
   display: inline-block;
   vertical-align: top;
@@ -50,7 +79,6 @@ $btp-y: #ffdf4d;
 .alarm-container:not(:last-child) {
   margin-right: 30px;
 }
-
 //스트레칭 알림
 .alarm-stretching {
   width: 500px;

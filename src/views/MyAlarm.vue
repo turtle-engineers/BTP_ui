@@ -15,8 +15,11 @@
             <dt>스트레칭 알림</dt>
             <dd>설정한 시간 동안 매 정각마다 알림이 울립니다.</dd>
           </dl>
-          <div class="onoff-button"></div>
           <!-- on off버튼 -->
+          <div v-on:change="onoff" class="onoff-button">
+            <input type="checkbox" id="stretching-switch" />
+            <label for="stretching-switch"></label>
+          </div>
           <div class="weekcheck">
             <h2>요일 선택</h2>
             <article>
@@ -62,6 +65,10 @@
               매 정각마다 알림이 울립니다.
             </dd>
           </dl>
+          <div v-on:change="onoff" class="onoff-button">
+            <input type="checkbox" id="challenge-switch" />
+            <label for="challenge-switch"></label>
+          </div>
           <dl class="sub-title">
             <dt>랜덤 챌린지란?</dt>
             <dd>
@@ -75,7 +82,6 @@
               물을 한잔 마셔 볼까요?
             </span>
           </div>
-          <div class="onoff-button"></div>
         </section>
         <img
           class="alarm-scientist"
@@ -98,5 +104,11 @@ export default {
       isChecked: false,
     };
   },
+  methods: {
+    onoff() {
+      console.log(document.getElementById('stretching-switch').checked);
+      console.log(document.getElementById('challenge-switch').checked);
+    }
+  }
 };
 </script>
