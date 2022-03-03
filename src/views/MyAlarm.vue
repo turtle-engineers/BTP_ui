@@ -1,5 +1,6 @@
 <template>
   <body>
+    <simpleheader></simpleheader>
     <div class="btp-container">
       <section class="btp-title">
         <h1>알람 설정</h1>
@@ -98,11 +99,15 @@
 @import "@/assets/scss/components/myAlarm.scss";
 </style>
 <script>
+import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
     return {
       isChecked: false,
     };
+  },
+  components:{
+    simpleheader
   },
   methods: {
     onoff() {
