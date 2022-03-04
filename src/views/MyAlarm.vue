@@ -84,11 +84,11 @@
             </span>
           </div>
         </section>
-        <img
-          class="alarm-scientist"
-          src="../assets/images/alarm-scientist.png"
-          alt="알람 과학자"
-        />
+        <section class="alarm-scientist alarm-container">
+          <img src="../assets/images/alarm-circle.png" alt="알람 원" />
+          <img src="../assets/images/alarm-scientist.png" alt="알람 과학자" />
+          <img src="../assets/images/alarm-balloon.png" alt="알람 말풍선" />
+        </section>
       </div>
     </div>
   </body>
@@ -124,7 +124,9 @@ export default {
         if (res.data != null) {
           const weekData = res.data.results;
           //day가 111000 string으로 오므로 배열로 바꾸기
-          this.isChecked = weekData.day.split('').map(element => parseInt(element));
+          this.isChecked = weekData.day
+            .split("")
+            .map((element) => parseInt(element));
         }
       });
     },

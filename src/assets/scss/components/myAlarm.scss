@@ -190,7 +190,22 @@ $btp-y: #ffdf4d;
 
 //과학자 이미지
 .alarm-scientist {
-  vertical-align: bottom;
   position: relative;
-  bottom: 20px+12px;
+  margin-left: 46px-30px;
+  :nth-child(1){ //노란원
+    position: absolute;
+    bottom: 16px+38px;
+    left: 0;
+    
+  }
+  :nth-child(2){ //과학자
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+  }
+  :nth-child(3){ //풍선
+    position: absolute;
+    top: 16px;
+    left: 0;
+  }
 }
