@@ -6,7 +6,7 @@ import RandomChallenge from "./views/RandomChallenge";
 import MyTurtle from "./views/MyTurtle";
 import StretchingGuide from "./views/StretchingGuide";
 import Account from "./views/Account";
-import Settings from "./views/Settings";
+import Settings from "./views/Settings.vue";
 import MissionList from "./views/MissionList";
 import About from "./views/About";
 import Story from "./views/Story";
