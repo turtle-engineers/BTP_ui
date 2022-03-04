@@ -24,13 +24,13 @@
           <div class="weekcheck">
             <h2>요일 선택</h2>
             <article>
-              <p class="weekday" :class="isChecked ? 'true' : 'true'">월</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">화</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">수</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">목</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">금</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">토</p>
-              <p class="weekday" :class="isChecked ? 'true' : 'false'">일</p>
+              <p class="weekday" :class="isChecked[0] ? 'true' : 'true'">월</p>
+              <p class="weekday" :class="isChecked[1] ? 'true' : 'false'">화</p>
+              <p class="weekday" :class="isChecked[2] ? 'true' : 'false'">수</p>
+              <p class="weekday" :class="isChecked[3] ? 'true' : 'false'">목</p>
+              <p class="weekday" :class="isChecked[4] ? 'true' : 'false'">금</p>
+              <p class="weekday" :class="isChecked[5] ? 'true' : 'false'">토</p>
+              <p class="weekday" :class="isChecked[6] ? 'true' : 'false'">일</p>
             </article>
           </div>
 
@@ -100,20 +100,34 @@
 </style>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
+import axios from "axios";
 export default {
   data() {
     return {
-      isChecked: false,
+      // isChecked: false,
+      isChecked: [1, 0, 0, 0, 0, 0, 0],
     };
   },
-  components:{
-    simpleheader
+  components: {
+    simpleheader,
+  },
+  created() {
+    this.getAlarm();
   },
   methods: {
     onoff() {
-      console.log(document.getElementById('stretching-switch').checked);
-      console.log(document.getElementById('challenge-switch').checked);
-    }
-  }
+      // console.log(document.getElementById('stretching-switch').checked);
+      // console.log(document.getElementById('challenge-switch').checked);
+    },
+    getAlarm() {
+      axios.get("http://127.0.0.1:3000/user/alarm").then((res) => {
+        if (res.data != null) {
+          const weekData = res.data.results;
+          //day가 111000 string으로 오므로 배열로 바꾸기
+          this.isChecked = weekData.day.split('').map(element => parseInt(element));
+        }
+      });
+    },
+  },
 };
 </script>
