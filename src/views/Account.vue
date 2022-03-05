@@ -13,8 +13,8 @@
             <!-- <div > -->
             <img class="profile-pic" :src="imgsrc" />
             <!-- </div> -->
-            <p id="name">{{ name }}</p>
-            <p id="email">{{ email }}</p>
+            <p id="nickname">{{ nickname }}</p>
+            <p id="promise">{{ promise }}</p>
             <router-link to="/Settings">
               <button type="button" class="user-btn">설정</button>
             </router-link>
@@ -68,8 +68,8 @@ export default {
     return {
       // 기본 샘플
       imgsrc: require("../assets/images/turtle.svg"),
-      name: "Sample",
-      email: "Sample@sample.btp",
+      nickname: "닉네임",
+      promise: "오늘의 다짐",
       todayTimes: 0,
       progress: 50,
     };
@@ -86,10 +86,8 @@ export default {
         if (res.data != null) {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
-          this.name = '닉네임은몇자까지일까우리이제알아';
-          this.email ='이걸로어떻게하면될까이거나의다짐인데30자가되나이렇게두줄만되는걸로하자그래그래';
-          // this.name = loginData.nickname;
-          // this.email = loginData.title;
+          this.nickname = loginData.nickname;
+          this.promise = loginData.title;
           this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
         }
