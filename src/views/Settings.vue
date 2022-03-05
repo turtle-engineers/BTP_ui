@@ -23,7 +23,7 @@
               <input
                 type="text"
                 name="firstname"
-                maxlength="14"
+                maxlength="16"
                 placeholder="닉네임을 입력해주세요."
                 class="input-default name"
                 required

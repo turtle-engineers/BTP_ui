@@ -86,8 +86,10 @@ export default {
         if (res.data != null) {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
-          this.name = loginData.nickname;
-          this.email = loginData.title;
+          this.name = '닉네임은몇자까지일까우리이제알아';
+          this.email ='이걸로어떻게하면될까이거나의다짐인데30자가되나이렇게두줄만되는걸로하자그래그래';
+          // this.name = loginData.nickname;
+          // this.email = loginData.title;
           this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
         }

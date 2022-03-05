@@ -40,12 +40,17 @@ a:hover {
 }
 
 #name {
-  font-size: 28px;
+  font-size: 24px;
+  line-height: 30px;
   font-weight: bold;
 }
 #email {
-  font-size: 23px;
   margin-bottom: 34px;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .user-btn {
