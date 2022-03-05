@@ -24,7 +24,7 @@
                 type="text"
                 name="firstname"
                 maxlength="14"
-                placeholder=""
+                placeholder="닉네임을 입력해주세요."
                 class="input-default name"
                 required
               />
@@ -35,6 +35,7 @@
                 type="text"
                 name="title"
                 maxlength="40"
+                placeholder="닉네임을 입력해보세요."
                 class="input-default promise"
               />
             </div>
