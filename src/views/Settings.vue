@@ -14,13 +14,14 @@
         </tr>
         <tr>
           <td rowspan="3">
-            <img
-              :src="results.picture"
-              width="100px"
-              height="100px"
-              style="border-radius: 50px;"
-            />
-            <br />
+            <button @click="selectUploadFile()">
+              <img
+                v-bind:src="results.picture"
+                width="100px"
+                height="100px"
+                style="border-radius: 50px;"
+              />
+            </button>
             <br />
             <button class="button button-close" @click="putUser()">
               저장
@@ -109,6 +110,7 @@ export default {
         newNickname: "",
         newTitle: "",
       },
+      response: "",
     };
   },
   methods: {
@@ -129,7 +131,7 @@ export default {
         .put("http://127.0.0.1:3000/user/info", this.newData)
         .then((res) => {
           if (res.data.result == "OK") {
-            // console.log("Ok", res);
+            // console.log(this.results);
             this.getUser();
             this.$toast("저장되었습니다!", {
               position: "top-right",
@@ -163,6 +165,48 @@ export default {
             });
           }
         });
+    },
+    selectUploadFile() {
+      var vue = this;
+      let elem = document.createElement("input");
+      // 이미지 파일 업로드 / 동시에 여러 파일 업로드
+      elem.id = "image";
+      elem.type = "file";
+      elem.accept = "image/*";
+      elem.multiple = true;
+      // 클릭
+      elem.click();
+      // 이벤트 감지
+      elem.onchange = function() {
+        const formData = new FormData();
+        for (var index = 0; index < this.files.length; index++) {
+          formData.append("uploadFile", this.files[index]);
+        }
+        axios
+          .post("http://127.0.0.1:3000/user/profile", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          })
+          .then((response) => {
+            vue.results.picture = response.data.data.newPicture;
+            vue.$toast(response.data.message, {
+              position: "top-right",
+              timeout: 5000,
+              closeOnClick: true,
+              pauseOnFocusLoss: true,
+              pauseOnHover: true,
+              draggable: true,
+              draggablePercent: 0.6,
+              showCloseButtonOnHover: false,
+              hideProgressBar: true,
+              closeButton: "button",
+              icon: true,
+              rtl: false,
+            });
+          })
+          .catch((error) => {
+            vue.response = error.message;
+          });
+      };
     },
   },
   toast() {},
