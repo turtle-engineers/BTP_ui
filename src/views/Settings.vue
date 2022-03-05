@@ -15,7 +15,7 @@
               :src="imgsrc"
               alt="현재 프로필 이미지"
             />
-            <button type="submit">저장</button>
+            <button type="submit" class="savebtn on">저장</button>
           </div>
           <div id="naming">
             <div class="input-container">
