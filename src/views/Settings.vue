@@ -1,3 +1,4 @@
+//settings.vue
 <template>
   <div>
     <simpleheader></simpleheader>
@@ -9,26 +10,42 @@
         <section class="profile-container">
           <div id="picture">
             <p class="profile-label">프로필</p>
-            <img class="profile-pic" :src="imgsrc" alt="현재 프로필 이미지" />
-            <button type="submit">변경</button>
+            <img
+              class="profile-pic"
+              :src="imgsrc"
+              alt="현재 프로필 이미지"
+            />
+            <button type="submit">저장</button>
           </div>
-          <div>
-            <div id="naming">
-              <div class="name">
-                <label for="firstname" class="profile-label">이름</label>
-                <input type="text" name="firstname" required />
-              </div>
-              <div class="name">
-                <label for="title" class="profile-label">성</label>
-                <input type="text" name="title" />
-              </div>
+          <div id="naming">
+            <div class="input-container">
+              <label for="firstname" class="profile-label">닉네임</label>
+              <input
+                type="text"
+                name="firstname"
+                maxlength="14"
+                placeholder=""
+                class="input-default name"
+                required
+              />
             </div>
-            <hr />
-            <button type="submit" v-on:click="putUserInfo">
-              <span class="quit">탈퇴하기</span>
-            </button>
+            <div class="input-container">
+              <label for="title" class="profile-label">나의 다짐</label>
+              <input
+                type="text"
+                name="title"
+                maxlength="40"
+                class="input-default promise"
+              />
+            </div>
           </div>
         </section>
+        <div class="quit-bottom">
+          <hr class="setting-hr"/>
+          <button type="submit">
+            <span class="quit">탈퇴하기</span>
+          </button>
+          </div>
       </div>
     </body>
   </div>
@@ -61,26 +78,6 @@ export default {
           this.imgsrc = loginData.picture;
         }
       });
-    },
-    putUserInfo() {
-      //임시로 이름
-      const name = document.getElementsByName("firstname")[0].value;
-      //임시로 타이틀
-      const title =
-        document.getElementsByName("title")[0].value != null
-          ? document.getElementsByName("title")[0].value
-          : "";
-      //변경
-      axios
-        .put("http://127.0.0.1:3000/user/info", {
-          newNickname: name,
-          newTitle: title,
-        })
-        .then((res) => {
-          console.log(res);
-          location.reload(); 
-          alert("수정이 완료되었습니다.");
-        });
     },
   },
 };
