@@ -10,12 +10,18 @@
           <div id="picture">
             <p class="profile-label">프로필</p>
 
-            <button @click="selectUploadFile()">
+            <button class="profile-pic-wrap" @click="selectUploadFile()">
               <img
-                class="profile-pic"
-                :src="results.picture"
-                alt="현재 프로필 이미지"
+                class="profile-edit"
+                src="../assets/icon/profile-pic-put-icon.png"
+                alt="프로필 이미지 수정 버튼"
               />
+              <div id="profile-pic">
+                <img
+                  :src="results.picture"
+                  alt="현재 프로필 이미지"
+                />
+              </div>
             </button>
             <button type="submit" class="savebtn on" @click="putUser()">
               저장
@@ -110,7 +116,7 @@ export default {
     create() {
       this.getUser();
     },
-    getUser(){
+    getUser() {
       axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.data != null) {
           const loginData = res.data.results;
@@ -182,6 +188,7 @@ export default {
           })
           .then((response) => {
             vue.results.picture = response.data.data.newPicture;
+            location.reload();
             vue.$toast(response.data.message, {
               position: "top-right",
               timeout: 5000,

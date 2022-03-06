@@ -18,12 +18,30 @@ body {
   }
   #picture {
     margin-right: 12.5%;
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      margin-top: 30.93px;
-      margin-bottom: 24px;
-      border-radius: 50%;
+    .profile-pic-wrap {
+      position: relative;
+      margin-top: 30.93px-20px;
+      margin-bottom: 45.21px;
+      .profile-edit {
+        border: 2px solid rgba(255, 255, 255);
+        border-radius: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 2.79px;
+        z-index: 1;
+      }
+      #profile-pic {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        img {
+          margin: auto 0;
+          width: 100%;
+          height: auto;
+        }
+      }
     }
     .savebtn {
       display: block;
