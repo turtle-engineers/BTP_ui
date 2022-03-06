@@ -9,13 +9,18 @@
         <section class="profile-container">
           <div id="picture">
             <p class="profile-label">프로필</p>
-
-            <button @click="selectUploadFile()">
+            <button class="profile-pic-wrap" @click="selectUploadFile()">
               <img
-                class="profile-pic"
-                :src="results.picture"
-                alt="현재 프로필 이미지"
+                class="profile-edit"
+                src="../assets/icon/profile-pic-put-icon.png"
+                alt="프로필 이미지 수정 버튼"
               />
+              <div id="profile-pic">
+                <img
+                  :src="results.picture"
+                  alt="현재 프로필 이미지"
+                />
+              </div>
             </button>
             <button type="submit" class="savebtn on" @click="putUser()">
               저장
