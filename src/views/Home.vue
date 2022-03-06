@@ -399,7 +399,6 @@ window.addEventListener("DOMContentLoaded", function() {
   ).getMonth();
   calendarEvent(year, thisMonth);
 });
-
 function arrowLeftEvent() {
   let previous = document.getElementById("calender_date").innerText;
   let year = new Date(previous).getFullYear();
@@ -409,7 +408,6 @@ function arrowLeftEvent() {
   let thisMonth = new Date(year, new Date(previous).getMonth() - 1).getMonth();
   calendarEvent(year, thisMonth);
 }
-
 function arrowRightEvent() {
   let next = document.getElementById("calender_date").innerText;
   let year = new Date(next).getFullYear();
@@ -440,7 +438,6 @@ function calendarEvent(year, thisMonth) {
     "Nov",
     "Dec",
   ];
-
   //아래의 조건문이 윤달을 계산하는 방법이다.
   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     lastDay[1] = 29;
@@ -468,7 +465,6 @@ function calendarEvent(year, thisMonth) {
   //문자열로 마크업을 시작한다.
   //문자열 자체를 반복문을 이용해 만들어 준다.
   let tag = "<tr>";
-
   // if(nextData===this.$proA.innerHTML){
   let count = 0;
   //지난달의 마지막 요일 인덱스까지 빈배열로 반복문 시작
@@ -476,7 +472,6 @@ function calendarEvent(year, thisMonth) {
     tag += `<td><div class="day day-d"></div></td>`;
     count++;
   }
-
   let dateColor = "";
   let dateNum = "";
   let week = 5;
@@ -485,7 +480,6 @@ function calendarEvent(year, thisMonth) {
   if (thisMonthDay == 6 && date >= 30) {
     week = 6;
   }
-
   //지난달의 마지막 요일 이후부터 이번달의 마지막일까지 반복
   for (let i = 1; i <= 7 * week - thisMonthDay; i++) {
     // 색 지정
@@ -499,7 +493,6 @@ function calendarEvent(year, thisMonth) {
       dateColor = "day-d";
       dateNum = "";
     }
-
     //7일씩 tr로 묶기
     if (count % 7 === 0) {
       tag += "<tr>";
