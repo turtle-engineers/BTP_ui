@@ -24,13 +24,13 @@
           <div class="weekcheck">
             <h2>요일 선택</h2>
             <article>
-              <p class="weekday" :class="isChecked[0] ? 'true' : 'true'">월</p>
-              <p class="weekday" :class="isChecked[1] ? 'true' : 'false'">화</p>
-              <p class="weekday" :class="isChecked[2] ? 'true' : 'false'">수</p>
-              <p class="weekday" :class="isChecked[3] ? 'true' : 'false'">목</p>
-              <p class="weekday" :class="isChecked[4] ? 'true' : 'false'">금</p>
-              <p class="weekday" :class="isChecked[5] ? 'true' : 'false'">토</p>
-              <p class="weekday" :class="isChecked[6] ? 'true' : 'false'">일</p>
+              <label class="weekday" :class="isChecked[0] ? 'true' : 'false'">월<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[1] ? 'true' : 'false'">화<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[2] ? 'true' : 'false'">수<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[3] ? 'true' : 'false'">목<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[4] ? 'true' : 'false'">금<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[5] ? 'true' : 'false'">토<input type="checkbox"></label>
+              <label class="weekday" :class="isChecked[6] ? 'true' : 'false'">일<input type="checkbox"></label>
             </article>
           </div>
 
@@ -38,21 +38,63 @@
             <fieldset>
               <legend>시작 시각</legend>
               <select name="start-clock">
-                <option value="">00:00</option>
-                <option value="">01:00</option>
-                <option value="">02:00</option>
-                <option value="">03:00</option>
-                <option value="">04:00</option>
+                <option value="" selected disabled hidden>00:00</option>
+                <option value="0000">00:00</option>
+                <option value="0100">01:00</option>
+                <option value="0200">02:00</option>
+                <option value="0300">03:00</option>
+                <option value="0400">04:00</option>
+                <option value="0500">05:00</option>
+                <option value="0600">06:00</option>
+                <option value="0700">07:00</option>
+                <option value="0800">08:00</option>
+                <option value="0900">09:00</option>
+                <option value="1000">10:00</option>
+                <option value="1100">11:00</option>
+                <option value="1200">12:00</option>
+                <option value="1300">13:00</option>
+                <option value="1400">14:00</option>
+                <option value="1500">15:00</option>
+                <option value="1600">16:00</option>
+                <option value="1700">17:00</option>
+                <option value="1800">18:00</option>
+                <option value="1900">19:00</option>
+                <option value="2000">20:00</option>
+                <option value="2100">21:00</option>
+                <option value="2200">22:00</option>
+                <option value="2300">23:00</option>
+                <option value="2400">24:00</option>
               </select>
             </fieldset>
             <fieldset>
               <legend>종료 시각</legend>
               <select name="end-clock">
-                <option value="">00:00</option>
-                <option value="">01:00</option>
-                <option value="">02:00</option>
-                <option value="">03:00</option>
-                <option value="">04:00</option>
+                <option value="" selected disabled hidden>00:00</option>
+                <option value="0000">00:00</option>
+                <option value="0100">01:00</option>
+                <option value="0200">02:00</option>
+                <option value="0300">03:00</option>
+                <option value="0400">04:00</option>
+                <option value="0500">05:00</option>
+                <option value="0600">06:00</option>
+                <option value="0700">07:00</option>
+                <option value="0800">08:00</option>
+                <option value="0900">09:00</option>
+                <option value="1000">10:00</option>
+                <option value="1100">11:00</option>
+                <option value="1200">12:00</option>
+                <option value="1300">13:00</option>
+                <option value="1400">14:00</option>
+                <option value="1500">15:00</option>
+                <option value="1600">16:00</option>
+                <option value="1700">17:00</option>
+                <option value="1800">18:00</option>
+                <option value="1900">19:00</option>
+                <option value="2000">20:00</option>
+                <option value="2100">21:00</option>
+                <option value="2200">22:00</option>
+                <option value="2300">23:00</option>
+                <option value="2400">24:00</option>
               </select>
             </fieldset>
           </form>
@@ -114,7 +156,28 @@ export default {
   created() {
     this.getAlarm();
   },
+  // mounted() {
+  //   this.addTimeOption();
+  // },
   methods: {
+    // addTimeOption() {
+    //   let selectbox = document.querySelectorAll("select");
+    //   //for문으로 0부터 24까지 option을 더한다
+    //   for (let i = 0; i <= 24; i++) {
+    //     let result = i.toString().padStart(2, "0");
+    //     //단, value는 nn00 로. 글은 nn:00 로.
+    //     const value = `${result}00`;
+    //     const text = `${result}:00`;
+    //     //옵션 만들어서 설정
+    //     const option = document.createElement("option");
+    //     option.innerText = text;
+    //     option.value = value;
+    //     selectbox.forEach((element) => {
+    //       element.appendChild(option);
+    //       console.log(element);
+    //     });
+    //   }
+    // },
     onoff() {
       // console.log(document.getElementById('stretching-switch').checked);
       // console.log(document.getElementById('challenge-switch').checked);
