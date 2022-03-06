@@ -110,6 +110,13 @@ export default {
     create() {
       this.getUser();
     },
+    getUser() {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+        if (res.data != null) {
+          this.results = res.data.results;
+        }
+      });
+    },
     async putUser() {
       this.newData.newNickname = this.results.nickname;
       this.newData.newTitle = this.results.title;
