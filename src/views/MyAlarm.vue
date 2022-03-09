@@ -187,7 +187,26 @@ export default {
     //   }
     // },
     onoff() {
-      // console.log(document.getElementById('stretching-switch').checked);
+      //valid에 checked(true, false)값 넣기
+      axios
+        .put("http://127.0.0.1:3000/user/alarm", {
+          "valid": (document.getElementById("stretching-switch").checked ? '1' : '0'),
+        })
+        .then(function(response) {
+          console.log(response);
+        });
+      // 확인용
+      axios.get("http://127.0.0.1:3000/user/alarm").then((res) => {
+        if (res.data != null) {
+          console.log("데이터:", res.data.results);
+        }
+      });
+      console.log(
+        "checked?:" + document.getElementById("stretching-switch").checked
+      );
+
+      
+
       // console.log(document.getElementById('challenge-switch').checked);
     },
     weekcheck() {
