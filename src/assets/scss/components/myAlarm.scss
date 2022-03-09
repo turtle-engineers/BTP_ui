@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none
 }
 
 $btp-y: #ffdf4d;
@@ -92,30 +93,30 @@ $btp-y: #ffdf4d;
       line-height: 30px;
       margin-bottom: 18px;
     }
-  }
-  .weekday {
-    margin: 0;
-    display: inline-block;
-    padding: 15px;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 18px;
-    border-radius: 50%;
-  }
-  .weekday:not(:last-child) {
-    margin-right: 14px;
-  }
-  .true {
-    //요일 on
-    background-color: $btp-y;
-    color: #ff941f;
-  }
-  .false {
-    //요일 off
-    background-color: #3aae76;
-    color: #1c8351;
+    .weekday {
+      margin: 0;
+      display: inline-block;
+      padding: 15px;
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .weekday:not(:last-child) {
+      margin-right: 14px;
+    }
+    input[type="checkbox"] { display: none;}
+    input[type="checkbox"] + label{
+      background-color: #3aae76;
+      color: #1c8351;
+    }
+    input[type="checkbox"]:checked + label{
+      background-color: $btp-y;
+      color: #ff941f;
+    }
   }
 
   //시간

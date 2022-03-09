@@ -23,14 +23,21 @@
           </div>
           <div class="weekcheck">
             <h2>요일 선택</h2>
-            <article>
-              <label class="weekday" :class="isChecked[0] ? 'true' : 'false'">월<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[1] ? 'true' : 'false'">화<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[2] ? 'true' : 'false'">수<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[3] ? 'true' : 'false'">목<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[4] ? 'true' : 'false'">금<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[5] ? 'true' : 'false'">토<input type="checkbox"></label>
-              <label class="weekday" :class="isChecked[6] ? 'true' : 'false'">일<input type="checkbox"></label>
+            <article @change="weekcheck">
+              <input type="checkbox" value="0" id="mon" name="dayAlarmOnOff"/>
+              <label class="weekday" for="mon">월</label>
+              <input type="checkbox" value="1" id="tue" name="dayAlarmOnOff"/>
+              <label class="weekday" for="tue">화</label>
+              <input type="checkbox" value="2" id="wed" name="dayAlarmOnOff"/>
+              <label class="weekday" for="wed">수</label>
+              <input type="checkbox" value="3" id="thu" name="dayAlarmOnOff"/>
+              <label class="weekday" for="thu">목</label>
+              <input type="checkbox" value="4" id="fri" name="dayAlarmOnOff"/>
+              <label class="weekday" for="fri">금</label>
+              <input type="checkbox" value="5" id="sat" name="dayAlarmOnOff"/>
+              <label class="weekday" for="sat">토</label>
+              <input type="checkbox" value="6" id="sun" name="dayAlarmOnOff"/>
+              <label class="weekday" for="sun">일</label>
             </article>
           </div>
 
