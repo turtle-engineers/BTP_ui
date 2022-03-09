@@ -45,9 +45,15 @@
         <div style="width:100%;">
           <section class="btp-title">
             <div>
-              <button type="submit">
-                <h2 style="font-size:30px">마이 루틴 리스트 편집하기 ></h2>
-              </button>
+              <router-link to="/myroutineedit">
+                <button type="button">
+                  <h2
+                    style="font-size:30px; display:block; color: rgb(0, 0, 0)"
+                  >
+                    마이 루틴 리스트 편집하기 >
+                  </h2>
+                </button>
+              </router-link>
               <table>
                 <tr>
                   <td style="padding:10px" rowspan="2">
