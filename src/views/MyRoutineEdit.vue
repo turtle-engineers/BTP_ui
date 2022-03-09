@@ -36,20 +36,38 @@
                   </div>
                   <div
                     class="basic-scroll"
-                    style="overflow-x:hidden; width:250px; height:480px; position: absolute; top:140px; left: 18px; "
+                    style="overflow-x:hidden; width:250px; height:460px; position: absolute; top:140px; left: 18px; "
                   >
-                    <img src="../assets/images/routineComponent.png" alt="" />
-
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
-                    <img src="../assets/images/routineComponent.png" alt="" />
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
+                    <div style="padding:5px 0px 5px 0px">
+                      <img src="../assets/images/routineComponent.png" alt="" />
+                    </div>
                   </div>
                 </div>
               </div>
