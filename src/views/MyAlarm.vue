@@ -23,20 +23,21 @@
           </div>
           <div class="weekcheck">
             <h2>요일 선택</h2>
-            <article @change="weekcheck">
-              <input type="checkbox" value="0" id="mon" name="dayAlarmOnOff"/>
+            <article @change="weekcheck" v-on:change="updateIsChecked">
+              <!-- v-on:change="updateIsChecked" -->
+              <input type="checkbox" value="0" id="mon" name="dayAlarmOnOff" />
               <label class="weekday" for="mon">월</label>
-              <input type="checkbox" value="1" id="tue" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="1" id="tue" name="dayAlarmOnOff" />
               <label class="weekday" for="tue">화</label>
-              <input type="checkbox" value="2" id="wed" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="2" id="wed" name="dayAlarmOnOff" />
               <label class="weekday" for="wed">수</label>
-              <input type="checkbox" value="3" id="thu" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="3" id="thu" name="dayAlarmOnOff" />
               <label class="weekday" for="thu">목</label>
-              <input type="checkbox" value="4" id="fri" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="4" id="fri" name="dayAlarmOnOff" />
               <label class="weekday" for="fri">금</label>
-              <input type="checkbox" value="5" id="sat" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="5" id="sat" name="dayAlarmOnOff" />
               <label class="weekday" for="sat">토</label>
-              <input type="checkbox" value="6" id="sun" name="dayAlarmOnOff"/>
+              <input type="checkbox" value="6" id="sun" name="dayAlarmOnOff" />
               <label class="weekday" for="sun">일</label>
             </article>
           </div>
@@ -189,6 +190,14 @@ export default {
       // console.log(document.getElementById('stretching-switch').checked);
       // console.log(document.getElementById('challenge-switch').checked);
     },
+    weekcheck() {
+      //바뀔때마다 빈 배열에  각 result[value]를 01로 (checked로) 넣음
+      let result = document.querySelectorAll("input[name=dayAlarmOnOff]");
+        // console.log(result);
+      result.forEach((element) => {
+        this.isChecked[element.value] = (element.checked ? 1 : 0);
+      });
+    },
     getAlarm() {
       axios.get("http://127.0.0.1:3000/user/alarm").then((res) => {
         if (res.data != null) {
@@ -198,8 +207,18 @@ export default {
             .split("")
             .map((element) => parseInt(element));
         }
+        this.updateIsChecked();
       });
     },
+    updateIsChecked() { //칼라 업데이트
+      console.log(this.isChecked);
+      let result = document.querySelectorAll("input[name=dayAlarmOnOff]");
+        // console.log(result);
+      result.forEach((element) => {
+        this.isChecked[element.value] ? (element.checked = true) : (element.checked = false);
+        console.log(element.value +':'+ element.checked);
+      });
+    }
   },
 };
 </script>
