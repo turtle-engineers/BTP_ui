@@ -190,7 +190,9 @@ export default {
       //valid에 checked(true, false)값 넣기
       axios
         .put("http://127.0.0.1:3000/user/alarm", {
-          "valid": (document.getElementById("stretching-switch").checked ? '1' : '0'),
+          valid: document.getElementById("stretching-switch").checked
+            ? "1"
+            : "0",
         })
         .then(function(response) {
           console.log(response);
@@ -205,16 +207,14 @@ export default {
         "checked?:" + document.getElementById("stretching-switch").checked
       );
 
-      
-
       // console.log(document.getElementById('challenge-switch').checked);
     },
     weekcheck() {
       //바뀔때마다 빈 배열에  각 result[value]를 01로 (checked로) 넣음
       let result = document.querySelectorAll("input[name=dayAlarmOnOff]");
-        // console.log(result);
+      // console.log(result);
       result.forEach((element) => {
-        this.isChecked[element.value] = (element.checked ? 1 : 0);
+        this.isChecked[element.value] = element.checked ? 1 : 0;
       });
     },
     getAlarm() {
@@ -229,15 +229,18 @@ export default {
         this.updateIsChecked();
       });
     },
-    updateIsChecked() { //칼라 업데이트
+    updateIsChecked() {
+      //칼라 업데이트
       console.log(this.isChecked);
       let result = document.querySelectorAll("input[name=dayAlarmOnOff]");
-        // console.log(result);
+      // console.log(result);
       result.forEach((element) => {
-        this.isChecked[element.value] ? (element.checked = true) : (element.checked = false);
-        console.log(element.value +':'+ element.checked);
+        this.isChecked[element.value]
+          ? (element.checked = true)
+          : (element.checked = false);
+        console.log(element.value + ":" + element.checked);
       });
-    }
+    },
   },
 };
 </script>
