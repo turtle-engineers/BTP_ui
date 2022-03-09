@@ -14,7 +14,7 @@
               </p>
             </div>
             <div style="width:100%; display:flex; ">
-              <div style="width:300px; float: left;">
+              <div style="padding: 0px 30px 100px 0px; float: left;">
                 <h1 style="font-size: 30px">
                   마이 루틴 리스트
                 </h1>
@@ -74,7 +74,7 @@
               <div style="flex-grow: 1; float: right; position: relative; ">
                 <div>
                   <button
-                    style="background-color:#61C997; height:30px; border-radius:10px; color:white; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px "
+                    style="background-color:#61C997; height:30px; border-radius:10px; color:white; padding: 0px 20px 0px 20px; margin:20px 10px 20px 10px "
                   >
                     전체 스트레칭
                   </button>
@@ -110,8 +110,6 @@
                     <button style=" margin:10px 10px 10px 10px">
                       <img :src="require(`../assets/images/card2.png`)" />
                     </button>
-                  </div>
-                  <div>
                     <button style=" margin:10px 10px 10px 10px">
                       <img :src="require(`../assets/images/card1.png`)" />
                     </button>
@@ -121,8 +119,6 @@
                     <button style=" margin:10px 10px 10px 10px">
                       <img :src="require(`../assets/images/card3.png`)" />
                     </button>
-                  </div>
-                  <div>
                     <button style=" margin:10px 10px 10px 10px">
                       <img :src="require(`../assets/images/card0.png`)" />
                     </button>
