@@ -13,12 +13,12 @@
                 보세요.
               </p>
             </div>
-            <div style="width:100%;">
-              <div style="width:20%; float: left;">
+            <div style="width:100%; display:flex; ">
+              <div style="width:300px; float: left;">
                 <h1 style="font-size: 30px">
                   마이 루틴 리스트
                 </h1>
-                <div style="position: relative;">
+                <div style="position: relative; ">
                   <img src="../assets/images/routineListBox.png" alt="" />
                   <div style="position: absolute; top:10px; left: 80px; ">
                     <h1 style="font-size: 20px">
@@ -36,7 +36,7 @@
                   </div>
                   <div
                     class="basic-scroll"
-                    style="overflow-x:hidden; width:250px; height:460px; position: absolute; top:140px; left: 18px; "
+                    style="overflow-x:hidden; width:250px; height:480px; position: absolute; top:120px; left: 18px; "
                   >
                     <div style="padding:5px 0px 5px 0px">
                       <img src="../assets/images/routineComponent.png" alt="" />
@@ -71,7 +71,70 @@
                   </div>
                 </div>
               </div>
-              <div style="width:80%; float: right; position: relative; "></div>
+              <div style="flex-grow: 1; float: right; position: relative; ">
+                <div>
+                  <button
+                    style="background-color:#61C997; height:30px; border-radius:10px; color:white; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px "
+                  >
+                    전체 스트레칭
+                  </button>
+                  <button
+                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
+                  >
+                    변수
+                  </button>
+                  <button
+                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
+                  >
+                    변수
+                  </button>
+                  <button
+                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
+                  >
+                    변수
+                  </button>
+                  <button
+                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
+                  >
+                    변수
+                  </button>
+                </div>
+                <div>
+                  <div>
+                    <button style="margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card0.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card1.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card2.png`)" />
+                    </button>
+                  </div>
+                  <div>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card1.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card2.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card3.png`)" />
+                    </button>
+                  </div>
+                  <div>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card0.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card1.png`)" />
+                    </button>
+                    <button style=" margin:10px 10px 10px 10px">
+                      <img :src="require(`../assets/images/card2.png`)" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
