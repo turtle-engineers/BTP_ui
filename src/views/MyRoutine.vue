@@ -280,10 +280,12 @@ export default {
     },
     getUser() {
       axios.get("http://127.0.0.1:3000/user/info").then((res) => {
-        if (res.data != null) {
+        if (res.data.results != null) {
           this.user = res.data.results;
+          this.getMyRoutine();
+        } else {
+          window.location.replace("http://127.0.0.1:3000/oauth/kakao");
         }
-        this.getMyRoutine();
       });
     },
     async getMyRoutine() {
@@ -292,6 +294,14 @@ export default {
         .then((res) => {
           if (res.data.result == "OK") {
             this.results = res.data.results;
+            if (this.results.listLen < 4) {
+              console.log(this.results.listLen);
+              while (this.results.listLen < 4) {
+                this.results.myRoutineList.push({ imageUrl: "" });
+                this.results.listLen += 1;
+              }
+            }
+            console.log(this.results.myRoutineList);
           }
         });
     },
