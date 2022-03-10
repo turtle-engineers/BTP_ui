@@ -17,7 +17,7 @@
             <dd>설정한 시간 동안 매 정각마다 알림이 울립니다.</dd>
           </dl>
           <!-- on off버튼 -->
-          <div v-on:change="onoff" class="onoff-button">
+          <div v-on:change="stretchingOnOff" class="onoff-button">
             <input type="checkbox" id="stretching-switch" />
             <label for="stretching-switch"></label>
           </div>
@@ -186,28 +186,11 @@ export default {
     //     });
     //   }
     // },
-    onoff() {
+    stretchingOnOff() {
       //valid에 checked(true, false)값 넣기
-      axios
-        .put("http://127.0.0.1:3000/user/alarm", {
-          valid: document.getElementById("stretching-switch").checked
-            ? "1"
-            : "0",
-        })
-        .then(function(response) {
-          console.log(response);
-        });
-      // 확인용
-      axios.get("http://127.0.0.1:3000/user/alarm").then((res) => {
-        if (res.data != null) {
-          console.log("데이터:", res.data.results);
-        }
+      axios.put("http://127.0.0.1:3000/user/alarm", {
+        valid: document.getElementById("stretching-switch").checked ? "1" : "0",
       });
-      console.log(
-        "checked?:" + document.getElementById("stretching-switch").checked
-      );
-
-      // console.log(document.getElementById('challenge-switch').checked);
     },
     weekcheck() {
       //바뀔때마다 빈 배열에  각 result[value]를 01로 (checked로) 넣음
@@ -215,6 +198,10 @@ export default {
       // console.log(result);
       result.forEach((element) => {
         this.isChecked[element.value] = element.checked ? 1 : 0;
+      });
+      //db에 보내기
+      axios.put("http://127.0.0.1:3000/user/alarm", {
+        day: this.isChecked.join(""), //날짜
       });
     },
     getAlarm() {
@@ -225,20 +212,20 @@ export default {
           this.isChecked = weekData.day
             .split("")
             .map((element) => parseInt(element));
+          //알람 onoff 여부 업데이트
+          document.getElementById("stretching-switch").checked = weekData.valid;
         }
         this.updateIsChecked();
       });
     },
     updateIsChecked() {
       //칼라 업데이트
-      console.log(this.isChecked);
       let result = document.querySelectorAll("input[name=dayAlarmOnOff]");
       // console.log(result);
       result.forEach((element) => {
         this.isChecked[element.value]
           ? (element.checked = true)
           : (element.checked = false);
-        console.log(element.value + ":" + element.checked);
       });
     },
   },
