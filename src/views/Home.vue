@@ -29,10 +29,9 @@
           </ul>
         </nav>
         <div class="my-menu">
-          <a href="#"
-            ><img src="../assets/icon/mypage.svg" @click="loginAtBackServer()"
-          /></a>
-          <a href="#"><img src="../assets/icon/notification.svg"/></a>
+          <img src="../assets/icon/mypage.svg" @click="loginAtBackServer('/account')"
+          />
+          <a href="#"><img src="../assets/icon/notification.svg" @click="loginAtBackServer('/alarm')"/></a>
         </div>
       </div>
     </header>
@@ -341,11 +340,12 @@ export default {
     };
   },
   methods: {
-    async loginAtBackServer() {
+    async loginAtBackServer(link) {
       await axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
-            window.location.replace("/Account");
+            console.log(res.data.result)
+            window.location.replace(link);
           } else {
             window.location.replace("http://127.0.0.1:3000/oauth/kakao");
           }
