@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <div>
     <simpleheader></simpleheader>
     
       <div id="desc">
@@ -25,7 +25,7 @@
 
       <button id="go-stretching">훈련하러 가기</button>
     </div>
-  </body>
+  </div>
 </template>
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
