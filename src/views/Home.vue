@@ -179,46 +179,46 @@
             </div>
           </div>
         </div>
-      </div> 
-
-      <!-- 스트레칭 캘린더 -->
-      <div class="title title-g">
-        <img />
-        <h1>RESEARCH RECORD</h1>
-        <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
       </div>
-      <div class="calender-menu">
-        <b-row class="calendar-top" align-v="end">
-          <img class="calendar-pad-img" :src="require('@/assets/images/ipad_top.png')" />
-        </b-row>
-        <b-row class="calendar-middle">
-          <img class="calendar-pad-img" :src="require('@/assets/images/ipad_middle.png')" />
-          <div class="calendar-body">
-            <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />
-            <hr />
-            <div class="title title-w">
-              <img />
-              <h1>STRETCHING CALENDAR</h1>
-            </div>
-            <div class="calendar-card">
-              <b-row>
-                <b-col><img id="arrow-left" class="arrow-left" src="../assets/icon/circle-down-btn.png"/></b-col>
-                <b-col id="calender_date" class="calender-date text-center"></b-col>
-                <b-col class="text-end"
-                  ><img id="arrow-right" class="arrow-right" src="../assets/icon/circle-down-btn.png"
-                /></b-col>
-              </b-row>
-              <b-row class="calender-goal" align-h="end">
-                <b-col class="text-end">
-                  <span class="f1">이번 달 훈련 횟수</span>
-                  <span class="f2">00</span>
-                  <span class="f1">회</span>
-                </b-col>
-              </b-row>
-              <table id="calender_target" align-self="center"></table>
-            </div>
+    </div>
+    <!-- 스트레칭 캘린더 -->
+    <div class="title title-g">
+      <img />
+      <h1>RESEARCH RECORD</h1>
+      <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
+    </div>
+    <div class="calender-menu">
+      <b-row class="calendar-top" align-v="end">
+        <img class="calendar-pad-img" :src="require('@/assets/images/ipad_top.png')" />
+      </b-row>
+      <b-row class="calendar-middle">
+        <img class="calendar-pad-img" :src="require('@/assets/images/ipad_middle.png')" />
+        <div class="calendar-body">
+          <img class="calendar-logo" :src="require('@/assets/images/logo/process_logo.png')" />
+          <hr />
+          <div class="title title-w">
+            <img />
+            <h1>STRETCHING CALENDAR</h1>
+          </div>
+          <div class="calendar-card">
+            <b-row>
+              <b-col><img id="arrow-left" class="arrow-left" src="../assets/icon/circle-down-btn.png"/></b-col>
+              <b-col id="calender_date" class="calender-date text-center"></b-col>
+              <b-col class="text-end"
+                ><img id="arrow-right" class="arrow-right" src="../assets/icon/circle-down-btn.png"
+              /></b-col>
+            </b-row>
+            <b-row class="calender-goal" align-h="end">
+              <b-col class="text-end">
+                <span class="f1">이번 달 훈련 횟수</span>
+                <span class="f2">00</span>
+                <span class="f1">회</span>
+              </b-col>
+            </b-row>
+            <table id="calender_target" align-self="center"></table>
+          </div>
 
-            <!-- <div class="calendar-title title-w">
+          <!-- <div class="calendar-title title-w">
                         <img><h1>MISSION TEN TIMES</h1>
                     </div>
                     <div class="mission-card">
@@ -237,12 +237,11 @@
                             </tr>
                         </table>
                     </div> -->
-          </div>
-        </b-row>
-        <b-row class="calendar-bottom">
-          <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
-        </b-row>
-      </div>
+        </div>
+      </b-row>
+      <b-row class="calendar-bottom">
+        <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
+      </b-row>
     </div>
 
     <button id="topBtn">
