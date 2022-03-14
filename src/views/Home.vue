@@ -27,7 +27,7 @@
         </nav>
         <div class="my-menu">
           <img src="../assets/icon/mypage.svg" @click="loginAtBackServer('/account')" />
-          <a href="#"><img src="../assets/icon/notification.svg" @click="loginAtBackServer('/alarm')"/></a>
+          <img src="../assets/icon/notification.svg" @click="loginAtBackServer('/alarm')"/>
         </div>
       </div>
     </header>
