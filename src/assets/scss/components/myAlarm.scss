@@ -208,5 +208,11 @@ $btp-y: #ffdf4d;
     position: absolute;
     top: 16px;
     left: 0;
+    opacity: 90%;
+    animation: motion 0.8s linear 0s infinite alternate;
+    @keyframes motion {
+      0% {margin-top: -3px;}
+      100% {margin-top: 5px;}
+    }
   }
 }
