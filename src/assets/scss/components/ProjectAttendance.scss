@@ -1,7 +1,11 @@
 .app-container {
   background-color: white;
 }
-
+.attendance-container {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
 .attendance-wrap {
   display: flexbox;
   align-items: center;
@@ -12,6 +16,7 @@
 $btp-y: #ffdf4d;
 .attendance-wrap {
   width: 656px;
+  max-height: 439px;
   background-color: $color-b;
   border-radius: $btp-border;
   padding: 40px;
@@ -48,7 +53,7 @@ $btp-y: #ffdf4d;
     }
     input[type="checkbox"] + label {
       cursor: default;
-      pointer-events : none;
+      pointer-events: none;
       background-color: #528bdd;
       color: rgb(0, 0, 0, 0.3);
     }
@@ -104,6 +109,44 @@ $btp-y: #ffdf4d;
       background-color: #ffe161;
       border-radius: 22px;
       transition: 0.4s linear;
+    }
+  }
+}
+// 거북이
+.attendance-scientist {
+  position: relative;
+  margin-left: 37px;
+  width: 512px;
+  max-height: 439px;
+  :nth-child(1) {
+    //말풍선
+    position: absolute;
+    z-index: 2;
+    left: 250px;
+    bottom: 337px;
+  }
+  :nth-child(2) {
+    //과학자
+    position: absolute;
+    left: 210px;
+    bottom: -24px;
+    z-index: 1;
+  }
+  :nth-child(3) {
+    //유리돔
+    position: absolute;
+    bottom: -14px;
+  }
+  :nth-child(4) {
+    //레벨
+    position: absolute;
+    left: 74px+10px;
+    bottom: 220px;
+    animation: bounce 1.6s infinite alternate;
+    @keyframes bounce {
+      to {
+        bottom: 160px;
+      }
     }
   }
 }
