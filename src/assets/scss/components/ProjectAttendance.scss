@@ -61,5 +61,47 @@ $btp-y: #ffdf4d;
     margin-top: 30px;
     margin-bottom: 40px;
   }
-  // 거북에
+  // 달성표
+  #progress {
+    text-align: left;
+    width: fit-content;
+    font-weight: bold;
+    .turtle_grow {
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      margin-left: 18px;
+      opacity: 20%;
+    }
+    h1 {
+      display: inline;
+      font-size: 64px;
+    }
+    h2 {
+      display: inline;
+      font-weight: 700;
+      color: white;
+      font-size: 36px;
+      line-height: 45px;
+      margin: 0;
+      margin-left: 4px;
+    }
+    progress {
+      width: 400px;
+      height: 40px;
+      margin-left: 34px;
+      -webkit-appearance: none;
+      height: 24px;
+      border-radius: 22px;
+    }
+    ::-webkit-progress-bar {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 22px;
+    }
+    ::-webkit-progress-value {
+      background-color: #ffe161;
+      border-radius: 22px;
+      transition: 0.4s linear;
+    }
+  }
 }

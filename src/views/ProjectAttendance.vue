@@ -31,6 +31,14 @@
             <label class="weekday" for="sun">일</label>
           </article>
         </div>
+        <hr />
+        <!-- 거북이 진행도 -->
+        <h1>오늘의 거북이 진행도</h1>
+        <div id="progress">
+          <h1>{{ progress }}</h1>
+          <h2>%</h2>
+          <progress v-bind:value="progress" max="100"></progress>
+        </div>
       </section>
     </div>
   </div>
@@ -44,7 +52,9 @@
 import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
-    return {};
+    return {
+      progress: 50,
+    };
   },
   components: {
     simpleheader,
