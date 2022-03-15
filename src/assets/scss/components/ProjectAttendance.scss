@@ -1,0 +1,65 @@
+.app-container {
+  background-color: white;
+}
+
+.attendance-wrap {
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+$btp-y: #ffdf4d;
+.attendance-wrap {
+  width: 656px;
+  background-color: $color-b;
+  border-radius: $btp-border;
+  padding: 40px;
+  // 데이터
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  // 요일 체크
+  .weekcheck {
+    height: fit-content;
+    background-color: $color-b;
+    .weekday {
+      margin: 0;
+      display: inline-block;
+      padding: 15px;
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .weekday:not(:last-child) {
+      margin-right: 14px;
+    }
+    input[type="checkbox"] {
+      display: none;
+    }
+    input[type="checkbox"] + label {
+      cursor: default;
+      background-color: #528bdd;
+      color: rgb(0, 0, 0, 0.3);
+    }
+    input[type="checkbox"]:checked + label {
+      background-color: $btp-y;
+      color: #ff941f;
+    }
+  }
+  // hr
+  hr {
+    background-color: #fcfcfc;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  // 거북에
+}
