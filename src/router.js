@@ -5,6 +5,7 @@ import MyRoutine from "./views/MyRoutine";
 import RandomChallenge from "./views/RandomChallenge";
 import MyTurtle from "./views/MyTurtle";
 import StretchingGuide from "./views/StretchingGuide";
+import ProjectAttendance from "./views/ProjectAttendance";
 import Account from "./views/Account";
 import Settings from "./views/Settings.vue";
 import MissionList from "./views/MissionList";
@@ -27,6 +28,7 @@ const router = new VueRouter({
     { path: "/randomChallenge", component: RandomChallenge },
     { path: "/myturtle", component: MyTurtle },
     { path: "/stretchingGuide", component: StretchingGuide },
+    { path: "/projectAttendance", component: ProjectAttendance },
 
     { path: "/account", component: Account },
     { path: "/settings", component: Settings },
