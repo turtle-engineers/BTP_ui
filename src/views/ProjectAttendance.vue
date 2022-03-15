@@ -13,7 +13,7 @@
         <div class="weekcheck">
           <!-- TODO : month 추가 -->
           <h1>11월 둘째 주</h1>
-          <article class="weekcheck" onclick="return false;">
+          <article class="weekcheck">
             <!-- v-on:change="updateIsChecked" -->
             <input type="checkbox" value="0" id="mon" name="dayAlarmOnOff" />
             <label class="weekday" for="mon">월</label>
@@ -39,6 +39,9 @@
           <h2>%</h2>
           <progress v-bind:value="progress" max="100"></progress>
         </div>
+      </section>
+      <section>
+        
       </section>
     </div>
   </div>
