@@ -13,7 +13,7 @@
           <!-- week check -->
           <div class="weekcheck">
             <!-- TODO : month 추가 -->
-            <h1>11월 둘째 주</h1>
+            <h1>{{this.month}}월 둘째 주</h1>
             <article class="weekcheck">
               <!-- v-on:change="updateIsChecked" -->
               <input type="checkbox" value="0" id="mon" name="dayAttendance" />
@@ -63,6 +63,7 @@ import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
     return {
+      month: 0,
       progress: 50,
       level: 1,
     };
@@ -81,6 +82,8 @@ export default {
             const doneDay = res.data.results.dd;
             //이번주 월~금 일수를 구한다. 
             const date = new Date();
+            //이번 달 
+            this.month = date.getMonth() + 1;
             const monday = date.getDate() - (date.getDay()-1);
             const sunday = date.getDate() + (7 - date.getDay())
             //이번주 달력
