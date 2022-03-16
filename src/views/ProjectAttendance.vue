@@ -16,19 +16,19 @@
             <h1>11월 둘째 주</h1>
             <article class="weekcheck">
               <!-- v-on:change="updateIsChecked" -->
-              <input type="checkbox" value="0" id="mon" name="dayAlarmOnOff" />
+              <input type="checkbox" value="0" id="mon" name="dayAttendance" />
               <label class="weekday" for="mon">월</label>
-              <input type="checkbox" value="1" id="tue" name="dayAlarmOnOff" />
+              <input type="checkbox" value="1" id="tue" name="dayAttendance" />
               <label class="weekday" for="tue">화</label>
-              <input type="checkbox" value="2" id="wed" name="dayAlarmOnOff" />
+              <input type="checkbox" value="2" id="wed" name="dayAttendance" />
               <label class="weekday" for="wed">수</label>
-              <input type="checkbox" value="3" id="thu" name="dayAlarmOnOff" />
+              <input type="checkbox" value="3" id="thu" name="dayAttendance" />
               <label class="weekday" for="thu">목</label>
-              <input type="checkbox" value="4" id="fri" name="dayAlarmOnOff" />
+              <input type="checkbox" value="4" id="fri" name="dayAttendance" />
               <label class="weekday" for="fri">금</label>
-              <input type="checkbox" value="5" id="sat" name="dayAlarmOnOff" />
+              <input type="checkbox" value="5" id="sat" name="dayAttendance" />
               <label class="weekday" for="sat">토</label>
-              <input type="checkbox" value="6" id="sun" name="dayAlarmOnOff" />
+              <input type="checkbox" value="6" id="sun" name="dayAttendance" />
               <label class="weekday" for="sun">일</label>
             </article>
           </div>
@@ -58,6 +58,7 @@
 @import "../assets/scss/components/ProjectAttendance.scss";
 </style>
 <script>
+import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
 export default {
   data() {
@@ -68,6 +69,34 @@ export default {
   },
   components: {
     simpleheader,
+  },
+  created: function() {
+    this.getAttendance();
+  },
+  methods: {
+    getAttendance() {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+        if (res.status == 200) {
+          if (res.data.result != "FAIL") {
+            const doneDay = res.data.results.dd;
+            //이번주 월~금 일수를 구한다. 
+            const date = new Date();
+            const monday = date.getDate() - (date.getDay()-1);
+            const sunday = date.getDate() + (7 - date.getDay())
+            //이번주 달력
+            let week = [];
+            for(let i=monday; i <=sunday;i++) {week.push(i)} 
+            //for each를 통해 dd에서 있는지 살핀다.
+            week.forEach((element, index) => {
+              //만약 dd안에 있다면, el의 index가 value값인 체크박스를 체크한다.
+              if (doneDay.includes(element)){
+                document.querySelectorAll('input[name=dayAttendance]')[index].checked = true;
+              }
+            });
+          }
+        }
+      });
+    },
   },
 };
 </script>
