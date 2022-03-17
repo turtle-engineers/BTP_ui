@@ -1,7 +1,7 @@
 <template>
   <div>
     <simpleheader></simpleheader>
-    <body>
+    <div class="app-container">
       <div class="btp-container">
         <div>
           <section class="btp-title">
@@ -141,13 +141,13 @@
         <br />
         <br />
       </div>
-    </body>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 @import "../assets/scss/common.scss";
-@import "../assets/scss/components/Settings.scss";
+@import "../assets/scss/components/myRoutineEdit.scss";
 </style>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";

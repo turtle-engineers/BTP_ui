@@ -1,7 +1,7 @@
 <template>
   <div>
     <simpleheader></simpleheader>
-    <body>
+    <div>
       <div class="btp-container">
         <div>
           <section class="btp-title">
@@ -236,7 +236,7 @@
           </section>
         </div>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
