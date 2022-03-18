@@ -16,12 +16,8 @@
       </nav>
       <a href="/"><img class="logo" src="..\..\assets\images\logo\logo.svg" alt="BTP 메인 이동 로고"/></a>
       <div class="my-menu">
-        <router-link to="/account"
-          ><img src="../../assets/icon/mypage.svg"
-        /></router-link>
-        <router-link to="#"
-          ><img src="../../assets/icon/notification.svg"
-        /></router-link>
+        <img src="../../assets/icon/mypage.svg" @click="loginLink('/account')" />
+        <img src="../../assets/icon/notification.svg" @click="loginLink('/alarm')" />
       </div>
     </div>
   </header>
@@ -32,6 +28,7 @@
 @import "simpleheader.scss";
 </style>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -48,15 +45,23 @@ export default {
   methods: {
     getPathname() {
       this.pathname = window.location.pathname.split("/")[1];
-      console.log(this.pathname);
     },
     makeBold() {
       // pathname이 li id랑 똑같을때 bold
       const boldli = document.getElementById(this.pathname);
       boldli.id = "now-page";
-      console.log("boldli:", boldli);
+    },
+    async loginLink(link) {
+      await axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+        if (res.status == 200) {
+          if (res.data.result != "FAIL") {
+            window.location.replace(link);
+          } else {
+            window.location.replace("http://127.0.0.1:3000/oauth/kakao");
+          }
+        }
+      });
     },
   },
 };
 </script>
-
