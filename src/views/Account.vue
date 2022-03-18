@@ -1,7 +1,7 @@
 <template>
   <div>
     <simpleheader></simpleheader>
-    <body>
+    <div class="app-container">
       <div class="btp-container">
         <section class="btp-title">
           <h1>마이 페이지</h1>
@@ -54,7 +54,7 @@
           </div>
         </section>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
