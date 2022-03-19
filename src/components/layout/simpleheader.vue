@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       pathname: "",
-      idname: "",
+      idlist: [],
     };
   },
   created: function() {
@@ -48,11 +48,15 @@ export default {
     },
     makeBold() {
       // pathname이 li id랑 똑같을때 bold
-      const boldli = document.getElementById(this.pathname);
-      boldli.id = "now-page";
+      document.querySelectorAll("li").forEach((el) => this.idlist.push(el.id));
+      // pathname이 메뉴 bold할 수 있는 idlist에 포함될 때 bold
+      if (this.idlist.includes(this.pathname)) {
+        const boldli = document.getElementById(this.pathname);
+        boldli.id = "now-page";
+      }
     },
-    async loginLink(link) {
-      await axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+    loginLink(link) {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
             window.location.replace(link);
