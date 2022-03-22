@@ -72,6 +72,8 @@ export default {
     simpleheader,
   },
   created: function() {
+    const date = new Date();
+    this.month = date.getMonth() + 1;
     this.getAttendance();
   },
   methods: {
@@ -83,7 +85,6 @@ export default {
             //이번주 월~금 일수를 구한다. 
             const date = new Date();
             //이번 달 
-            this.month = date.getMonth() + 1;
             const monday = date.getDate() - (date.getDay()-1);
             const sunday = date.getDate() + (7 - date.getDay())
             //이번주 달력
