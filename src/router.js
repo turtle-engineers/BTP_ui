@@ -4,6 +4,7 @@ import Home from "./views/Home";
 import MyRoutine from "./views/MyRoutine";
 import RandomChallenge from "./views/RandomChallenge";
 import MyTurtle from "./views/MyTurtle";
+import MyAlarm from "./views/MyAlarm";
 import StretchingGuide from "./views/StretchingGuide";
 import ProjectAttendance from "./views/ProjectAttendance";
 import Account from "./views/Account";
@@ -33,6 +34,7 @@ const router = new VueRouter({
     { path: "/account", component: Account },
     { path: "/settings", component: Settings },
     { path: "/missionList", component: MissionList },
+    { path: "/Alarm", component: MyAlarm },
 
     { path: "/about", component: About },
     { path: "/story", component: Story },
