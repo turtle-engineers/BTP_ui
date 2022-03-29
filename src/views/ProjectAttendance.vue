@@ -13,7 +13,7 @@
           <!-- week check -->
           <div class="weekcheck">
             <!-- TODO : month 추가 -->
-            <h1>{{this.month}}월 둘째 주</h1>
+            <h1>{{ this.month }}월 둘째 주</h1>
             <article class="weekcheck">
               <!-- v-on:change="updateIsChecked" -->
               <input type="checkbox" value="0" id="mon" name="dayAttendance" />
@@ -43,12 +43,16 @@
         </section>
         <!-- 거북이 이미지 -->
         <section class="attendance-scientist">
-          <img src="../assets/images/attendance-balloon.png" alt="말풍선: 육지로 돌아갈 날이 얼마 남지 않았어!" />
+          <img
+            src="../assets/images/attendance-balloon.png"
+            alt="말풍선: 육지로 돌아갈 날이 얼마 남지 않았어!"
+          />
           <img src="../assets/images/attendance-scientist.png" alt="과학자" />
           <img src="../assets/images/attendance-science.png" alt="유리돔" />
           <img :src="require(`../assets/images/level${level}.png`)" alt="단계별 거북이 이미지" />
         </section>
       </div>
+      <div class="bottom"></div>
     </div>
   </div>
 </template>
@@ -64,7 +68,7 @@ export default {
   data() {
     return {
       month: 0,
-      progress: 50,
+      progress: 0,
       level: 1,
     };
   },
@@ -72,6 +76,7 @@ export default {
     simpleheader,
   },
   created: function() {
+    //이번 달
     const date = new Date();
     this.month = date.getMonth() + 1;
     this.getAttendance();
@@ -82,19 +87,20 @@ export default {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
             const doneDay = res.data.results.dd;
-            //이번주 월~금 일수를 구한다. 
+            //이번주 월~금 일수를 구한다.
             const date = new Date();
-            //이번 달 
-            const monday = date.getDate() - (date.getDay()-1);
-            const sunday = date.getDate() + (7 - date.getDay())
+            const monday = date.getDate() - (date.getDay() - 1);
+            const sunday = date.getDate() + (7 - date.getDay());
             //이번주 달력
             let week = [];
-            for(let i=monday; i <=sunday;i++) {week.push(i)} 
+            for (let i = monday; i <= sunday; i++) {
+              week.push(i);
+            }
             //for each를 통해 dd에서 있는지 살핀다.
             week.forEach((element, index) => {
               //만약 dd안에 있다면, el의 index가 value값인 체크박스를 체크한다.
-              if (doneDay.includes(element)){
-                document.querySelectorAll('input[name=dayAttendance]')[index].checked = true;
+              if (doneDay.includes(element)) {
+                document.querySelectorAll("input[name=dayAttendance]")[index].checked = true;
               }
             });
           }
