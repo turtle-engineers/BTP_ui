@@ -1,0 +1,156 @@
+.app-container {
+  background-color: white;
+}
+.attendance-container {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+.attendance-wrap {
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+$btp-y: #ffdf4d;
+.attendance-wrap {
+  width: 656px;
+  max-height: 439px;
+  background-color: $color-b;
+  border-radius: $btp-border;
+  padding: 40px;
+  // 데이터
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  // 요일 체크
+  .weekcheck {
+    height: fit-content;
+    background-color: $color-b;
+    .weekday {
+      margin: 0;
+      display: inline-block;
+      padding: 15px;
+      width: 68px;
+      height: 68px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 68px-30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .weekday:not(:last-child) {
+      margin-right: 14px;
+    }
+    input[type="checkbox"] {
+      display: none;
+    }
+    input[type="checkbox"] + label {
+      cursor: default;
+      pointer-events: none;
+      background-color: #528bdd;
+      color: rgb(0, 0, 0, 0.3);
+    }
+    input[type="checkbox"]:checked + label {
+      background-color: $btp-y;
+      color: #ff941f;
+    }
+  }
+  // hr
+  hr {
+    background-color: #fcfcfc;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  // 달성표
+  #progress {
+    text-align: left;
+    width: fit-content;
+    font-weight: bold;
+    .turtle_grow {
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      margin-left: 18px;
+      opacity: 20%;
+    }
+    h1 {
+      display: inline;
+      font-size: 64px;
+    }
+    h2 {
+      display: inline;
+      font-weight: 700;
+      color: white;
+      font-size: 36px;
+      line-height: 45px;
+      margin: 0;
+      margin-left: 4px;
+    }
+    progress {
+      width: 400px;
+      height: 40px;
+      margin-left: 34px;
+      -webkit-appearance: none;
+      height: 24px;
+      border-radius: 22px;
+    }
+    ::-webkit-progress-bar {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 22px;
+    }
+    ::-webkit-progress-value {
+      background-color: #ffe161;
+      border-radius: 22px;
+      transition: 0.4s linear;
+    }
+  }
+}
+// 거북이
+.attendance-scientist {
+  position: relative;
+  margin-left: 37px;
+  width: 512px;
+  max-height: 439px;
+  :nth-child(1) {
+    //말풍선
+    position: absolute;
+    z-index: 2;
+    left: 250px;
+    bottom: 337px;
+  }
+  :nth-child(2) {
+    //과학자
+    position: absolute;
+    left: 210px;
+    bottom: -24px;
+    z-index: 1;
+  }
+  :nth-child(3) {
+    //유리돔
+    position: absolute;
+    bottom: -14px;
+  }
+  :nth-child(4) {
+    //레벨
+    position: absolute;
+    left: 74px+10px;
+    bottom: 220px;
+    animation: bounce 1.6s infinite alternate;
+    @keyframes bounce {
+      to {
+        bottom: 160px;
+      }
+    }
+  }
+}
+
+.app-container {
+  padding-bottom: 80px;
+}
