@@ -64,10 +64,9 @@ nav {
 .my-menu {
   vertical-align: middle;
   margin-left: auto;
-  a{
-    margin-left:40px;
-  }
   img {
+    cursor: pointer;
+    margin-left:40px;
     width: 25px;
   }
 }

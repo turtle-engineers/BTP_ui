@@ -1,7 +1,7 @@
 <template>
   <div>
     <simpleheader></simpleheader>
-    <body>
+    <div class="app-container">
       <div class="btp-container">
         <section class="btp-title">
           <h1>마이 프로필 설정</h1>
@@ -59,7 +59,7 @@
           </button>
         </div>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
