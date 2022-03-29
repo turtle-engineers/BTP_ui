@@ -1,5 +1,6 @@
 <template>
   <div>
+    <modalTurtle v-if="isModalViewed" @close-modal="closeModal"></modalTurtle>
     <simpleheader></simpleheader>
     <div class="app-container">
       <div class="btp-container">
@@ -32,7 +33,7 @@
             <div id="progress">
               <div class="progress-title">
                 <h2>오늘의 거북이 진행도</h2>
-                <button type="button">
+                <button type="button" v-on:click="isModalViewed = true">
                   <img
                     class="turtle_grow"
                     src="@/assets/icon/question-mark.png"
@@ -65,6 +66,7 @@
 <script>
 import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
+import modalTurtle from "../components/modalTurtle";
 export default {
   data() {
     return {
@@ -74,10 +76,12 @@ export default {
       promise: "오늘의 다짐",
       todayTimes: 0,
       progress: 50,
+      isModalViewed: false,
     };
   },
   components: {
     simpleheader,
+    modalTurtle,
   },
   created() {
     this.login();
@@ -104,6 +108,9 @@ export default {
           window.location.replace("/"); //메인화면으로
         }
       });
+    },
+    closeModal() {
+      this.isModalViewed = false;
     },
   },
 };
