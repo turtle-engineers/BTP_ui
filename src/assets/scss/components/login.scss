@@ -144,10 +144,18 @@
             padding: 4rem 3rem 0.5rem 3rem;
 
             .arrow-left {
+                text-align:left;
+            }
+            .arrow-left img {
                 transform: rotate(90deg);
+                content: url(../assets/icon/circle-down-btn.png)
             }
             .arrow-right {
+                text-align:right;
+            }
+            .arrow-right img {
                 transform: rotate(-90deg);
+                content: url(../assets/icon/circle-down-btn.png)
             }
 
             .calender-date {
@@ -157,6 +165,7 @@
             }
 
             .calender-goal {
+                display: block;
                 margin-top: 3rem;
                 color: #343A40;
 
@@ -172,10 +181,11 @@
                 }
             }
 
-            #calender_target {
+            .calender_target {
                 width: 100%;
                 border-collapse: separate;
                 border-spacing: 1rem 3rem;
+                table-layout: fixed;
             }
 
             .day {
@@ -418,7 +428,7 @@
                     }
                 }
     
-                #calender_target {
+                .calender_target {
                     width: 100%;
                     border-collapse: separate;
                     border-spacing: 0.5rem;

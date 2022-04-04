@@ -1,7 +1,7 @@
 <template>
   <div>
     <simpleheader></simpleheader>
-    <body>
+    <div>
       <div class="btp-container">
         <section class="btp-title">
           <h1>마이 페이지</h1>
@@ -24,7 +24,7 @@
 
             <hr />
             <p id="cal-title">이번 달 훈련 횟수 {{ todayTimes }}회</p>
-            <div id="cal">달력</div>
+            <div id="cal"><Calendar></Calendar></div>
           </div>
 
           <div class="mypage-turtle">
@@ -54,7 +54,7 @@
           </div>
         </section>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -65,6 +65,7 @@
 <script>
 import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
+import Calendar from "../components/Calendar.vue";
 export default {
   data() {
     return {
@@ -78,6 +79,7 @@ export default {
   },
   components: {
     simpleheader,
+    Calendar,
   },
   created() {
     this.login();
