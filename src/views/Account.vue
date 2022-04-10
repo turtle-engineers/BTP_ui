@@ -1,6 +1,7 @@
 <template>
   <div>
     <modalTurtle v-if="isModalViewed" @close-modal="closeModal"></modalTurtle>
+    <modalStretching v-if="isModalViewed" @close-modal="closeModal"></modalStretching>
     <simpleheader></simpleheader>
     <div class="app-container">
       <div class="btp-container">
@@ -67,6 +68,7 @@
 import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
 import modalTurtle from "../components/modalTurtle";
+import modalStretching from "../components/modalStretching";
 export default {
   data() {
     return {
@@ -82,6 +84,7 @@ export default {
   components: {
     simpleheader,
     modalTurtle,
+    modalStretching,
   },
   created() {
     this.login();
