@@ -2,6 +2,7 @@
   <div class="app-container">
     <simpleheader></simpleheader>
     <div class="btp-container">
+      <!-- 상단 타이틀 + 시간/시작 -->
       <div class="routine-title">
         <section class="btp-title">
           <h1>마이 루틴</h1>
@@ -12,7 +13,6 @@
             거북이에서 인간이 되가는걸 느낄 수 있을 거예요.
           </p>
         </section>
-
         <!-- 시간, 시작 -->
         <article class="routine-starter">
           <p>
@@ -25,6 +25,9 @@
           </router-link>
         </article>
       </div>
+      <article class="routine-menu">
+        <button type="button">마이루틴 리스트 편집하기 ></button>
+      </article>
     </div>
   </div>
 </template>
