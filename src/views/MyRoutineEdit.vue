@@ -12,19 +12,13 @@
         </section>
         <div class="myroutine-container">
           <section class="listbox">
-            <h1>
-              마이 루틴 리스트
-            </h1>
+            <h1>마이 루틴 리스트</h1>
             <div class="listbox-content">
-              <img src="../assets/images/routineListBox.png" alt="" />
-              <div class="listbox-timer">
-                <h1>
-                  총 {{ results.totalTimeMin }} 분 {{ results.totalTimeSec }} 초
-                </h1>
-              </div>
-              <button class="listbox-button">
-                <img src="../assets/images/button/routineSaveBtn.png" alt="" />
-              </button>
+                <h2 class="listbox-timer">
+                  총 <span>{{ results.totalTimeMin }}</span>분
+                  <span>{{ results.totalTimeSec }}</span>초
+                </h2>
+              <button class="listbox-button">저장하기</button>
               <div class="basic-scroll">
                 <div class="routineComponent">
                   <img src="../assets/images/routineComponent.png" alt="" />
@@ -61,19 +55,19 @@
           </section>
           <section class="stretch-container">
             <article class="category">
-              <button class="category-btn-on">
+              <button class="category-btn on">
                 전체 스트레칭
               </button>
-              <button class="category-btn-off">
+              <button class="category-btn off">
                 변수
               </button>
-              <button class="category-btn-off">
+              <button class="category-btn off">
                 변수
               </button>
-              <button class="category-btn-off">
+              <button class="category-btn off">
                 변수
               </button>
-              <button class="category-btn-off">
+              <button class="category-btn off">
                 변수
               </button>
             </article>
@@ -140,7 +134,10 @@ export default {
         dd: "",
         todayTimes: "",
       },
-      results: {},
+      results: {
+        totalTimeMin: "00",
+        totalTimeSec: "00",
+      },
       response: "",
       num: 0,
       backNum: 0,
