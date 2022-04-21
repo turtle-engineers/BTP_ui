@@ -3,143 +3,111 @@
     <simpleheader></simpleheader>
     <div class="app-container">
       <div class="btp-container">
-        <div>
-          <section class="btp-title">
-            <div style="width:100%;">
-              <h1>마이 루틴 편집</h1>
-              <br />
-              <p style="font-size:15px">
-                어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아
-                보세요.
-              </p>
-            </div>
-            <div style="width:100%; display:flex; ">
-              <div style="padding: 0px 30px 100px 0px; float: left;">
-                <h1 style="font-size: 30px">
-                  마이 루틴 리스트
+        <section class="btp-title">
+          <h1>마이 루틴 편집</h1>
+          <p>
+            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아
+            보세요.
+          </p>
+        </section>
+        <div class="myroutine-container">
+          <section class="listbox">
+            <h1>
+              마이 루틴 리스트
+            </h1>
+            <div class="listbox-content">
+              <img src="../assets/images/routineListBox.png" alt="" />
+              <div class="listbox-timer">
+                <h1>
+                  총 {{ results.totalTimeMin }} 분 {{ results.totalTimeSec }} 초
                 </h1>
-                <div style="position: relative; ">
-                  <img src="../assets/images/routineListBox.png" alt="" />
-                  <div style="position: absolute; top:10px; left: 80px; ">
-                    <h1 style="font-size: 20px">
-                      총 {{ results.totalTimeMin }} 분
-                      {{ results.totalTimeSec }} 초
-                    </h1>
-                  </div>
-                  <div style="position: absolute; top:80px; left: 75px; ">
-                    <button>
-                      <img
-                        src="../assets/images/button/routineSaveBtn.png"
-                        alt=""
-                      />
-                    </button>
-                  </div>
-                  <div
-                    class="basic-scroll"
-                    style="overflow-x:hidden; width:250px; height:480px; position: absolute; top:120px; left: 18px; "
-                  >
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                    <div style="padding:5px 0px 5px 0px">
-                      <img src="../assets/images/routineComponent.png" alt="" />
-                    </div>
-                  </div>
-                </div>
               </div>
-              <div style="flex-grow: 1; float: right; position: relative; ">
-                <div>
-                  <button
-                    style="background-color:#61C997; height:30px; border-radius:10px; color:white; padding: 0px 20px 0px 20px; margin:20px 10px 20px 10px "
-                  >
-                    전체 스트레칭
-                  </button>
-                  <button
-                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
-                  >
-                    변수
-                  </button>
-                  <button
-                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
-                  >
-                    변수
-                  </button>
-                  <button
-                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
-                  >
-                    변수
-                  </button>
-                  <button
-                    style="background-color:#ECF0F4; height:30px; border-radius:10px; padding: 0px 20px 0px 20px; margin:20px 10px 20px 0px"
-                  >
-                    변수
-                  </button>
+              <button class="listbox-button">
+                <img src="../assets/images/button/routineSaveBtn.png" alt="" />
+              </button>
+              <div class="basic-scroll">
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
                 </div>
-                <div>
-                  <div>
-                    <button style="margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card0.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card1.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card2.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card1.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card2.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card3.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card0.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card1.png`)" />
-                    </button>
-                    <button style=" margin:10px 10px 10px 10px">
-                      <img :src="require(`../assets/images/card2.png`)" />
-                    </button>
-                  </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
+                </div>
+                <div class="routineComponent">
+                  <img src="../assets/images/routineComponent.png" alt="" />
                 </div>
               </div>
             </div>
           </section>
+          <section class="stretch-container">
+            <article class="category">
+              <button class="category-btn-on">
+                전체 스트레칭
+              </button>
+              <button class="category-btn-off">
+                변수
+              </button>
+              <button class="category-btn-off">
+                변수
+              </button>
+              <button class="category-btn-off">
+                변수
+              </button>
+              <button class="category-btn-off">
+                변수
+              </button>
+            </article>
+            <article class="stretch-card">
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card0.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card1.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card2.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card1.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card2.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card3.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card0.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card1.png`)" />
+              </button>
+              <button class="stretching-card">
+                <img :src="require(`../assets/images/card2.png`)" />
+              </button>
+            </article>
+          </section>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
     </div>
   </div>
