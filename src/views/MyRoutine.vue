@@ -28,16 +28,35 @@
       <article class="routine-menu">
         <button type="button">마이루틴 리스트 편집하기 ></button>
       </article>
+      <!-- 캐러셀 -->
+      <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+        <template #prevArrow="">
+          <button class="arrow-btn">
+            <img src="../assets/icon/left_square.png" alt="arrow-left" />
+          </button>
+        </template>
+        <template #nextArrow="">
+          <button class="arrow-btn">
+            <img src="../assets/icon/right_square.png" alt="arrow-left" />
+          </button>
+        </template>
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
-@import "../assets/scss/common.scss";
-@import "../assets/scss/components/myroutine.scss";
-</style>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
+import listContent from "../components/listContent.vue";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
 export default {
   data() {
     return {
@@ -47,6 +66,13 @@ export default {
   },
   components: {
     simpleheader,
+    VueSlickCarousel,
+    listContent,
   },
 };
 </script>
+<style lang="scss" scoped>
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/common.scss";
+@import "../assets/scss/components/myroutine.scss";
+</style>
