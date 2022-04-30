@@ -18,32 +18,15 @@
   padding: 20px;
 }
 .content {
-  text-align: center;
-  // max-width: 1229px;
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   border-radius: $btp-border;
-  padding: 37px;
   user-select:all;
   cursor: default;
-  h1 {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
-  }
-  h3 {
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 29px;
-    color: #a4a4a4;
-  }
-  img {
-    margin-top: 37px;
-    margin-bottom: 36px;
-  }
+  
   .btn-x {
     position: absolute;
     top: 25px;
@@ -68,26 +51,69 @@
 .ms-l {
   width: 1229px;
   height: 490px;
+  padding: 3.5rem;
+  text-align: center;
+
+  img {
+    margin: 37px 0px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 29px;
+    color: #a4a4a4;
+  }
 }
 
 .ms-m {
-  width: 400px;
-  height: 500px;
+  width: 35rem;
+  height: 80%;
+
+  .modal-body {
+    height: 60%;
+    padding: 3rem;
+  }
+  
+  img {
+    height: 40%;
+  }
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #a4a4a4;
+  }
+}
+
+.m-stretching-time {
+  text-align: center;
+
+  .time {
+    display: inline;
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
 }
 
 .m-str-btn {
   background-color: $btp-mint;
   color: $btp-green;
   font-size: 2rem;
+  text-align: center;
   
   div {
     display: inline;
     padding: 1rem;
   }
-}
-
-.time {
-  display: inline;
-  font-size: 3rem;
-  margin: 0 1rem;
 }
