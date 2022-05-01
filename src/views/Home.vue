@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <!-- 헤더(흰색) -->
     <header class="header">
       <div class="header-logo">
