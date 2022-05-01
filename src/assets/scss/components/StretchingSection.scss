@@ -1,0 +1,30 @@
+.app-container {
+  background-color: white;
+}
+.category {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .category-btn {
+    height: 30px;
+    border-radius: 10px;
+    padding: 0px 20px;
+  }
+  .category-btn:not(:last-child) {
+    margin-right: 10px;
+  }
+  .on {
+    background-color: #61c997;
+    color: white;
+  }
+  .off {
+    background-color: #ecf0f4;
+  }
+}
+.stretchList {
+  display: flex;
+  max-width: 1202px;
+  flex-wrap: wrap;
+  .st-item {
+    margin: 10px;
+  }
+}
