@@ -3,6 +3,7 @@
     <modalTurtle v-if="isModalViewed" @close-modal="closeModal"></modalTurtle>
     <modalStretching v-if="isModalViewed" @close-modal="closeModal"></modalStretching>
     <simpleheader></simpleheader>
+
     <div class="app-container">
       <div class="btp-container">
         <section class="btp-title">
@@ -26,7 +27,7 @@
 
             <hr />
             <p id="cal-title">이번 달 훈련 횟수 {{ todayTimes }}회</p>
-            <div id="cal">달력</div>
+            <div id="cal"><Calendar></Calendar></div>
           </div>
 
           <div class="mypage-turtle">
@@ -67,8 +68,10 @@
 <script>
 import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
+import Calendar from "../components/Calendar.vue";
 import modalTurtle from "../components/modalTurtle";
 import modalStretching from "../components/modalStretching";
+
 export default {
   data() {
     return {
@@ -83,6 +86,7 @@ export default {
   },
   components: {
     simpleheader,
+    Calendar,
     modalTurtle,
     modalStretching,
   },
