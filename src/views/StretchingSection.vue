@@ -25,23 +25,24 @@
       </section>
       <section class="moreStretching">
         <h1>다른 스트레칭 살펴보기</h1>
-        <article class="category">
-          <button class="category-btn on">
-            전체 스트레칭
-          </button>
-          <button class="category-btn off">
-            변수
-          </button>
-          <button class="category-btn off">
-            변수
-          </button>
-          <button class="category-btn off">
-            변수
-          </button>
-          <button class="category-btn off">
-            변수
-          </button>
-        </article>
+          <div class="category-wrap">
+            <article class="category">
+            <button class="category-btn on">전체 스트레칭</button>
+            <button class="category-btn off">눈</button>
+            <button class="category-btn off">목</button>
+            <button class="category-btn off">어깨</button>
+            <button class="category-btn off">손목</button>
+            <button class="category-btn off">시간 별 스트레칭</button>
+          </article>
+          <!-- on off버튼 -->
+          <article class="bookmark">
+            <span>북마크만 보기</span>
+            <div v-on:change="stretchingOnOff" class="onoff-button">
+              <input type="checkbox" id="stretching-switch" />
+              <label for="stretching-switch"></label>
+            </div>  
+          </article>
+          </div>
         <div class="stretchList">
           <listContent class="st-item" />
           <listContent class="st-item" />
@@ -60,8 +61,8 @@
 </template>
 
 <script>
-import simpleheader from "../components/layout/simpleheader.vue";
-import listContent from "../components/listContent.vue";
+import simpleheader from '../components/layout/simpleheader.vue';
+import listContent from '../components/listContent.vue';
 export default {
   components: {
     simpleheader,
@@ -71,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
-@import "../assets/scss/common.scss";
-@import "../assets/scss/components/StretchingSection.scss";
+@import '../assets/scss/variables.scss';
+@import '../assets/scss/common.scss';
+@import '../assets/scss/components/StretchingSection.scss';
 </style>
