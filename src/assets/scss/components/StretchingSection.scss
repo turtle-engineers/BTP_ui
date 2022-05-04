@@ -48,28 +48,29 @@ $btp-green: #61c997;
     background-color: $btp-green;
   }
 }
-.category-wrap{
+.category-wrap {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-}
-.category {
+  align-items: center;
   margin-top: 40px;
   margin-bottom: 40px;
-  .category-btn {
-    height: 30px;
-    border-radius: 10px;
-    padding: 0px 20px;
-  }
-  .category-btn:not(:last-child) {
-    margin-right: 10px;
-  }
-  .on {
-    background-color: $btp-green;
-    color: white;
-  }
-  .off {
-    background-color: #ecf0f4;
+  .category {
+    .category-btn {
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 12px;
+      padding: 10px 28px;
+    }
+    .category-btn:not(:last-child) {
+      margin-right: 18px;
+    }
+    .on {
+      background-color: $btp-green;
+      color: white;
+    }
+    .off {
+      background-color: #ecf0f4;
+    }
   }
 }
 .bookmark {
@@ -105,7 +106,7 @@ $btp-green: #61c997;
     label:after {
       content: '';
       position: absolute;
-      bottom: 3.5px;
+      bottom: 3px;
       left: 3px;
       background: white;
       border-radius: 50%;
@@ -127,7 +128,5 @@ $btp-green: #61c997;
   display: flex;
   max-width: 1202px;
   flex-wrap: wrap;
-  .st-item {
-    margin: 10px;
-  }
+  gap: 45px 30px;
 }

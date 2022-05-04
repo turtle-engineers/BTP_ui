@@ -75,4 +75,5 @@ export default {
 @import "../assets/scss/variables.scss";
 @import "../assets/scss/common.scss";
 @import "../assets/scss/components/myroutine.scss";
+@import "../assets/scss/components/carousel.scss";
 </style>

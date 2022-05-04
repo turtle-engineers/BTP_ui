@@ -25,8 +25,8 @@
       </section>
       <section class="moreStretching">
         <h1>다른 스트레칭 살펴보기</h1>
-          <div class="category-wrap">
-            <article class="category">
+        <div class="category-wrap">
+          <article class="category">
             <button class="category-btn on">전체 스트레칭</button>
             <button class="category-btn off">눈</button>
             <button class="category-btn off">목</button>
@@ -40,9 +40,9 @@
             <div v-on:change="stretchingOnOff" class="onoff-button">
               <input type="checkbox" id="stretching-switch" />
               <label for="stretching-switch"></label>
-            </div>  
+            </div>
           </article>
-          </div>
+        </div>
         <div class="stretchList">
           <listContent class="st-item" />
           <listContent class="st-item" />
@@ -56,6 +56,9 @@
           <listContent class="st-item" />
         </div>
       </section>
+      <section>
+        <stretchingMinute></stretchingMinute>
+      </section>
     </div>
   </div>
 </template>
@@ -63,10 +66,12 @@
 <script>
 import simpleheader from '../components/layout/simpleheader.vue';
 import listContent from '../components/listContent.vue';
+import stretchingMinute from '../components/Stretching_minute.vue';
 export default {
   components: {
     simpleheader,
     listContent,
+    stretchingMinute,
   },
 };
 </script>
