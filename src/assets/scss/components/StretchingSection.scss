@@ -1,0 +1,132 @@
+$btp-green: #61c997;
+
+.app-container {
+  background-color: white;
+}
+
+.progress-time {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 35px;
+  }
+  p {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(0, 0, 0, 0.47);
+  }
+}
+// 마이루틴 progress bar
+.progress {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: transparent;
+  progress {
+    width: 100%;
+    border: none;
+  }
+  ::-webkit-progress-bar,
+  ::-webkit-progress-value {
+    border-radius: 10px;
+  }
+  ::-webkit-progress-bar {
+    height: 10px;
+    background-color: #c4c4c4;
+  }
+  ::-webkit-progress-value {
+    background-color: $btp-green;
+  }
+}
+.category-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .category {
+    .category-btn {
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 12px;
+      padding: 10px 28px;
+    }
+    .category-btn:not(:last-child) {
+      margin-right: 18px;
+    }
+    .on {
+      background-color: $btp-green;
+      color: white;
+    }
+    .off {
+      background-color: #ecf0f4;
+    }
+  }
+}
+.bookmark {
+  display: flex;
+  align-items: center;
+  //onoff 버튼
+  span {
+    margin-right: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: $btpblack;
+  }
+  .onoff-button {
+    display: inline-block;
+    position: relative;
+    bottom: 21px-13px;
+    input[type='checkbox'] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+      position: relative;
+    }
+    label {
+      cursor: pointer;
+      background-color: #b8b8b8;
+      margin: auto 0;
+      display: block;
+      height: 28px;
+      width: 62px;
+      border-radius: 28px;
+      transition: 0.1s;
+    }
+    label:after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 3px;
+      background: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      transition: 0.2s;
+    }
+    input:checked + label {
+      background: $btp-green;
+    }
+    input:checked + label:after {
+      left: calc(100% - 3px);
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.stretchList {
+  display: flex;
+  max-width: 1202px;
+  flex-wrap: wrap;
+  gap: 45px 30px;
+}

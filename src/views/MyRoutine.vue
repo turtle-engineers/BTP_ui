@@ -1,10 +1,79 @@
 <template>
-    <div>
-        <h1>마이 루틴 설정</h1>
+  <div class="app-container">
+    <simpleheader></simpleheader>
+    <div class="btp-container">
+      <!-- 상단 타이틀 + 시간/시작 -->
+      <div class="routine-title">
+        <section class="btp-title">
+          <h1>마이 루틴</h1>
+          <p>
+            나만의 스트레칭 리스트를 짜고 알림이 울리면 <br />
+            리스트의 스트레칭을 따라해보세요. <br />
+            프로젝트에 참여할 수록 점점 내 몸이 <br />
+            거북이에서 인간이 되가는걸 느낄 수 있을 거예요.
+          </p>
+        </section>
+        <!-- 시간, 시작 -->
+        <article class="routine-starter">
+          <p>
+            총 <span>{{ minutes }}</span
+            >분 <span>{{ seconds }}</span
+            >초
+          </p>
+          <router-link to="/MyRoutineStretching">
+            <button type="button">마이 루틴 시작</button>
+          </router-link>
+        </article>
+      </div>
+      <article class="routine-menu">
+        <button type="button">마이루틴 리스트 편집하기 ></button>
+      </article>
+      <!-- 캐러셀 -->
+      <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+          <div class="slide-content"><listContent /></div>
+        <template #prevArrow="">
+          <button class="arrow-btn">
+            <img src="../assets/icon/left_square.png" alt="arrow-left" />
+          </button>
+        </template>
+        <template #nextArrow="">
+          <button class="arrow-btn">
+            <img src="../assets/icon/right_square.png" alt="arrow-left" />
+          </button>
+        </template>
+      </VueSlickCarousel>
     </div>
+  </div>
 </template>
 <script>
+import simpleheader from "../components/layout/simpleheader.vue";
+import listContent from "../components/listContent.vue";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
 export default {
-    
+  data() {
+    return {
+      minutes: 0,
+      seconds: 0,
+    };
+  },
+  components: {
+    simpleheader,
+    VueSlickCarousel,
+    listContent,
+  },
 };
 </script>
+<style lang="scss" scoped>
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/common.scss";
+@import "../assets/scss/components/myroutine.scss";
+@import "../assets/scss/components/carousel.scss";
+</style>
