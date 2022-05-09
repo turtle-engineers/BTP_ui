@@ -27,7 +27,7 @@
         <table class="calender_target">
             <tbody>
                 <tr v-for="(date, idx) in dates" :key="idx" >
-                    <td v-for="(day, index) in date" :key="index" class="day day-d">
+                    <td v-for="(day, index) in date" :key="index" :class="[day.color]" class="day">
                         {{day.date}}
                     </td>
                 </tr>
@@ -141,7 +141,7 @@ export default {
             let count = 0;
             //지난달의 마지막 요일 인덱스까지 빈배열로 반복문 시작
             for (let j = 0; j < thisMonthDay; j++) {
-                daysOfWeek[count] = { "date" : "" };
+                daysOfWeek[count] = { "date" : "", "color" : "day-g" };
                 tag += `<td><div class="day day-d"></div></td>`;
                 count++;
             }
@@ -160,9 +160,11 @@ export default {
                 if (i <= day) {
                     dateColor = "day-g";
                     dateNum = i;
+                    dateNum = dateNum.toString().padStart(2, "0");
                 } else if (i <= date) {
                     dateColor = "day-d";
                     dateNum = i;
+                    dateNum = dateNum.toString().padStart(2, "0");
                 } else {
                     dateColor = "day-d";
                     dateNum = "";
@@ -174,19 +176,16 @@ export default {
                     tag += "<tr>";
                 }
 
-                dateNum = dateNum.toString().padStart(2, "0")
 
-                daysOfWeek[count]  = { "date" : dateNum };
+                daysOfWeek[count]  = { "date" : dateNum, "color" : dateColor };
                 //조건은 쉬는 날을 지정. 따로 classname을 부여. count시작
                 if (
                 (thisDate === "Jan" && i === 1) ||
                 (thisDate === "Feb" && (i === 11 || i === 12 || i === 13)) ||
                 (thisDate === "Mar" && i === 1) ||
                 (thisDate === "May" && (i === 5 || i === 19)) ||
-                (thisDate === "Aug" && (i === 20 || i === 21 || i === 22)) ||
-                count % 7 === 0 ||
-                count % 7 === 6
-                ) {
+                (thisDate === "Aug" && (i === 20 || i === 21 || i === 22)) || count % 7 === 0 || count % 7 === 6) 
+                {
                     tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
                     count++;
                 } else if (count % 7 === 2 || count % 7 === 4) {
@@ -205,7 +204,7 @@ export default {
 
             this.dates = dates;
             this.month = (this.month).toString().padStart(2, "0");
-            this.calender_target =  tag;
+            this.calender_target = tag;
         }
     }
 }
