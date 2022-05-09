@@ -136,13 +136,13 @@ export default {
             //*실제 달력 만드는 코드
             //문자열로 마크업을 시작한다.
             //문자열 자체를 반복문을 이용해 만들어 준다.
-            let tag = "<tr>";
+            // let tag = "<tr>";
             // if(nextData===this.$proA.innerHTML){
             let count = 0;
             //지난달의 마지막 요일 인덱스까지 빈배열로 반복문 시작
             for (let j = 0; j < thisMonthDay; j++) {
                 daysOfWeek[count] = { "date" : "", "color" : "day-g" };
-                tag += `<td><div class="day day-d"></div></td>`;
+                // tag += `<td><div class="day day-d"></div></td>`;
                 count++;
             }
             let dateColor = "";
@@ -173,7 +173,7 @@ export default {
                 if (count % 7 === 0) {
                     count = 0;
                     daysOfWeek = [];
-                    tag += "<tr>";
+                    // tag += "<tr>";
                 }
 
 
@@ -186,25 +186,25 @@ export default {
                 (thisDate === "May" && (i === 5 || i === 19)) ||
                 (thisDate === "Aug" && (i === 20 || i === 21 || i === 22)) || count % 7 === 0 || count % 7 === 6) 
                 {
-                    tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
+                    // tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
                     count++;
                 } else if (count % 7 === 2 || count % 7 === 4) {
-                    tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
+                    // tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
                     count++;
                 } else {
-                    tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
+                    // tag += `<td class="day ` + dateColor + `">` + dateNum + `</td>`;
                     count++;
                 }
                 //7일이 끝나면 tr태그 닫기
                 if (count % 7 === 0) {
                     dates.push(daysOfWeek);
-                    tag += "</tr>";
+                    // tag += "</tr>";
                 }
             }
 
             this.dates = dates;
             this.month = (this.month).toString().padStart(2, "0");
-            this.calender_target = tag;
+            // this.calender_target = tag;
         }
     }
 }

@@ -17,6 +17,9 @@
               <img src="../assets/icon/btn-plus.png" />
             </button>
           </div>
+        </div>
+
+        <div class="modal-bottom">
           <b-row class="m-str-btn">
             <b-col>초기화</b-col>
             <b-col>추가하기</b-col>
