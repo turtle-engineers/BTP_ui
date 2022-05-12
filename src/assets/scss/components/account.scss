@@ -71,12 +71,77 @@ a:hover {
 
 #cal {
   width: 371px;
-  height: 375.22px;
   background-color: white; //임시
   color: black; //임시
   margin: 21px auto 39.78px auto;
   border-radius: $btp-border;
 }
+
+.calendar-card {
+  border-radius: 44px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  .arrow-left {
+      text-align:right;
+  }
+  .arrow-left img {
+    transform: rotate(0deg);
+  }
+
+  .arrow-right {
+      text-align:left;
+  }
+  .arrow-right img {
+    transform: rotate(0deg);
+  }
+
+  .calender-date {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: #343A40;
+  }
+
+  .calender-goal {
+    display: none;
+  }
+  
+
+  .calender_target {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0.5rem 1rem;
+      table-layout: fixed;
+  }
+
+  .day {
+      height: 5rem;
+      border-radius: 1rem;
+      font-size: 2rem;
+      text-align: center;
+  }
+
+  .day-d {
+      color: rgb(0,0,0,0);
+      -webkit-text-stroke: 1px #FFFFFF;
+      background-color: #D9E0E2;
+  }
+  .day-b {
+      color: #FFFFFF;
+      background-color: $color-b;
+  }
+  .day-w {
+      color: #343A40;
+      background-color: #FFDF4D;
+  }
+  .day-g {
+      color: rgb(0,0,0,0);
+      -webkit-text-stroke: 1px #D9E0E2;
+      background-color: #A5B1B5;
+  }
+  
+}
+
 
 // 거북이 진행도
 .mypage-turtle {
