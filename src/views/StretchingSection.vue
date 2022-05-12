@@ -26,12 +26,12 @@
         <h1>다른 스트레칭 살펴보기</h1>
         <div class="category-wrap">
           <article class="category">
-            <button class="category-btn on">전체 스트레칭</button>
-            <button class="category-btn off">눈</button>
-            <button class="category-btn off">목</button>
-            <button class="category-btn off">어깨</button>
-            <button class="category-btn off">손목</button>
-            <button class="category-btn off">시간 별 스트레칭</button>
+            <button class="category-btn on" data-category="all">전체 스트레칭</button>
+            <button class="category-btn off" data-category="eye">눈</button>
+            <button class="category-btn off" data-category="neck">목</button>
+            <button class="category-btn off" data-category="shoulder">어깨</button>
+            <button class="category-btn off" data-category="wrist">손목</button>
+            <button class="category-btn off" data-category="time">시간 별 스트레칭</button>
           </article>
           <!-- on off버튼 -->
           <article class="bookmark">
@@ -43,16 +43,17 @@
           </article>
         </div>
         <div class="stretchList">
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
-          <listContent class="st-item" />
+          <listContent class="st-item" data-category="eye" />
+          <listContent class="st-item" data-category="neck" />
+          <listContent class="st-item" data-category="neck" />
+          <listContent class="st-item" data-category="shoulder" />
+          <listContent class="st-item" data-category="neck" />
+          <listContent class="st-item" data-category="shoulder" />
+          <listContent class="st-item" data-category="eye" />
+          <listContent class="st-item" data-category="wrist" />
+          <listContent class="st-item" data-category="shoulder" />
+          <listContent class="st-item" data-category="wrist" />
+          <listContent class="st-item" data-category="shoulder" />
         </div>
       </section>
       <!-- <section>
@@ -71,6 +72,34 @@ export default {
     simpleheader,
     listContent,
     // stretchingMinute,
+  },
+  mounted() {
+    this.categoryFilter();
+  },
+  methods: {
+    categoryFilter() {
+      const categoryBtn = document.querySelectorAll('.category-btn');
+      const listItem = document.querySelectorAll('.st-item');
+
+      categoryBtn.forEach((button) =>
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          const filter = e.target.dataset.category;
+
+          listItem.forEach((item) => {
+            if (filter === 'all') {
+              item.style.display = 'inline';
+            } else {
+              if (item.dataset.category === filter) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            }
+          });
+        })
+      );
+    },
   },
 };
 </script>
