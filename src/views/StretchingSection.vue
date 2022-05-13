@@ -58,9 +58,9 @@
           />
         </div>
       </section>
-      <!-- <section>
+      <section class="timeCategoryList">
         <stretchingMinute></stretchingMinute>
-      </section> -->
+      </section>
     </div>
   </div>
 </template>
@@ -68,7 +68,7 @@
 <script>
 import simpleheader from '../components/layout/simpleheader.vue';
 import listContent from '../components/listContent.vue';
-// import stretchingMinute from '../components/Stretching_minute.vue';
+import stretchingMinute from '../components/Stretching_minute.vue';
 export default {
   data() {
     return {
@@ -79,7 +79,7 @@ export default {
   components: {
     simpleheader,
     listContent,
-    // stretchingMinute,
+    stretchingMinute,
   },
   mounted() {
     this.categoryFilter();
@@ -88,6 +88,8 @@ export default {
     categoryFilter() {
       let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
       const listItem = document.querySelectorAll('.st-item');
+      const timeCategoryList = document.querySelector('.timeCategoryList');
+
       categoryBtn.forEach((btn) => {
         btn.addEventListener('change', function(e) {
           const filter = e.target.dataset.category;
@@ -98,6 +100,11 @@ export default {
               item.style.display = item.dataset.category === filter ? 'block' : 'none';
             }
           });
+          if (btn.id === 'f6') {
+            timeCategoryList.style.display = 'block';
+          } else {
+            timeCategoryList.style.display = 'none';
+          }
         });
       });
     },
