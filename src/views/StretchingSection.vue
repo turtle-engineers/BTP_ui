@@ -49,17 +49,13 @@
           </article>
         </div>
         <div class="stretchList">
-          <listContent class="st-item" data-category="eye" />
-          <listContent class="st-item" data-category="neck" />
-          <listContent class="st-item" data-category="neck" />
-          <listContent class="st-item" data-category="shoulder" />
-          <listContent class="st-item" data-category="neck" />
-          <listContent class="st-item" data-category="shoulder" />
-          <listContent class="st-item" data-category="eye" />
-          <listContent class="st-item" data-category="wrist" />
-          <listContent class="st-item" data-category="shoulder" />
-          <listContent class="st-item" data-category="wrist" />
-          <listContent class="st-item" data-category="shoulder" />
+          <listContent
+            class="st-item"
+            v-for="list in category"
+            :key="list"
+            :category="list"
+            v-bind:data-category="makeBindAttribute(list)"
+          />
         </div>
       </section>
       <!-- <section>
@@ -74,6 +70,12 @@ import simpleheader from '../components/layout/simpleheader.vue';
 import listContent from '../components/listContent.vue';
 // import stretchingMinute from '../components/Stretching_minute.vue';
 export default {
+  data() {
+    return {
+      // 여기에 전달할 컴포넌트 데이터 담기
+      category: ['eye', 'neck', 'shoulder', 'wrist'],
+    };
+  },
   components: {
     simpleheader,
     listContent,
@@ -98,6 +100,9 @@ export default {
           });
         });
       });
+    },
+    makeBindAttribute(item) {
+      return item;
     },
   },
 };
