@@ -26,17 +26,23 @@
         <h1>다른 스트레칭 살펴보기</h1>
         <div class="category-wrap">
           <article class="category">
-            <button class="category-btn on" data-category="all">전체 스트레칭</button>
-            <button class="category-btn off" data-category="eye">눈</button>
-            <button class="category-btn off" data-category="neck">목</button>
-            <button class="category-btn off" data-category="shoulder">어깨</button>
-            <button class="category-btn off" data-category="wrist">손목</button>
-            <button class="category-btn off" data-category="time">시간 별 스트레칭</button>
+            <input type="radio" id="f1" data-category="all" name="categoryFilter" checked />
+            <label class="category-btn" for="f1">전체 스트레칭</label>
+            <input type="radio" id="f2" data-category="eye" name="categoryFilter" />
+            <label class="category-btn" for="f2">눈</label>
+            <input type="radio" id="f3" data-category="neck" name="categoryFilter" />
+            <label class="category-btn" for="f3">목</label>
+            <input type="radio" id="f4" data-category="shoulder" name="categoryFilter" />
+            <label class="category-btn" for="f4">어깨</label>
+            <input type="radio" id="f5" data-category="wrist" name="categoryFilter" />
+            <label class="category-btn" for="f5">손목</label>
+            <input type="radio" id="f6" data-category="time" name="categoryFilter" />
+            <label class="category-btn" for="f6">시간 별 스트레칭</label>
           </article>
           <!-- on off버튼 -->
           <article class="bookmark">
             <span>북마크만 보기</span>
-            <div v-on:change="stretchingOnOff" class="onoff-button">
+            <div class="onoff-button">
               <input type="checkbox" id="stretching-switch" />
               <label for="stretching-switch"></label>
             </div>
@@ -78,27 +84,20 @@ export default {
   },
   methods: {
     categoryFilter() {
-      const categoryBtn = document.querySelectorAll('.category-btn');
+      let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
       const listItem = document.querySelectorAll('.st-item');
-
-      categoryBtn.forEach((button) =>
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
+      categoryBtn.forEach((btn) => {
+        btn.addEventListener('change', function(e) {
           const filter = e.target.dataset.category;
-
           listItem.forEach((item) => {
             if (filter === 'all') {
               item.style.display = 'inline';
             } else {
-              if (item.dataset.category === filter) {
-                item.style.display = 'block';
-              } else {
-                item.style.display = 'none';
-              }
+              item.style.display = item.dataset.category === filter ? 'block' : 'none';
             }
           });
-        })
-      );
+        });
+      });
     },
   },
 };
