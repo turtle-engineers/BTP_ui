@@ -89,6 +89,7 @@ export default {
       let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
       const listItem = document.querySelectorAll('.st-item');
       const timeCategoryList = document.querySelector('.timeCategoryList');
+      const bookmarkToggle = document.querySelector('#stretching-switch');
 
       categoryBtn.forEach((btn) => {
         btn.addEventListener('change', function(e) {
@@ -101,8 +102,11 @@ export default {
             }
           });
           if (btn.id === 'f6') {
+            bookmarkToggle.checked = false;
+            bookmarkToggle.nextSibling.style.pointerEvents = 'none';
             timeCategoryList.style.display = 'block';
           } else {
+            bookmarkToggle.style.pointerEvents = 'auto';
             timeCategoryList.style.display = 'none';
           }
         });
