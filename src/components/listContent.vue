@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrap">
-    <img :src="require(`@/assets/images/stretch_sample/stretching_${category}.png`)" alt="sample img" />
+    <img :src="require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)" alt="sample img" />
     <div class="caption-wrap">
       <img
         :src="require(`../assets/images/bookmark-${bookmarkChecked}.png`)"
@@ -8,7 +8,7 @@
         v-on:click="bookmarkOnOff"
       />
       <div>
-        <h1>{{ category }} 스트레칭 (샘플)</h1>
+        <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         <p>00 : 00 : 00</p>
       </div>
     </div>
@@ -30,6 +30,16 @@ export default {
     category: {
       type: String,
       default: 'eye',
+    },
+    contentInfo: {
+      type: Object,
+      default: () => {
+        return {
+          category: 'eye',
+          id: '0',
+          title: 'SAMPLE TITLE',
+        };
+      },
     },
   },
   methods: {

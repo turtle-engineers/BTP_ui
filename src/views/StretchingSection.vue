@@ -51,10 +51,11 @@
         <div class="stretchList">
           <listContent
             class="st-item"
-            v-for="list in category"
-            :key="list"
-            :category="list"
-            v-bind:data-category="makeBindAttribute(list)"
+            v-for="(contentInfo, i) in stretchContentList"
+            :key="i"
+            :contentInfo="contentInfo"
+            :category="contentInfo.category"
+            v-bind:data-category="makeBindAttribute(contentInfo.category)"
           />
         </div>
       </section>
