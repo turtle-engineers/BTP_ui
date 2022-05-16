@@ -94,7 +94,27 @@ export default {
       axios.get('http://127.0.0.1:3000/stretch/category/list').then((res) => {
         if (res.data.results != null) {
           this.stretchCategoryList = res.data.results;
-          // console.log(this.stretchCategoryList);
+          this.getEachCategoryContent();
+        } else {
+          console.log(res.data);
+        }
+      });
+    },
+    getEachCategoryContent() {
+      for (const list in this.stretchCategoryList) {
+        const nowList = this.stretchCategoryList[list];
+        this.getStretchContent(nowList);
+      }
+    },
+    getStretchContent(nowList) {
+      // console.log(nowList.id, nowList.title);
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/stretch/contents/list',
+        params: { cid: nowList.id },
+      }).then((res) => {
+        if (res.data.result == 'OK') {
+          console.log(nowList.title, ':', res.data.results);
         } else {
           console.log(res.data);
         }
