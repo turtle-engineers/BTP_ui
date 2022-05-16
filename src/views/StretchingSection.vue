@@ -76,6 +76,7 @@ export default {
       // 여기에 전달할 컴포넌트 데이터 담기
       category: ['eye', 'neck', 'shoulder', 'wrist'],
       stretchCategoryList: {},
+      stretchContentList: [],
     };
   },
   components: {
@@ -114,7 +115,17 @@ export default {
         params: { cid: nowList.id },
       }).then((res) => {
         if (res.data.result == 'OK') {
-          console.log(nowList.title, ':', res.data.results);
+          const eachStretch = res.data.results;
+
+          eachStretch.forEach((content) => {
+            const stretchData = {
+              category: nowList.title,
+              id: content.id,
+              title: content.title,
+            };
+
+            this.stretchContentList.push(stretchData);
+          });
         } else {
           console.log(res.data);
         }
@@ -125,7 +136,6 @@ export default {
       const listItem = document.querySelectorAll('.st-item');
       const timeCategoryList = document.querySelector('.timeCategoryList');
       const bookmarkToggle = document.querySelector('#stretching-switch');
-
       categoryBtn.forEach((btn) => {
         btn.addEventListener('change', function(e) {
           const filter = e.target.dataset.category;
