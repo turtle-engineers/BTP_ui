@@ -69,11 +69,13 @@
 import simpleheader from '../components/layout/simpleheader.vue';
 import listContent from '../components/listContent.vue';
 import stretchingMinute from '../components/Stretching_minute.vue';
+import axios from 'axios';
 export default {
   data() {
     return {
       // 여기에 전달할 컴포넌트 데이터 담기
       category: ['eye', 'neck', 'shoulder', 'wrist'],
+      stretchCategoryList: {},
     };
   },
   components: {
@@ -81,10 +83,23 @@ export default {
     listContent,
     stretchingMinute,
   },
+  created() {
+    this.getCategoryId();
+  },
   mounted() {
     this.categoryFilter();
   },
   methods: {
+    getCategoryId() {
+      axios.get('http://127.0.0.1:3000/stretch/category/list').then((res) => {
+        if (res.data.results != null) {
+          this.stretchCategoryList = res.data.results;
+          // console.log(this.stretchCategoryList);
+        } else {
+          console.log(res.data);
+        }
+      });
+    },
     categoryFilter() {
       let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
       const listItem = document.querySelectorAll('.st-item');
