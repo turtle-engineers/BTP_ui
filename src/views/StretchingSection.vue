@@ -88,7 +88,7 @@ export default {
   created() {
     this.getCategoryId();
   },
-  mounted() {
+  updated() {
     this.categoryFilter();
   },
   methods: {
