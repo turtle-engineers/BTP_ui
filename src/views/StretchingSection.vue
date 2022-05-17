@@ -152,7 +152,7 @@ export default {
             bookmarkToggle.nextSibling.style.pointerEvents = 'none';
             timeCategoryList.style.display = 'block';
           } else {
-            bookmarkToggle.style.pointerEvents = 'auto';
+            bookmarkToggle.nextSibling.style.pointerEvents = 'auto';
             timeCategoryList.style.display = 'none';
           }
         });
