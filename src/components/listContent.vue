@@ -1,10 +1,14 @@
 <template>
   <div class="content-wrap">
-    <img src="../assets/images/stretching_sample.png" alt="sample img" />
+    <img :src="require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)" alt="sample img" />
     <div class="caption-wrap">
-      <img :src="require(`../assets/images/bookmark-${bookmarkChecked}.png`)" alt="bookmark-on" v-on:click="bookmarkOnOff" />
+      <img
+        :src="require(`../assets/images/bookmark-${bookmarkChecked}.png`)"
+        alt="bookmark-on"
+        v-on:click="bookmarkOnOff"
+      />
       <div>
-        <h1>스트레칭 이름</h1>
+        <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         <p>00 : 00 : 00</p>
       </div>
     </div>
@@ -19,15 +23,31 @@
 export default {
   data() {
     return {
-      bookmarkChecked : 'off'
+      bookmarkChecked: 'off',
     };
+  },
+  props: {
+    category: {
+      type: String,
+      default: 'eye',
+    },
+    contentInfo: {
+      type: Object,
+      default: () => {
+        return {
+          category: 'eye',
+          id: '0',
+          title: 'SAMPLE TITLE',
+        };
+      },
+    },
   },
   methods: {
     bookmarkOnOff() {
-      if(this.bookmarkChecked == 'off'){
-        this.bookmarkChecked = 'on'
-      }else{
-        this.bookmarkChecked = 'off'
+      if (this.bookmarkChecked == 'off') {
+        this.bookmarkChecked = 'on';
+      } else {
+        this.bookmarkChecked = 'off';
       }
     },
   },
