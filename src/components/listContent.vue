@@ -20,10 +20,12 @@
 @import '../assets/scss/components/listContent.scss';
 </style>
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       bookmarkChecked: 'off',
+      userID: undefined,
     };
   },
   props: {
@@ -42,12 +44,81 @@ export default {
       },
     },
   },
+  created() {
+    this.getUserID();
+  },
   methods: {
     bookmarkOnOff() {
       if (this.bookmarkChecked == 'off') {
         this.bookmarkChecked = 'on';
+
+        axios({
+          method: 'post',
+          url: 'http://127.0.0.1:3000/bookmark/add',
+          data: {
+            userId: this.userID,
+            stretchContentId: this.contentInfo.id,
+          },
+        }).then((res) => {
+          if (res.data.results != null) {
+            let result = res.data.results;
+            console.log(result);
+          } else {
+            console.log(res.data);
+          }
+        });
       } else {
         this.bookmarkChecked = 'off';
+
+        axios({
+          method: 'post',
+          url: 'http://127.0.0.1:3000/bookmark/delete',
+          data: {
+            userId: this.userID,
+            stretchContentId: this.contentInfo.id,
+          },
+        }).then((res) => {
+          if (res.data.results != null) {
+            let result = res.data.results;
+            console.log(result);
+          } else {
+            console.log(res.data);
+          }
+        });
+      }
+    },
+    getUserID() {
+      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+        if (res.data != null) {
+          const loginData = res.data.results;
+          this.userID = loginData.id;
+          // console.log(this.userID);
+          this.getBookmark();
+        }
+      });
+    },
+    getBookmark() {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/bookmark/list',
+        params: { uid: this.userID },
+      }).then((res) => {
+        if (res.data.results != null) {
+          let result = res.data.results;
+          // console.log(result);
+          const bookmarkIdList = [];
+          result.forEach((element) => {
+            bookmarkIdList.push(element.StretchContentId);
+          });
+          this.markBookmark(bookmarkIdList);
+        } else {
+          console.log(res.data);
+        }
+      });
+    },
+    markBookmark(bookmarkIdList) {
+      if (bookmarkIdList.includes(this.contentInfo.id)) {
+        this.bookmarkChecked = 'on';
       }
     },
   },
