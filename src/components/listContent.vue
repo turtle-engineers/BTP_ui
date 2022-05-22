@@ -51,6 +51,22 @@ export default {
     bookmarkOnOff() {
       if (this.bookmarkChecked == 'off') {
         this.bookmarkChecked = 'on';
+
+        axios({
+          method: 'post',
+          url: 'http://127.0.0.1:3000/bookmark/add',
+          data: {
+            userId: this.userID,
+            stretchContentId: this.contentInfo.id,
+          },
+        }).then((res) => {
+          if (res.data.results != null) {
+            let result = res.data.results;
+            console.log(result);
+          } else {
+            console.log(res.data);
+          }
+        });
       } else {
         this.bookmarkChecked = 'off';
       }
