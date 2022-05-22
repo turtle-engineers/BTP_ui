@@ -142,6 +142,7 @@ export default {
       num: 0,
       backNum: 0,
       cardNum: 0,
+      routineArray: [],
     };
   },
   created() {
@@ -165,21 +166,16 @@ export default {
       });
     },
     async getMyRoutine() {
-      await axios
-        .get("http://127.0.0.1:3000/my-routine/list", this.user.id)
-        .then((res) => {
-          if (res.data.result == "OK") {
-            this.results = res.data.results;
-            if (this.results.listLen < 4) {
-              console.log(this.results.listLen);
-              while (this.results.listLen < 4) {
-                this.results.myRoutineList.push({ imageUrl: "" });
-                this.results.listLen += 1;
-              }
-            }
-            console.log(this.results.myRoutineList);
-          }
-        });
+      await axios({
+        method: "get",
+        url: "http://127.0.0.1:3000/my-routine/list",
+        params: { userId: this.user.id },
+      }).then((res) => {
+        if (res.data.result == "OK") {
+          this.routineArray = res.data.results;
+          // console.log(this.routineArray);
+        }
+      });
     },
     nextList(preNum, preCardNum, direction) {
       if (direction) {
