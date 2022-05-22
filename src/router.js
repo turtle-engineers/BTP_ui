@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./views/Home";
-import MyRoutine from "./views/MyRoutine";
+import myroutineStart from "./views/myroutineStart";
 import myroutineEdit from "./views/myroutineEdit";
 import myroutineStretching from "./views/myroutineStretching";
 import RandomChallenge from "./views/RandomChallenge";
@@ -26,8 +26,8 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: Home },
 
-    { path: "/myroutine", component: MyRoutine },
-    { path: "/myroutine/start", component: MyRoutine },
+    { path: "/myroutine", component: myroutineStart },
+    { path: "/myroutine/start", component: myroutineStart },
     { path: "/myroutine/edit", component: myroutineEdit },
     { path: "/myroutine/stretching", component: myroutineStretching },
     
