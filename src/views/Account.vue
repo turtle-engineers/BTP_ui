@@ -96,13 +96,15 @@ export default {
   methods: {
     login() {
       axios.get("http://127.0.0.1:3000/user/info").then((res) => {
-        if (res.data != null) {
+        if (res.data.results != null) {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
           this.nickname = loginData.nickname;
           this.promise = loginData.title;
           this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
+        } else {
+          window.location.replace("http://127.0.0.1:3000/oauth/kakao");
         }
       });
     },
