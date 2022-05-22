@@ -93,8 +93,33 @@ export default {
           const loginData = res.data.results;
           this.userID = loginData.id;
           // console.log(this.userID);
+          this.getBookmark();
         }
       });
+    },
+    getBookmark() {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/bookmark/list',
+        params: { uid: this.userID },
+      }).then((res) => {
+        if (res.data.results != null) {
+          let result = res.data.results;
+          // console.log(result);
+          const bookmarkIdList = [];
+          result.forEach((element) => {
+            bookmarkIdList.push(element.StretchContentId);
+          });
+          this.markBookmark(bookmarkIdList);
+        } else {
+          console.log(res.data);
+        }
+      });
+    },
+    markBookmark(bookmarkIdList) {
+      if (bookmarkIdList.includes(this.contentInfo.id)) {
+        this.bookmarkChecked = 'on';
+      }
     },
   },
 };
