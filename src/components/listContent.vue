@@ -20,10 +20,12 @@
 @import '../assets/scss/components/listContent.scss';
 </style>
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       bookmarkChecked: 'off',
+      userID: undefined,
     };
   },
   props: {
@@ -42,6 +44,9 @@ export default {
       },
     },
   },
+  created() {
+    this.getUserID();
+  },
   methods: {
     bookmarkOnOff() {
       if (this.bookmarkChecked == 'off') {
@@ -49,6 +54,15 @@ export default {
       } else {
         this.bookmarkChecked = 'off';
       }
+    },
+    getUserID() {
+      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+        if (res.data != null) {
+          const loginData = res.data.results;
+          this.userID = loginData.id;
+          // console.log(this.userID);
+        }
+      });
     },
   },
 };
