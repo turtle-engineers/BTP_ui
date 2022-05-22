@@ -17,11 +17,13 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+import { store } from "./js/store/store";
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   vuetify,
+  store: store,
   render: h => h(App)
 }).$mount('#app')
