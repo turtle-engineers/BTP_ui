@@ -20,24 +20,26 @@
             >분 <span>{{ seconds }}</span
             >초
           </p>
-          <router-link to="/MyRoutineStretching">
+          <router-link to="/myroutine/stretching">
             <button type="button">마이 루틴 시작</button>
           </router-link>
         </article>
       </div>
       <article class="routine-menu">
-        <button type="button">마이루틴 리스트 편집하기 ></button>
+        <router-link to="/myroutine/edit">
+          <button type="button">마이루틴 리스트 편집하기 ></button>
+        </router-link>
       </article>
       <!-- 캐러셀 -->
       <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
-          <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
+        <div class="slide-content"><listContent /></div>
         <template #prevArrow="">
           <button class="arrow-btn">
             <img src="../assets/icon/left_square.png" alt="arrow-left" />
