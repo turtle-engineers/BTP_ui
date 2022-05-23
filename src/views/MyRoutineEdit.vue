@@ -6,50 +6,21 @@
         <section class="btp-title">
           <h1>마이 루틴 편집</h1>
           <p>
-            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아
-            보세요.
+            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아 보세요.
           </p>
         </section>
         <div class="myroutine-container">
           <section class="listbox">
             <h1>마이 루틴 리스트</h1>
             <div class="listbox-content">
-                <h2 class="listbox-timer">
-                  총 <span>{{ results.totalTimeMin }}</span>분
-                  <span>{{ results.totalTimeSec }}</span>초
-                </h2>
+              <h2 class="listbox-timer">
+                총 <span>{{ results.totalTimeMin }}</span
+                >분 <span>{{ results.totalTimeSec }}</span
+                >초
+              </h2>
               <button class="listbox-button">저장하기</button>
               <div class="basic-scroll">
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
-                <div class="routineComponent">
-                  <img src="../assets/images/routineComponent.png" alt="" />
-                </div>
+                <div v-for="(element, index) in this.routineArray" :key="index"><myroutineList></myroutineList></div>
               </div>
             </div>
           </section>
@@ -113,6 +84,7 @@
 </style>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
+import myroutineList from "../components/myroutineList.vue";
 import axios from "axios";
 export default {
   data() {
@@ -142,6 +114,8 @@ export default {
       num: 0,
       backNum: 0,
       cardNum: 0,
+
+      routineArray: [],
     };
   },
   created() {
@@ -149,6 +123,7 @@ export default {
   },
   components: {
     simpleheader,
+    myroutineList,
   },
   methods: {
     create() {
@@ -165,31 +140,23 @@ export default {
       });
     },
     async getMyRoutine() {
-      await axios
-        .get("http://127.0.0.1:3000/my-routine/list", this.user.id)
-        .then((res) => {
-          if (res.data.result == "OK") {
-            this.results = res.data.results;
-            if (this.results.listLen < 4) {
-              console.log(this.results.listLen);
-              while (this.results.listLen < 4) {
-                this.results.myRoutineList.push({ imageUrl: "" });
-                this.results.listLen += 1;
-              }
-            }
-            console.log(this.results.myRoutineList);
-          }
-        });
+      await axios({
+        method: "get",
+        url: "http://127.0.0.1:3000/my-routine/list",
+        params: { userId: this.user.id },
+      }).then((res) => {
+        if (res.data.result == "OK") {
+          this.routineArray = res.data.results;
+          // console.log(this.routineArray);
+        }
+      });
     },
     nextList(preNum, preCardNum, direction) {
       if (direction) {
         this.num = (preNum + 1) % this.results.listLen;
         this.cardNum = (preCardNum + 1) % 4;
       } else {
-        this.num =
-          preNum - 1 < 0
-            ? this.results.listLen - 1
-            : (preNum - 1) % this.results.listLen;
+        this.num = preNum - 1 < 0 ? this.results.listLen - 1 : (preNum - 1) % this.results.listLen;
         this.cardNum = preCardNum - 1 < 0 ? 3 : (preCardNum - 1) % 4;
       }
       //   if (this.num > this.results.listLen) {
