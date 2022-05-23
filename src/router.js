@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "./views/Home";
 
 import myroutineStart from "./views/myroutineStart";
-import myroutineEdit from "./views/MyRoutineEdit";
+import myroutineEdit from "./views/myroutineEdit";
 import myroutineStretching from "./views/myroutineStretching";
 import MyRoutine from "./views/MyRoutine.vue";
 
