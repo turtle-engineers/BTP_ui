@@ -38,52 +38,7 @@
             </div>
           </section>
           <section class="stretch-container">
-            <article class="category">
-              <button class="category-btn on">
-                전체 스트레칭
-              </button>
-              <button class="category-btn off">
-                변수
-              </button>
-              <button class="category-btn off">
-                변수
-              </button>
-              <button class="category-btn off">
-                변수
-              </button>
-              <button class="category-btn off">
-                변수
-              </button>
-            </article>
-            <article class="stretch-card">
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card0.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card1.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card2.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card1.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card2.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card3.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card0.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card1.png`)" />
-              </button>
-              <button class="stretching-card">
-                <img :src="require(`../assets/images/card2.png`)" />
-              </button>
-            </article>
+            <StretchList></StretchList>
           </section>
         </div>
       </div>
@@ -98,6 +53,7 @@
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
 import myroutineList from "../components/myroutineList.vue";
+import StretchList from "../components/StretchList.vue";
 import draggable from "vuedraggable";
 import axios from "axios";
 export default {
@@ -140,6 +96,7 @@ export default {
     simpleheader,
     myroutineList,
     draggable,
+    StretchList,
   },
   methods: {
     create() {
