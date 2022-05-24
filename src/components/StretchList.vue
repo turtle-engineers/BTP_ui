@@ -34,22 +34,27 @@
         v-bind:data-category="makeBindAttribute(contentInfo.category)"
       />
     </div>
+    <div class="timeCategoryList">
+      <stretching-minute></stretching-minute>
+    </div>
   </section>
 </template>
 
 <script>
-import listContent from '../components/listContent.vue';
-import axios from 'axios';
+import listContent from "../components/listContent.vue";
+import stretchingMinute from "../components/Stretching_minute.vue";
+import axios from "axios";
+
 export default {
   data() {
     return {
       // 여기에 전달할 컴포넌트 데이터 담기
-      category: ['eye', 'neck', 'shoulder', 'wrist'],
+      category: ["eye", "neck", "shoulder", "wrist"],
       stretchCategoryList: {},
       stretchContentList: [],
     };
   },
-  components: { listContent },
+  components: { listContent, stretchingMinute },
   created() {
     this.getCategoryId();
   },
@@ -58,7 +63,7 @@ export default {
   },
   methods: {
     getCategoryId() {
-      axios.get('http://127.0.0.1:3000/stretch/category/list').then((res) => {
+      axios.get("http://127.0.0.1:3000/stretch/category/list").then((res) => {
         if (res.data.results != null) {
           this.stretchCategoryList = res.data.results;
           this.getEachCategoryContent();
@@ -76,11 +81,11 @@ export default {
     getStretchContent(nowList) {
       //   console.log(nowList.id, nowList.title);
       axios({
-        method: 'get',
-        url: 'http://127.0.0.1:3000/stretch/contents/list',
+        method: "get",
+        url: "http://127.0.0.1:3000/stretch/contents/list",
         params: { cid: nowList.id },
       }).then((res) => {
-        if (res.data.result == 'OK') {
+        if (res.data.result == "OK") {
           const eachStretch = res.data.results;
 
           eachStretch.forEach((content) => {
@@ -97,27 +102,27 @@ export default {
       });
     },
     categoryFilter() {
-      let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
-      const listItem = document.querySelectorAll('.st-item');
-      const timeCategoryList = document.querySelector('.timeCategoryList');
-      const bookmarkToggle = document.querySelector('#stretching-switch');
+      let categoryBtn = document.querySelectorAll("input[name=categoryFilter]");
+      const listItem = document.querySelectorAll(".st-item");
+      const timeCategoryList = document.querySelector(".timeCategoryList");
+      const bookmarkToggle = document.querySelector("#stretching-switch");
       categoryBtn.forEach((btn) => {
-        btn.addEventListener('change', function(e) {
+        btn.addEventListener("change", function(e) {
           const filter = e.target.dataset.category;
           listItem.forEach((item) => {
-            if (filter === 'all') {
-              item.style.display = 'inline';
+            if (filter === "all") {
+              item.style.display = "inline";
             } else {
-              item.style.display = item.dataset.category === filter ? 'block' : 'none';
+              item.style.display = item.dataset.category === filter ? "block" : "none";
             }
           });
-          if (btn.id === 'f6') {
+          if (btn.id === "f6") {
             bookmarkToggle.checked = false;
-            bookmarkToggle.nextSibling.style.pointerEvents = 'none';
-            timeCategoryList.style.display = 'block';
+            bookmarkToggle.nextSibling.style.pointerEvents = "none";
+            timeCategoryList.style.display = "block";
           } else {
-            bookmarkToggle.nextSibling.style.pointerEvents = 'auto';
-            timeCategoryList.style.display = 'none';
+            bookmarkToggle.nextSibling.style.pointerEvents = "auto";
+            timeCategoryList.style.display = "none";
           }
         });
       });
@@ -130,7 +135,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables.scss';
-@import '../assets/scss/common.scss';
-@import '../assets/scss/components/StretchList.scss';
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/common.scss";
+@import "../assets/scss/components/StretchList.scss";
+.timeCategoryList {
+  display: none;
+}
 </style>
