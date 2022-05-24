@@ -6,7 +6,8 @@
         <section class="btp-title">
           <h1>마이 루틴 편집</h1>
           <p>
-            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아 보세요.
+            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아
+            보세요.
           </p>
         </section>
         <div class="myroutine-container">
@@ -20,7 +21,21 @@
               </h2>
               <button class="listbox-button">저장하기</button>
               <div class="basic-scroll">
-                <div v-for="(element, index) in this.routineArray" :key="index"><myroutineList></myroutineList></div>
+                <draggable
+                  class="draggable-list"
+                  :list="routineArray"
+                  group="my-group"
+                >
+                  <div
+                    class="list-item"
+                    v-for="element, index in routineArray"
+                    :key="index"
+                  >
+                    <myroutineList
+                    :routineInfo="element"
+                    ></myroutineList>
+                  </div>
+                </draggable>
               </div>
             </div>
           </section>
@@ -85,6 +100,7 @@
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
 import myroutineList from "../components/myroutineList.vue";
+import draggable from "vuedraggable";
 import axios from "axios";
 export default {
   data() {
@@ -115,6 +131,7 @@ export default {
       backNum: 0,
       cardNum: 0,
 
+      list1: [{ name: "Drag Me!" }, { name: "Drag Me Too!" }],
       routineArray: [],
     };
   },
@@ -124,6 +141,7 @@ export default {
   components: {
     simpleheader,
     myroutineList,
+    draggable,
   },
   methods: {
     create() {
@@ -147,7 +165,7 @@ export default {
       }).then((res) => {
         if (res.data.result == "OK") {
           this.routineArray = res.data.results;
-          // console.log(this.routineArray);
+          console.log(this.routineArray);
         }
       });
     },
@@ -156,7 +174,10 @@ export default {
         this.num = (preNum + 1) % this.results.listLen;
         this.cardNum = (preCardNum + 1) % 4;
       } else {
-        this.num = preNum - 1 < 0 ? this.results.listLen - 1 : (preNum - 1) % this.results.listLen;
+        this.num =
+          preNum - 1 < 0
+            ? this.results.listLen - 1
+            : (preNum - 1) % this.results.listLen;
         this.cardNum = preCardNum - 1 < 0 ? 3 : (preCardNum - 1) % 4;
       }
       //   if (this.num > this.results.listLen) {

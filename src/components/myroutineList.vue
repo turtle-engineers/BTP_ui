@@ -3,7 +3,7 @@
     <div class="routine-content-wrap">
       <p>1</p>
       <div>
-        <h1>스트레칭 이름1</h1>
+        <h1>스트레칭 이름{{routineInfo.StretchContentId}}</h1>
         <span>00 : 00 : 00</span>
       </div>
     </div>
@@ -11,7 +11,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    routineInfo:Object,
+  }
+};
 </script>
 
 <style>
