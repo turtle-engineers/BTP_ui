@@ -28,12 +28,10 @@
                 >
                   <div
                     class="list-item"
-                    v-for="element, index in routineArray"
+                    v-for="(element, index) in routineArray"
                     :key="index"
                   >
-                    <myroutineList
-                    :routineInfo="element"
-                    ></myroutineList>
+                    <myroutineList :routineInfo="element"></myroutineList>
                   </div>
                 </draggable>
               </div>
@@ -169,27 +167,6 @@ export default {
         }
       });
     },
-    nextList(preNum, preCardNum, direction) {
-      if (direction) {
-        this.num = (preNum + 1) % this.results.listLen;
-        this.cardNum = (preCardNum + 1) % 4;
-      } else {
-        this.num =
-          preNum - 1 < 0
-            ? this.results.listLen - 1
-            : (preNum - 1) % this.results.listLen;
-        this.cardNum = preCardNum - 1 < 0 ? 3 : (preCardNum - 1) % 4;
-      }
-      //   if (this.num > this.results.listLen) {
-      //     this.num = 0;
-      //   }
-      //   if (this.num > this.results.listLen) {
-      //     this.num = 0;
-      //   }
-    },
-    // getBackground(preNum) {
-    //   return require(this.cards[preNum]);
-    // },
   },
 };
 </script>
