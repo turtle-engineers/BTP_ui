@@ -38,7 +38,7 @@
             </div>
           </section>
           <section class="stretch-container">
-            <StretchList></StretchList>
+            <StretchListMR></StretchListMR>
           </section>
         </div>
       </div>
@@ -53,7 +53,7 @@
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
 import myroutineList from "../components/myroutineList.vue";
-import StretchList from "../components/StretchList.vue";
+import StretchListMR from "../components/StretchList_myroutine.vue";
 import draggable from "vuedraggable";
 import axios from "axios";
 export default {
@@ -96,7 +96,7 @@ export default {
     simpleheader,
     myroutineList,
     draggable,
-    StretchList,
+    StretchListMR,
   },
   methods: {
     create() {
