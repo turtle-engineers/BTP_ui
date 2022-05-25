@@ -34,6 +34,7 @@
                     <myroutineList
                       :routineInfo="element"
                       :routineOrder="routineArray.indexOf(element)"
+                      @childData="emitRoutineData"
                     ></myroutineList>
                   </div>
                 </draggable>
@@ -88,8 +89,8 @@ export default {
       backNum: 0,
       cardNum: 0,
 
-      list1: [{ name: "Drag Me!" }, { name: "Drag Me Too!" }],
       routineArray: [],
+      childData: {},
     };
   },
   created() {
@@ -126,6 +127,10 @@ export default {
           console.log(this.routineArray);
         }
       });
+    },
+    emitRoutineData(childData) {
+      console.log(childData);
+      // console.log('', );
     },
   },
 };

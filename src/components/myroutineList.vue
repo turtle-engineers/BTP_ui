@@ -1,13 +1,13 @@
 <template>
   <div class="routineComponent">
     <div class="routine-content-wrap">
-      <p>{{ routineOrder + 1 }}</p>
+      <p>{{ +routineOrder + 1 }}</p>
       <div>
         <h1>스트레칭 이름{{ routineInfo.StretchContentId }}</h1>
         <span>00 : 00 : 00</span>
       </div>
     </div>
-    <button class="delete-btn" @click="check">
+    <button class="delete-btn" @click="emitRoutineData">
       <img
         src="../assets/icon/myroutine-edit-delete-btn.png"
         alt="마이루틴 삭제 버튼"
@@ -19,12 +19,27 @@
 <script>
 export default {
   props: {
-    routineInfo: Object,
-    routineOrder: Number,
+    routineInfo: {
+      type: Object,
+      default: () => {
+        return {
+          StretchContentId: 0,
+          repeatCount: 0,
+        };
+      },
+    },
+    routineOrder: {
+      type: Number,
+    },
   },
   methods: {
-    check() {
-      console.log(this.routineOrder, this.routineInfo);
+    emitRoutineData() {
+      const routineData = Object.assign(
+        { index: this.routineOrder },
+        this.routineInfo
+      );
+      // console.log("", this.routineData);
+      this.$emit("childData", routineData);
     },
   },
 };
