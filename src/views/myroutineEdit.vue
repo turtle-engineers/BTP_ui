@@ -124,13 +124,14 @@ export default {
       }).then((res) => {
         if (res.data.result == "OK") {
           this.routineArray = res.data.results;
-          console.log(this.routineArray);
         }
       });
     },
     emitRoutineData(childData) {
-      console.log(childData);
-      // console.log('', );
+      this.deleteRoutine(childData.index);
+    },
+    deleteRoutine(index) {
+      this.routineArray.splice(index, 1);
     },
   },
 };
