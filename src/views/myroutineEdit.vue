@@ -134,8 +134,17 @@ export default {
       this.routineArray.splice(index, 1);
     },
     emitStretchData(data) {
-      // console.log("this.", this.routineArray);
+      console.log("this.", this.routineArray);
       console.log("data", data);
+      const routineData = {
+        repeatCount: 1,
+        StretchContentId: data.id,
+        // title: data.title;
+      };
+      this.addRoutineData(routineData);
+    },
+    addRoutineData(routineData) {
+      this.routineArray.push(routineData);
     },
   },
 };
