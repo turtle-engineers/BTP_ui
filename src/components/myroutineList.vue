@@ -3,25 +3,38 @@
     <div class="routine-content-wrap">
       <p>1</p>
       <div>
-        <h1>스트레칭 이름{{routineInfo.StretchContentId}}</h1>
+        <h1>스트레칭 이름{{ routineInfo.StretchContentId }}</h1>
         <span>00 : 00 : 00</span>
       </div>
     </div>
+    <button class="delete-btn">
+      <img
+        src="../assets/icon/myroutine-edit-delete-btn.png"
+        alt="마이루틴 삭제 버튼"
+      />
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  props:{
-    routineInfo:Object,
-  }
+  props: {
+    routineInfo: Object,
+  },
 };
 </script>
 
 <style>
 .routineComponent {
+  position: relative;
   padding: 5px 0px 5px 0px;
   margin-right: 7px;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 11.75px;
+  top: 16px;
 }
 .routine-content-wrap {
   width: 100%;
@@ -64,7 +77,7 @@ export default {
 }
 
 .routine-content-wrap span {
-  color: #BFBFBF;
+  color: #bfbfbf;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
