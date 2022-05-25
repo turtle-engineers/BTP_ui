@@ -1,13 +1,13 @@
 <template>
   <div class="routineComponent">
     <div class="routine-content-wrap">
-      <p>1</p>
+      <p>{{ routineOrder + 1 }}</p>
       <div>
         <h1>스트레칭 이름{{ routineInfo.StretchContentId }}</h1>
         <span>00 : 00 : 00</span>
       </div>
     </div>
-    <button class="delete-btn">
+    <button class="delete-btn" @click="check">
       <img
         src="../assets/icon/myroutine-edit-delete-btn.png"
         alt="마이루틴 삭제 버튼"
@@ -20,6 +20,12 @@
 export default {
   props: {
     routineInfo: Object,
+    routineOrder: Number,
+  },
+  methods: {
+    check() {
+      console.log(this.routineOrder, this.routineInfo);
+    },
   },
 };
 </script>

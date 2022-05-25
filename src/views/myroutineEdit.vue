@@ -31,7 +31,10 @@
                     v-for="(element, index) in routineArray"
                     :key="index"
                   >
-                    <myroutineList :routineInfo="element"></myroutineList>
+                    <myroutineList
+                      :routineInfo="element"
+                      :routineOrder="routineArray.indexOf(element)"
+                    ></myroutineList>
                   </div>
                 </draggable>
               </div>
