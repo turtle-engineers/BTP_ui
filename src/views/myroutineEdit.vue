@@ -42,7 +42,7 @@
             </div>
           </section>
           <section class="stretch-container">
-            <StretchListMR></StretchListMR>
+            <StretchListMR @stretchData="emitStretchData"></StretchListMR>
           </section>
         </div>
       </div>
@@ -132,6 +132,10 @@ export default {
     },
     deleteRoutine(index) {
       this.routineArray.splice(index, 1);
+    },
+    emitStretchData(data) {
+      // console.log("this.", this.routineArray);
+      console.log("data", data);
     },
   },
 };

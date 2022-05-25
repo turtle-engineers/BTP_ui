@@ -51,6 +51,7 @@
         :contentInfo="contentInfo"
         :category="contentInfo.category"
         v-bind:data-category="makeBindAttribute(contentInfo.category)"
+        @stretchData="emitStretchData"
       />
     </div>
     <div class="timeCategoryList">
@@ -81,6 +82,10 @@ export default {
     this.categoryFilter();
   },
   methods: {
+    emitStretchData(data) {
+      // console.log("", data);
+      this.$emit("stretchData", data)
+    },
     getCategoryId() {
       axios.get("http://127.0.0.1:3000/stretch/category/list").then((res) => {
         if (res.data.results != null) {
