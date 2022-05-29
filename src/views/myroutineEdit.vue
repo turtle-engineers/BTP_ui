@@ -19,7 +19,9 @@
                 >분 <span>{{ results.totalTimeSec }}</span
                 >초
               </h2>
-              <button class="listbox-button">저장하기</button>
+              <button class="listbox-button" @click="saveMyroutine">
+                저장하기
+              </button>
               <div class="basic-scroll">
                 <draggable
                   class="draggable-list"
@@ -106,6 +108,27 @@ export default {
     create() {
       this.getUser();
     },
+    saveMyroutine() {
+      let stretchIdResult = [];
+      let repeatCountResult = [];
+      for (const el in this.routineArray) {
+        stretchIdResult.push(this.routineArray[el].StretchContentId);
+        repeatCountResult.push(1);
+      }
+      let routineRequest = {
+        userId: this.user.id,
+        stretchContentId: stretchIdResult,
+        repeatCount: repeatCountResult,
+      };
+      axios
+        .post("http://127.0.0.1:3000/my-routine/save", routineRequest)
+        .then(function(response) {
+          console.log(response.statusText);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
     getUser() {
       axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.data.results != null) {
@@ -134,12 +157,9 @@ export default {
       this.routineArray.splice(index, 1);
     },
     emitStretchData(data) {
-      console.log("this.", this.routineArray);
-      console.log("data", data);
       const routineData = {
         repeatCount: 1,
         StretchContentId: data.id,
-        // title: data.title;
       };
       this.addRoutineData(routineData);
     },
