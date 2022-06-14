@@ -52,3 +52,16 @@ $btp-green: #61c997;
   }
 }
 
+.content-img{
+  position: relative;
+  margin-right: 2rem;
+
+  .turtle_grow {
+    position:absolute;
+    top:0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    margin: 1.5rem;
+  }
+}

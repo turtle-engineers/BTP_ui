@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+    <modalStretching v-if="isModalViewed" @close-modal="closeModal"></modalStretching>
     <simpleheader></simpleheader>
     <div class="btp-container">
       <!-- 상단 타이틀 + 시간/시작 -->
@@ -32,14 +33,12 @@
       </article>
       <!-- 캐러셀 -->
       <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
-        <div class="slide-content"><listContent /></div>
+        <div class="slide-content" v-for="item in list()" v-bind:key="item.id">
+          <div class="content-img">
+            <img class="turtle_grow" src="@/assets/icon/question-mark.png" v-on:click="isModalViewed = true" />
+            <listContent />
+          </div>
+        </div>
         <template #prevArrow="">
           <button class="arrow-btn">
             <img src="../assets/icon/left_square.png" alt="arrow-left" />
@@ -57,6 +56,7 @@
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
 import listContent from "../components/listContent.vue";
+import modalStretching from "../components/modalStretching";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 export default {
@@ -64,12 +64,24 @@ export default {
     return {
       minutes: 0,
       seconds: 0,
+      isModalViewed: false,
+      list: function () {
+                var list = [];
+                for (var i = 1; i < 8; i += 1) list.push(i);
+                return list
+            },
     };
   },
   components: {
     simpleheader,
     VueSlickCarousel,
     listContent,
+    modalStretching,
+  },
+  methods: {
+    closeModal() {
+      this.isModalViewed = false;
+    },
   },
 };
 </script>
