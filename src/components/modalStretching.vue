@@ -1,5 +1,6 @@
 <template>
   <div id='modal' onselectstart='return false' >
+    <modalSmall v-if="isModalViewed" @close-modal="closeModal"></modalSmall>
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
       <img src="../assets/images/ex-img.png">
@@ -21,8 +22,16 @@
 
       <div class="modal-bottom">
         <b-row class="m-str-btn">
-          <b-col>초기화</b-col>
-          <b-col>추가하기</b-col>
+          <b-col>
+            <button @click="init">
+              초기화
+            </button>
+          </b-col>
+          <b-col>
+            <button v-on:click="isModalViewed = true">
+              추가하기
+            </button>
+          </b-col>
         </b-row>
       </div>
       
@@ -36,8 +45,15 @@
 @import "../assets/scss/components/modalTurtle.scss";
 </style>
 <script>
-export default {};
+import modalSmall from "../components/modalSmall";
+export default {
+  components: {
+    modalSmall,
+  },
+  methods: {
+    closeModal() {
+      this.isModalViewed = false;
+    },
+  },
+};
 </script>
-
-<style>
-</style>
