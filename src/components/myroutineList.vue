@@ -4,8 +4,8 @@
       <p>{{ +routineOrder + 1 }}</p>
       <div>
         <!-- {{routineInfo}} -->
-        <h1>이름: {{ routineInfo.title }}</h1>
-        <span>00 : 00 : 00</span>
+        <h1>{{ routineInfo.title }}</h1>
+        <span>00 : 00 : {{ routineInfo.playTime }}</span>
       </div>
     </div>
     <button class="delete-btn" @click="emitRoutineData">

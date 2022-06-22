@@ -120,9 +120,34 @@ export default {
         params: { userId: this.user.id },
       }).then((res) => {
         if (res.data.result == 'OK') {
-          let routineArray = [...this.routineArray];
-          routineArray = res.data.results;
-          this.routineArray = routineArray;
+          let routineArray = res.data.results;
+          routineArray.forEach((element) => {
+            console.log('element : ', element);
+            const StretchContentId = element.StretchContentId;
+            axios
+              .all([
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/title',
+                  params: { id: StretchContentId },
+                }),
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                  params: { id: StretchContentId },
+                }),
+              ])
+              .then(
+                axios.spread((res1, res2) => {
+                  // console.log('1:', res1.data.results);
+                  element = Object.assign({}, element, res1.data.results);
+                  // console.log('2:', res2.data.results);
+                  element = Object.assign({}, element, res2.data.results);
+                  console.log('el:', element);
+                  this.routineArray.push(element);
+                })
+              );
+          });
         }
       });
     },
