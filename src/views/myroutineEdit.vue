@@ -122,7 +122,7 @@ export default {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
           routineArray.forEach((element) => {
-            console.log('element : ', element);
+            // console.log('element : ', element);
             const StretchContentId = element.StretchContentId;
             axios
               .all([
@@ -143,7 +143,7 @@ export default {
                   element = Object.assign({}, element, res1.data.results);
                   // console.log('2:', res2.data.results);
                   element = Object.assign({}, element, res2.data.results);
-                  console.log('el:', element);
+                  // console.log('el:', element);
                   this.routineArray.push(element);
                 })
               );
@@ -161,6 +161,8 @@ export default {
       const routineData = {
         repeatCount: 1,
         StretchContentId: data.id,
+        playTime: data.playTime,
+        title: data.title,
       };
       this.addRoutineData(routineData);
     },
