@@ -18,7 +18,7 @@
         <button @click="emitStretchData">
           <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         </button>
-        <p>00 : 00 : 00</p>
+        <p>00 : 00 : {{ contentInfo.playTime }}</p>
       </div>
     </div>
   </div>

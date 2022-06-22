@@ -2,36 +2,15 @@
   <section class="moreStretching">
     <div class="category-wrap">
       <article class="category">
-        <input
-          type="radio"
-          id="f1"
-          data-category="all"
-          name="categoryFilter"
-          checked
-        />
+        <input type="radio" id="f1" data-category="all" name="categoryFilter" checked />
         <label class="category-btn" for="f1">전체 스트레칭</label>
         <input type="radio" id="f2" data-category="eye" name="categoryFilter" />
         <label class="category-btn" for="f2">눈</label>
-        <input
-          type="radio"
-          id="f3"
-          data-category="neck"
-          name="categoryFilter"
-        />
+        <input type="radio" id="f3" data-category="neck" name="categoryFilter" />
         <label class="category-btn" for="f3">목</label>
-        <input
-          type="radio"
-          id="f4"
-          data-category="shoulder"
-          name="categoryFilter"
-        />
+        <input type="radio" id="f4" data-category="shoulder" name="categoryFilter" />
         <label class="category-btn" for="f4">어깨</label>
-        <input
-          type="radio"
-          id="f5"
-          data-category="wrist"
-          name="categoryFilter"
-        />
+        <input type="radio" id="f5" data-category="wrist" name="categoryFilter" />
         <label class="category-btn" for="f5">손목</label>
       </article>
       <!-- on off버튼 -->
@@ -61,15 +40,15 @@
 </template>
 
 <script>
-import listContent from "./listContent.vue";
-import stretchingMinute from "./Stretching_minute.vue";
-import axios from "axios";
+import listContent from './listContent.vue';
+import stretchingMinute from './Stretching_minute.vue';
+import axios from 'axios';
 
 export default {
   data() {
     return {
       // 여기에 전달할 컴포넌트 데이터 담기
-      category: ["eye", "neck", "shoulder", "wrist"],
+      category: ['eye', 'neck', 'shoulder', 'wrist'],
       stretchCategoryList: {},
       stretchContentList: [],
     };
@@ -84,10 +63,10 @@ export default {
   methods: {
     emitStretchData(data) {
       // console.log("", data);
-      this.$emit("stretchData", data)
+      this.$emit('stretchData', data);
     },
     getCategoryId() {
-      axios.get("http://127.0.0.1:3000/stretch/category/list").then((res) => {
+      axios.get('http://127.0.0.1:3000/stretch/category/list').then((res) => {
         if (res.data.results != null) {
           this.stretchCategoryList = res.data.results;
           this.getEachCategoryContent();
@@ -105,20 +84,33 @@ export default {
     getStretchContent(nowList) {
       //   console.log(nowList.id, nowList.title);
       axios({
-        method: "get",
-        url: "http://127.0.0.1:3000/stretch/contents/list",
+        method: 'get',
+        url: 'http://127.0.0.1:3000/stretch/contents/list',
         params: { cid: nowList.id },
       }).then((res) => {
-        if (res.data.result == "OK") {
+        if (res.data.result == 'OK') {
           const eachStretch = res.data.results;
-
           eachStretch.forEach((content) => {
-            const stretchData = {
-              category: nowList.title,
-              id: content.id,
-              title: content.title,
-            };
-            this.stretchContentList.push(stretchData);
+            axios({
+              method: 'get',
+              url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+              params: { id: content.id },
+            }).then((res) => {
+              if (res.data.results != null) {
+                const result = res.data.results;
+
+                const stretchData = {
+                  category: nowList.title,
+                  id: content.id,
+                  title: content.title,
+                  playTime: result.playTime,
+                };
+
+                this.stretchContentList.push(stretchData);
+              } else {
+                console.log(res);
+              }
+            });
           });
         } else {
           console.log(res.data);
@@ -126,17 +118,16 @@ export default {
       });
     },
     categoryFilter() {
-      let categoryBtn = document.querySelectorAll("input[name=categoryFilter]");
-      const listItem = document.querySelectorAll(".st-item");
+      let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
+      const listItem = document.querySelectorAll('.st-item');
       categoryBtn.forEach((btn) => {
-        btn.addEventListener("change", function(e) {
+        btn.addEventListener('change', function(e) {
           const filter = e.target.dataset.category;
           listItem.forEach((item) => {
-            if (filter === "all") {
-              item.style.display = "inline";
+            if (filter === 'all') {
+              item.style.display = 'inline';
             } else {
-              item.style.display =
-                item.dataset.category === filter ? "block" : "none";
+              item.style.display = item.dataset.category === filter ? 'block' : 'none';
             }
           });
         });
@@ -150,9 +141,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
-@import "../assets/scss/common.scss";
-@import "../assets/scss/components/StretchList.scss";
+@import '../assets/scss/variables.scss';
+@import '../assets/scss/common.scss';
+@import '../assets/scss/components/StretchList.scss';
 .timeCategoryList {
   display: none;
 }
