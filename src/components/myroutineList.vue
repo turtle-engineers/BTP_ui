@@ -3,15 +3,13 @@
     <div class="routine-content-wrap">
       <p>{{ +routineOrder + 1 }}</p>
       <div>
-        <h1>스트레칭 이름{{ routineInfo.StretchContentId }}</h1>
+        <!-- {{routineInfo}} -->
+        <h1>이름: {{ routineInfo.title }}</h1>
         <span>00 : 00 : 00</span>
       </div>
     </div>
     <button class="delete-btn" @click="emitRoutineData">
-      <img
-        src="../assets/icon/myroutine-edit-delete-btn.png"
-        alt="마이루틴 삭제 버튼"
-      />
+      <img src="../assets/icon/myroutine-edit-delete-btn.png" alt="마이루틴 삭제 버튼" />
     </button>
   </div>
 </template>
@@ -34,12 +32,9 @@ export default {
   },
   methods: {
     emitRoutineData() {
-      const routineData = Object.assign(
-        { index: this.routineOrder },
-        this.routineInfo
-      );
+      const routineData = Object.assign({ index: this.routineOrder }, this.routineInfo);
       // console.log("", this.routineData);
-      this.$emit("childData", routineData);
+      this.$emit('childData', routineData);
     },
   },
 };

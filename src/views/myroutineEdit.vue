@@ -6,8 +6,7 @@
         <section class="btp-title">
           <h1>마이 루틴 편집</h1>
           <p>
-            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아
-            보세요.
+            어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아 보세요.
           </p>
         </section>
         <div class="myroutine-container">
@@ -23,16 +22,8 @@
                 저장하기
               </button>
               <div class="basic-scroll">
-                <draggable
-                  class="draggable-list"
-                  :list="routineArray"
-                  group="my-group"
-                >
-                  <div
-                    class="list-item"
-                    v-for="(element, index) in routineArray"
-                    :key="index"
-                  >
+                <draggable class="draggable-list" :list="routineArray" group="my-group">
+                  <div class="list-item" v-for="(element, index) in routineArray" :key="index">
                     <myroutineList
                       :routineInfo="element"
                       :routineOrder="routineArray.indexOf(element)"
@@ -52,41 +43,27 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
-@import "../assets/scss/common.scss";
-@import "../assets/scss/components/myRoutineEdit.scss";
+@import '../assets/scss/variables.scss';
+@import '../assets/scss/common.scss';
+@import '../assets/scss/components/myRoutineEdit.scss';
 </style>
 <script>
-import simpleheader from "../components/layout/simpleheader.vue";
-import myroutineList from "../components/myroutineList.vue";
-import StretchListMR from "../components/StretchList_myroutine.vue";
-import draggable from "vuedraggable";
-import axios from "axios";
+import simpleheader from '../components/layout/simpleheader.vue';
+import myroutineList from '../components/myroutineList.vue';
+import StretchListMR from '../components/StretchList_myroutine.vue';
+import draggable from 'vuedraggable';
+import axios from 'axios';
 export default {
   data() {
     return {
-      sessionId: "",
       user: {
-        id: "",
-        provider: "",
-        providerId: "",
-        picture: "",
-        nickname: "",
-        title: "",
-        level: "",
-        point: "",
-        createdAt: "",
-        updatedAt: "",
-        alarmValid: "",
-        monthTimes: "",
-        dd: "",
-        todayTimes: "",
+        id: '',
       },
       results: {
-        totalTimeMin: "00",
-        totalTimeSec: "00",
+        totalTimeMin: '00',
+        totalTimeSec: '00',
       },
-      response: "",
+      response: '',
       num: 0,
       backNum: 0,
       cardNum: 0,
@@ -96,7 +73,7 @@ export default {
     };
   },
   created() {
-    this.create();
+    this.getUser();
   },
   components: {
     simpleheader,
@@ -105,9 +82,6 @@ export default {
     StretchListMR,
   },
   methods: {
-    create() {
-      this.getUser();
-    },
     saveMyroutine() {
       let stretchIdResult = [];
       let repeatCountResult = [];
@@ -121,7 +95,7 @@ export default {
         repeatCount: repeatCountResult,
       };
       axios
-        .post("http://127.0.0.1:3000/my-routine/save", routineRequest)
+        .post('http://127.0.0.1:3000/my-routine/save', routineRequest)
         .then(function(response) {
           console.log(response.statusText);
         })
@@ -130,23 +104,25 @@ export default {
         });
     },
     getUser() {
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
         if (res.data.results != null) {
-          this.user = res.data.results;
+          this.user.id = res.data.results.id;
           this.getMyRoutine();
         } else {
-          window.location.replace("http://127.0.0.1:3000/oauth/kakao");
+          window.location.replace('http://127.0.0.1:3000/oauth/kakao');
         }
       });
     },
     async getMyRoutine() {
       await axios({
-        method: "get",
-        url: "http://127.0.0.1:3000/my-routine/list",
+        method: 'get',
+        url: 'http://127.0.0.1:3000/my-routine/list',
         params: { userId: this.user.id },
       }).then((res) => {
-        if (res.data.result == "OK") {
-          this.routineArray = res.data.results;
+        if (res.data.result == 'OK') {
+          let routineArray = [...this.routineArray];
+          routineArray = res.data.results;
+          this.routineArray = routineArray;
         }
       });
     },
@@ -164,7 +140,10 @@ export default {
       this.addRoutineData(routineData);
     },
     addRoutineData(routineData) {
-      this.routineArray.push(routineData);
+      const updateRoutineArray = [...this.routineArray];
+      updateRoutineArray.push(routineData);
+      this.routineArray = updateRoutineArray;
+      console.log(this.routineArray);
     },
   },
 };
