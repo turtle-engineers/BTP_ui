@@ -17,11 +17,20 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+//pinia : state
+import { createPinia, PiniaVuePlugin } from 'pinia';
+import VueCompositionAPI from '@vue/composition-api'
+Vue.use(PiniaVuePlugin)
+const pinia = createPinia()
+Vue.use(VueCompositionAPI)
+
+Vue.config.configureWebpack= true
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   vuetify,
-  render: h => h(App)
-}).$mount('#app')
+  pinia,
+  render: (h) => h(App),
+}).$mount('#app');
