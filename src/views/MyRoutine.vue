@@ -54,22 +54,28 @@
   </div>
 </template>
 <script>
-import simpleheader from "../components/layout/simpleheader.vue";
-import listContent from "../components/listContent.vue";
-import modalStretching from "../components/modalStretching";
-import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import simpleheader from '../components/layout/simpleheader.vue';
+import listContent from '../components/listContent.vue';
+import modalStretching from '../components/modalStretching';
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+import axios from 'axios';
 export default {
   data() {
     return {
+      user: {
+        id: '',
+      },
+      routineArray: [],
+
       minutes: 0,
       seconds: 0,
       isModalViewed: false,
-      list: function () {
-                var list = [];
-                for (var i = 1; i < 8; i += 1) list.push(i);
-                return list
-            },
+      list: function() {
+        var list = [];
+        for (var i = 1; i < 8; i += 1) list.push(i);
+        return list;
+      },
     };
   },
   components: {
@@ -78,7 +84,59 @@ export default {
     listContent,
     modalStretching,
   },
+  created() {
+    this.getUser();
+  },
   methods: {
+    getUser() {
+      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+        if (res.data.results != null) {
+          this.user.id = res.data.results.id;
+          this.getMyRoutine();
+        } else {
+          window.location.replace('http://127.0.0.1:3000/oauth/kakao');
+        }
+      });
+    },
+    async getMyRoutine() {
+      await axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/my-routine/list',
+        params: { userId: this.user.id },
+      }).then((res) => {
+        if (res.data.result == 'OK') {
+          let routineArray = res.data.results;
+          routineArray.forEach((element) => {
+            // console.log('element : ', element);
+            const StretchContentId = element.StretchContentId;
+            axios
+              .all([
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/title',
+                  params: { id: StretchContentId },
+                }),
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                  params: { id: StretchContentId },
+                }),
+              ])
+              .then(
+                axios.spread((res1, res2) => {
+                  // console.log('1:', res1.data.results);
+                  element = Object.assign({}, element, res1.data.results);
+                  // console.log('2:', res2.data.results);
+                  element = Object.assign({}, element, res2.data.results);
+                  // console.log('el:', element);
+                  this.routineArray.push(element);
+                })
+              );
+          });
+        }
+      });
+      console.log(this.routineArray);
+    },
     closeModal() {
       this.isModalViewed = false;
     },
@@ -86,8 +144,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
-@import "../assets/scss/common.scss";
-@import "../assets/scss/components/myroutine.scss";
-@import "../assets/scss/components/carousel.scss";
+@import '../assets/scss/variables.scss';
+@import '../assets/scss/common.scss';
+@import '../assets/scss/components/myroutine.scss';
+@import '../assets/scss/components/carousel.scss';
 </style>
