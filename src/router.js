@@ -29,11 +29,10 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: Home },
 
-    { path: "/myroutine", component: myroutineStart },
+    { path: "/myroutine", component: MyRoutine},
     { path: "/myroutine/start", component: myroutineStart },
     { path: "/myroutine/edit", component: myroutineEdit },
     { path: "/myroutine/stretching", component: myroutineStretching },    
-    { path: "/myroutine", component: MyRoutine },
 
     { path: "/randomChallenge", component: RandomChallenge },
     { path: "/myturtle", component: MyTurtle },
