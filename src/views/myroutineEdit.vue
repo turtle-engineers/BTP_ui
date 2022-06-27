@@ -8,6 +8,7 @@
           <p>
             어떤 실험 동작을 넣어 볼까요? 원하는 스트레칭을 리스트에 담아 보세요.
           </p>
+          {{routineArray}}
         </section>
         <div class="myroutine-container">
           <section class="listbox">
@@ -121,9 +122,11 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          routineArray.forEach((element) => {
+          [].forEach.call(routineArray.myRoutineList, (value, key) => {
+            console.log(`${value} : ${key}`);
+          // routineArray.forEach((element) => {
             // console.log('element : ', element);
-            const StretchContentId = element.StretchContentId;
+            const StretchContentId = value.StretchContentId;
             axios
               .all([
                 axios({
@@ -139,12 +142,9 @@ export default {
               ])
               .then(
                 axios.spread((res1, res2) => {
-                  // console.log('1:', res1.data.results);
-                  element = Object.assign({}, element, res1.data.results);
-                  // console.log('2:', res2.data.results);
-                  element = Object.assign({}, element, res2.data.results);
-                  // console.log('el:', element);
-                  this.routineArray.push(element);
+                  value = Object.assign({}, value, res1.data.results);
+                  value = Object.assign({}, value, res2.data.results);
+                  this.routineArray.push(value);
                 })
               );
           });
