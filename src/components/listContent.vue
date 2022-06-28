@@ -3,13 +3,14 @@
     <img :src="require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)" alt="sample img" />
     <div class="caption-wrap">
       <img
-        :src="require(`../assets/images/bookmark-${bookmarkChecked}.png`)"
+        :src="require(`@/assets/images/bookmark-${bookmarkChecked}.png`)"
         alt="bookmark-on"
         v-on:click="bookmarkOnOff"
       />
       <div>
+        <!-- {{contentInfo}} -->
         <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
-        <p>00 : 00 : 00</p>
+        <p>{{ contentInfo.playTime }}</p>
       </div>
     </div>
   </div>
@@ -40,6 +41,7 @@ export default {
           category: 'eye',
           id: '0',
           title: 'SAMPLE TITLE',
+          playTime: '00:00:00',
         };
       },
     },

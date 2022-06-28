@@ -31,12 +31,13 @@
           <button type="button">마이루틴 리스트 편집하기 ></button>
         </router-link>
       </article>
+
       <!-- 캐러셀 -->
       <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
-        <div class="slide-content" v-for="item in list()" v-bind:key="item.id">
+        <div class="slide-content" v-for="(element, index) in listArray" :key="index">
           <div class="content-img">
             <img class="turtle_grow" src="@/assets/icon/question-mark.png" v-on:click="isModalViewed = true" />
-            <listContent />
+            <listContent :contentInfo="element" />
           </div>
         </div>
         <template #prevArrow="">
@@ -46,7 +47,7 @@
         </template>
         <template #nextArrow="">
           <button class="arrow-btn">
-            <img src="../assets/icon/right_square.png" alt="arrow-left" />
+            <img src="../assets/icon/right_square.png" alt="arrow-right" />
           </button>
         </template>
       </VueSlickCarousel>
@@ -66,16 +67,11 @@ export default {
       user: {
         id: '',
       },
-      routineArray: [],
+      listArray: [],
 
       minutes: 0,
       seconds: 0,
       isModalViewed: false,
-      list: function() {
-        var list = [];
-        for (var i = 1; i < 8; i += 1) list.push(i);
-        return list;
-      },
     };
   },
   components: {
@@ -106,9 +102,10 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          routineArray.forEach((element) => {
-            // console.log('element : ', element);
+          
+          [].forEach.call(routineArray.myRoutineList, (element) => {
             const StretchContentId = element.StretchContentId;
+            const stretchCategoryId = element.stretchCategoryId;
             axios
               .all([
                 axios({
@@ -118,24 +115,30 @@ export default {
                 }),
                 axios({
                   method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/category/title',
+                  params: { id: stretchCategoryId },
+                }),
+                axios({
+                  method: 'get',
                   url: 'http://127.0.0.1:3000/stretch/contents/playtime',
                   params: { id: StretchContentId },
                 }),
               ])
               .then(
-                axios.spread((res1, res2) => {
-                  // console.log('1:', res1.data.results);
-                  element = Object.assign({}, element, res1.data.results);
-                  // console.log('2:', res2.data.results);
-                  element = Object.assign({}, element, res2.data.results);
-                  // console.log('el:', element);
-                  this.routineArray.push(element);
+                axios.spread((res1, res2, res3) => {
+
+                  let id = element.StretchContentId;
+                  let title = res1.data.results.title;
+                  let category = res2.data.results.title;
+                  let playTime = res3.data.results.playTime;
+                  console.log(res1, res2, res3);
+                  
+                  this.listArray.push({"id":id, "category":category, "title":title, "playTime":playTime});
                 })
               );
           });
         }
       });
-      console.log(this.routineArray);
     },
     closeModal() {
       this.isModalViewed = false;
