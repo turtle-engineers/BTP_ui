@@ -6,14 +6,14 @@
       <img src="../assets/images/ex-img.png">
       
       <div class="modal-body">
-        <h1>어깨돌리기 스트레칭</h1>
-        <h3>스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명</h3>
+        <h1>{{ contentInfo.title }}</h1>
+        <h3>{{ contentInfo.description }}</h3>
 
         <div class="m-stretching-time">
           <button class="minus" @click="minus">
             <img src="../assets/icon/btn-minus.png" />
           </button>
-          <div class="time">00:20</div>
+          <div class="time">{{ contentInfo.playTime }}</div>
           <button class="plus" @click="plus">
             <img src="../assets/icon/btn-plus.png" />
           </button>
@@ -47,6 +47,19 @@
 <script>
 import modalSmall from "../components/modalSmall";
 export default {
+  props: {
+    contentInfo: {
+      type: Object,
+      default: () => {
+        return {
+          id: '0',
+          title: 'SAMPLE TITLE',
+          description: '스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명',
+          playTime: '00:00',
+        };
+      },
+    },
+  },
   components: {
     modalSmall,
   },
