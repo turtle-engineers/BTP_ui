@@ -105,7 +105,7 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          routineArray.forEach((element) => {
+          [].forEach.call(routineArray.myRoutineList, (element) => {
             // console.log('element : ', element);
             const StretchContentId = element.StretchContentId;
             axios
