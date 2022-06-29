@@ -14,8 +14,8 @@
             <h1>마이 루틴 리스트</h1>
             <div class="listbox-content">
               <h2 class="listbox-timer">
-                총 <span>{{ results.totalTimeMin }}</span
-                >분 <span>{{ results.totalTimeSec }}</span
+                총 <span>{{ totalTime.minutes }}</span
+                >분 <span>{{ totalTime.seconds }}</span
                 >초
               </h2>
               <button class="listbox-button" @click="saveMyroutine">
@@ -59,9 +59,9 @@ export default {
       user: {
         id: '',
       },
-      results: {
-        totalTimeMin: '00',
-        totalTimeSec: '00',
+      totalTime: {
+        minutes: '0',
+        seconds: '0',
       },
       response: '',
       num: 0,
@@ -121,29 +121,11 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          [].forEach.call(routineArray.myRoutineList, (element) => {
-            const StretchContentId = element.StretchContentId;
-            axios
-              .all([
-                axios({
-                  method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/title',
-                  params: { id: StretchContentId },
-                }),
-                axios({
-                  method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
-                  params: { id: StretchContentId },
-                }),
-              ])
-              .then(
-                axios.spread((res1, res2) => {
-                  element = Object.assign({}, element, res1.data.results);
-                  element = Object.assign({}, element, res2.data.results);
-                  this.routineArray.push(element);
-                })
-              );
-          });
+          
+          const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
+          this.totalTime = timeResult;
+
+          this.routineArray = routineArray.myRoutineList;
         }
       });
     },

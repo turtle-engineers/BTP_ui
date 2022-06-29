@@ -17,8 +17,8 @@
         <!-- 시간, 시작 -->
         <article class="routine-starter">
           <p>
-            총 <span>{{ minutes }}</span
-            >분 <span>{{ seconds }}</span
+            총 <span>{{ totalTime.minutes }}</span
+            >분 <span>{{ totalTime.seconds }}</span
             >초
           </p>
           <router-link to="/myroutine/stretching">
@@ -66,9 +66,12 @@ export default {
       user: {
         id: '',
       },
+      totalTime: {
+        minutes: '0',
+        seconds: '0',
+      },
       routineArray: [],
-      minutes: 0,
-      seconds: 0,
+
       isModalViewed: false,
       list: function() {
         var list = [];
@@ -105,36 +108,13 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          [].forEach.call(routineArray.myRoutineList, (element) => {
-            // console.log('element : ', element);
-            const StretchContentId = element.StretchContentId;
-            axios
-              .all([
-                axios({
-                  method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/title',
-                  params: { id: StretchContentId },
-                }),
-                axios({
-                  method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
-                  params: { id: StretchContentId },
-                }),
-              ])
-              .then(
-                axios.spread((res1, res2) => {
-                  // console.log('1:', res1.data.results);
-                  element = Object.assign({}, element, res1.data.results);
-                  // console.log('2:', res2.data.results);
-                  element = Object.assign({}, element, res2.data.results);
-                  // console.log('el:', element);
-                  this.routineArray.push(element);
-                })
-              );
-          });
+
+          const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
+          this.totalTime = timeResult;
+
+          this.routineArray = routineArray.myRoutineList;
         }
       });
-      console.log(this.routineArray);
     },
     closeModal() {
       this.isModalViewed = false;
