@@ -18,9 +18,8 @@
                 >분 <span>{{ totalTime.seconds }}</span
                 >초
               </h2>
-              <button class="listbox-button" @click="saveMyroutine">
-                저장하기
-              </button>
+              <button class="listbox-button" @click="saveMyroutine">저장하기</button>
+              <button class="listbox-button" style="margin:0px" @click="resetRoutine">Reset</button>
               <div class="basic-scroll">
                 <draggable class="draggable-list" :list="routineArray" group="my-group">
                   <div class="list-item" v-for="(element, index) in routineArray" :key="index">
@@ -121,7 +120,7 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-          
+
           const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
           this.totalTime = timeResult;
 
@@ -134,6 +133,9 @@ export default {
     },
     deleteRoutine(index) {
       this.routineArray.splice(index, 1);
+    },
+    resetRoutine() {
+      this.routineArray = [];
     },
     emitStretchData(data) {
       const routineData = {
@@ -148,7 +150,6 @@ export default {
       const updateRoutineArray = [...this.routineArray];
       updateRoutineArray.push(routineData);
       this.routineArray = updateRoutineArray;
-      console.log(this.routineArray);
     },
   },
 };
