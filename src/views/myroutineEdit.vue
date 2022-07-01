@@ -52,6 +52,7 @@ import myroutineList from '../components/myroutineList.vue';
 import StretchListMR from '../components/StretchList_myroutine.vue';
 import draggable from 'vuedraggable';
 import axios from 'axios';
+import '../plugins/vue-toast';
 export default {
   data() {
     return {
@@ -95,8 +96,9 @@ export default {
       };
       axios
         .post('http://127.0.0.1:3000/my-routine/save', routineRequest)
-        .then(function(response) {
-          console.log(response.statusText);
+        .then((response) => {
+          console.log(response);
+          if (response.data.result == 'OK') this.$toast.success('저장되었습니다!');
         })
         .catch(function(error) {
           console.log(error);
