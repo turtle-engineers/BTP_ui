@@ -67,15 +67,11 @@ export default {
       user: {
         id: '',
       },
-<<<<<<< HEAD
-      listArray: [],
-=======
       totalTime: {
         minutes: '0',
         seconds: '0',
       },
       routineArray: [],
->>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
 
       isModalViewed: false,
     };
@@ -108,7 +104,6 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
-<<<<<<< HEAD
           
           [].forEach.call(routineArray.myRoutineList, (element) => {
             const StretchContentId = element.StretchContentId;
@@ -144,13 +139,6 @@ export default {
                 })
               );
           });
-=======
-
-          const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
-          this.totalTime = timeResult;
-
-          this.routineArray = routineArray.myRoutineList;
->>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
         }
       });
     },
