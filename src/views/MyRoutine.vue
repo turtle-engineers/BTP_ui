@@ -17,8 +17,8 @@
         <!-- 시간, 시작 -->
         <article class="routine-starter">
           <p>
-            총 <span>{{ minutes }}</span
-            >분 <span>{{ seconds }}</span
+            총 <span>{{ totalTime.minutes }}</span
+            >분 <span>{{ totalTime.seconds }}</span
             >초
           </p>
           <router-link to="/myroutine/stretching">
@@ -67,10 +67,16 @@ export default {
       user: {
         id: '',
       },
+<<<<<<< HEAD
       listArray: [],
+=======
+      totalTime: {
+        minutes: '0',
+        seconds: '0',
+      },
+      routineArray: [],
+>>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
 
-      minutes: 0,
-      seconds: 0,
       isModalViewed: false,
     };
   },
@@ -102,6 +108,7 @@ export default {
       }).then((res) => {
         if (res.data.result == 'OK') {
           let routineArray = res.data.results;
+<<<<<<< HEAD
           
           [].forEach.call(routineArray.myRoutineList, (element) => {
             const StretchContentId = element.StretchContentId;
@@ -137,6 +144,13 @@ export default {
                 })
               );
           });
+=======
+
+          const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
+          this.totalTime = timeResult;
+
+          this.routineArray = routineArray.myRoutineList;
+>>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
         }
       });
     },

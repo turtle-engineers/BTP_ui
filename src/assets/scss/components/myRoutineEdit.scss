@@ -1,0 +1,107 @@
+$btnGreen: #61c997;
+
+.app-container {
+  background-color: white;
+}
+
+.btp-title {
+  p {
+    font-size: 15px;
+  }
+}
+
+.myroutine-container {
+  width: 100%;
+  display: flex;
+  padding-bottom: 100px;
+}
+.listbox {
+  margin-right: 30px-5px;
+  //   float: left;
+  h1 {
+    margin: 0;
+    padding-bottom: 50px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .listbox-content {
+    text-align: center;
+    position: relative;
+    width: 277px;
+    height: 623px;
+    border-radius: 20px;
+    background-color: rgb(196, 196, 196, 0.2);
+    padding-top: 30px;
+  }
+  .listbox-timer {
+    // position: absolute;
+    // top: 10px+30px;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 33px;
+    color: $btpblack;
+    span {
+      color: $btnGreen;
+    }
+  }
+  .listbox-button {
+    margin: 20px 28px;
+    padding: 7px 30px;
+    background-color: $btnGreen;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    // position: absolute;
+    // top: 80px;
+    // left: 75px;
+  }
+
+  .routineComponent {
+    padding: 5px 0px 5px 0px;
+    margin-right: 7px;
+  }
+  .basic-scroll {
+    position: relative;
+    left: 3px;
+    overflow-x: hidden;
+    width: 250px;
+    height: 480px;
+    margin: 0 auto;
+  }
+}
+.stretch-container {
+  flex-grow: 1;
+  //   float: right;
+  position: relative;
+}
+.category {
+  margin-bottom: 50px;
+  .category-btn {
+    height: 30px;
+    border-radius: 10px;
+    padding: 0px 20px;
+  }
+  .category-btn:not(:last-child) {
+    margin-right: 10px;
+  }
+  .on {
+    background-color: #61c997;
+    color: white;
+  }
+  .off {
+    background-color: #ecf0f4;
+  }
+}
+.stretch-card {
+  position: relative;
+  right: 15px;
+  .stretching-card {
+    margin: 0 15px 45px 15px;
+  }
+}

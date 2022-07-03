@@ -16,7 +16,7 @@
 </template>
 <script>
 import simpleheader from "../components/layout/simpleheader.vue";
-import StretchList from '../components/StretchList.vue';
+import StretchList from "../components/StretchList.vue";
 export default {
   components: {
     simpleheader,
@@ -25,4 +25,7 @@ export default {
 };
 </script>
 <style>
+.app-container {
+  background-color: white;
+}
 </style>

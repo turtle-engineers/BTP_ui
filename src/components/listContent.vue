@@ -1,6 +1,13 @@
 <template>
   <div class="content-wrap">
-    <img :src="require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)" alt="sample img" />
+    <button @click="emitStretchData">
+      <img
+        :src="
+          require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)
+        "
+        alt="sample img"
+      />
+    </button>
     <div class="caption-wrap">
       <img
         :src="require(`@/assets/images/bookmark-${bookmarkChecked}.png`)"
@@ -8,40 +15,53 @@
         v-on:click="bookmarkOnOff"
       />
       <div>
+<<<<<<< HEAD
         <!-- {{contentInfo}} -->
         <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         <p>{{ contentInfo.playTime }}</p>
+=======
+        <button @click="emitStretchData">
+          <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
+        </button>
+        <p>00 : 00 : {{ contentInfo.playTime }}</p>
+>>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
       </div>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-@import '../assets/scss/variables.scss';
-@import '../assets/scss/common.scss';
-@import '../assets/scss/components/listContent.scss';
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/common.scss";
+@import "../assets/scss/components/listContent.scss";
 </style>
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
-      bookmarkChecked: 'off',
+      bookmarkChecked: "off",
       userID: undefined,
     };
   },
   props: {
     category: {
       type: String,
-      default: 'eye',
+      default: "eye",
     },
     contentInfo: {
       type: Object,
       default: () => {
         return {
+<<<<<<< HEAD
           category: 'eye',
           id: '0',
           title: 'SAMPLE TITLE',
           playTime: '00:00:00',
+=======
+          category: "eye",
+          id: "0",
+          title: "SAMPLE TITLE",
+>>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
         };
       },
     },
@@ -50,13 +70,16 @@ export default {
     this.getUserID();
   },
   methods: {
+    emitStretchData() {
+      this.$emit("stretchData", this.contentInfo);
+    },
     bookmarkOnOff() {
-      if (this.bookmarkChecked == 'off') {
-        this.bookmarkChecked = 'on';
+      if (this.bookmarkChecked == "off") {
+        this.bookmarkChecked = "on";
 
         axios({
-          method: 'post',
-          url: 'http://127.0.0.1:3000/bookmark/add',
+          method: "post",
+          url: "http://127.0.0.1:3000/bookmark/add",
           data: {
             userId: this.userID,
             stretchContentId: this.contentInfo.id,
@@ -70,11 +93,11 @@ export default {
           }
         });
       } else {
-        this.bookmarkChecked = 'off';
+        this.bookmarkChecked = "off";
 
         axios({
-          method: 'post',
-          url: 'http://127.0.0.1:3000/bookmark/delete',
+          method: "post",
+          url: "http://127.0.0.1:3000/bookmark/delete",
           data: {
             userId: this.userID,
             stretchContentId: this.contentInfo.id,
@@ -90,7 +113,7 @@ export default {
       }
     },
     getUserID() {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.data != null) {
           const loginData = res.data.results;
           this.userID = loginData.id;
@@ -101,8 +124,8 @@ export default {
     },
     getBookmark() {
       axios({
-        method: 'get',
-        url: 'http://127.0.0.1:3000/bookmark/list',
+        method: "get",
+        url: "http://127.0.0.1:3000/bookmark/list",
         params: { uid: this.userID },
       }).then((res) => {
         if (res.data.results != null) {
@@ -120,7 +143,7 @@ export default {
     },
     markBookmark(bookmarkIdList) {
       if (bookmarkIdList.includes(this.contentInfo.id)) {
-        this.bookmarkChecked = 'on';
+        this.bookmarkChecked = "on";
       }
     },
   },

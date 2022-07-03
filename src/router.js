@@ -1,9 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./views/Home";
-import MyRoutine from "./views/MyRoutine";
+
+import myroutineStart from "./views/myroutineStart";
 import myroutineEdit from "./views/myroutineEdit";
 import myroutineStretching from "./views/myroutineStretching";
+import MyRoutine from "./views/MyRoutine.vue";
+
 import RandomChallenge from "./views/RandomChallenge";
 import MyTurtle from "./views/MyTurtle";
 import MyAlarm from "./views/MyAlarm";
@@ -26,11 +29,11 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: Home },
 
-    { path: "/myroutine", component: MyRoutine },
-    { path: "/myroutine/start", component: MyRoutine },
+    { path: "/myroutine", component: MyRoutine},
+    { path: "/myroutine/start", component: myroutineStart },
     { path: "/myroutine/edit", component: myroutineEdit },
-    { path: "/myroutine/stretching", component: myroutineStretching },
-    
+    { path: "/myroutine/stretching", component: myroutineStretching },    
+
     { path: "/randomChallenge", component: RandomChallenge },
     { path: "/myturtle", component: MyTurtle },
     { path: "/stretchingGuide", component: StretchingGuide },
