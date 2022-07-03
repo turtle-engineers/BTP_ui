@@ -18,8 +18,6 @@
                 >분 <span>{{ totalTime.seconds }}</span
                 >초
               </h2>
-              <button class="listbox-button" @click="saveMyroutine">저장하기</button>
-              <button class="listbox-button" style="margin:0px" @click="resetRoutine">Reset</button>
               <div class="basic-scroll">
                 <draggable class="draggable-list" :list="routineArray" group="my-group">
                   <div class="list-item" v-for="(element, index) in routineArray" :key="index">
@@ -30,6 +28,10 @@
                     ></myroutineList>
                   </div>
                 </draggable>
+              </div>
+              <div class="button-box">
+                <button class="reset" @click="resetRoutine">Reset</button>
+                <button class="save" @click="saveMyroutine">저장하기</button>
               </div>
             </div>
           </section>
