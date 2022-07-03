@@ -15,16 +15,10 @@
         v-on:click="bookmarkOnOff"
       />
       <div>
-<<<<<<< HEAD
-        <!-- {{contentInfo}} -->
-        <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
-        <p>{{ contentInfo.playTime }}</p>
-=======
         <button @click="emitStretchData">
           <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         </button>
         <p>00 : 00 : {{ contentInfo.playTime }}</p>
->>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
       </div>
     </div>
   </div>
@@ -52,16 +46,10 @@ export default {
       type: Object,
       default: () => {
         return {
-<<<<<<< HEAD
           category: 'eye',
           id: '0',
           title: 'SAMPLE TITLE',
           playTime: '00:00:00',
-=======
-          category: "eye",
-          id: "0",
-          title: "SAMPLE TITLE",
->>>>>>> 355e6185124d3d6e4abf3d5f279955aa9ad6337c
         };
       },
     },
