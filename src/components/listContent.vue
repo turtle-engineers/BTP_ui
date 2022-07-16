@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrap">
-    <button @click="emitStretchData">
+    <button @click="openModal">
       <img
         :src="
           require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)
@@ -12,10 +12,10 @@
       <img
         :src="require(`@/assets/images/bookmark-${bookmarkChecked}.png`)"
         alt="bookmark-on"
-        v-on:click="bookmarkOnOff"
+        @click="bookmarkOnOff"
       />
       <div>
-        <button @click="emitStretchData">
+        <button @click="openModal">
           <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         </button>
         <p>00 : 00 : {{ contentInfo.playTime }}</p>
@@ -38,10 +38,6 @@ export default {
     };
   },
   props: {
-    category: {
-      type: String,
-      default: "eye",
-    },
     contentInfo: {
       type: Object,
       default: () => {
@@ -49,7 +45,7 @@ export default {
           category: 'eye',
           id: '0',
           title: 'SAMPLE TITLE',
-          playTime: '00:00:00',
+          playTime: '00',
         };
       },
     },
@@ -58,8 +54,8 @@ export default {
     this.getUserID();
   },
   methods: {
-    emitStretchData() {
-      this.$emit("stretchData", this.contentInfo);
+    openModal() {
+      this.$emit("open-modal", this.contentInfo);
     },
     bookmarkOnOff() {
       if (this.bookmarkChecked == "off") {

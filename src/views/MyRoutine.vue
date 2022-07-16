@@ -1,6 +1,5 @@
 <template>
   <div class="app-container">
-    <modalStretching v-if="isModalViewed" @close-modal="closeModal"></modalStretching>
     <simpleheader></simpleheader>
     <div class="btp-container">
       <!-- 상단 타이틀 + 시간/시작 -->
@@ -35,8 +34,7 @@
       <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
         <div class="slide-content" v-for="item in list()" v-bind:key="item.id">
           <div class="content-img">
-            <img class="turtle_grow" src="@/assets/icon/question-mark.png" v-on:click="isModalViewed = true" />
-            <listContent />
+            <listContent/>
           </div>
         </div>
         <template #prevArrow="">
@@ -56,7 +54,6 @@
 <script>
 import simpleheader from '../components/layout/simpleheader.vue';
 import listContent from '../components/listContent.vue';
-import modalStretching from '../components/modalStretching';
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import axios from 'axios';
@@ -72,7 +69,6 @@ export default {
       },
       routineArray: [],
 
-      isModalViewed: false,
       list: function() {
         var list = [];
         for (var i = 1; i < 8; i += 1) list.push(i);
@@ -84,7 +80,6 @@ export default {
     simpleheader,
     VueSlickCarousel,
     listContent,
-    modalStretching,
   },
   created() {
     this.getUser();
@@ -113,11 +108,10 @@ export default {
           this.totalTime = timeResult;
 
           this.routineArray = routineArray.myRoutineList;
+
+          console.log(routineArray);
         }
       });
-    },
-    closeModal() {
-      this.isModalViewed = false;
     },
   },
 };

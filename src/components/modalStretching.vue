@@ -1,6 +1,5 @@
 <template>
   <div id='modal' onselectstart='return false' >
-    <modalSmall v-if="isModalViewed" @close-modal="closeModal"></modalSmall>
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
       <img src="../assets/images/ex-img.png">
@@ -10,11 +9,11 @@
         <h3>{{ contentInfo.description }}</h3>
 
         <div class="m-stretching-time">
-          <button class="minus" @click="minus">
+          <button class="minus" @click="timeMinus">
             <img src="../assets/icon/btn-minus.png" />
           </button>
-          <div class="time">{{ contentInfo.playTime }}</div>
-          <button class="plus" @click="plus">
+          <div class="time">{{ viewTime }}</div>
+          <button class="plus" @click="timePlus">
             <img src="../assets/icon/btn-plus.png" />
           </button>
         </div>
@@ -23,12 +22,12 @@
       <div class="modal-bottom">
         <b-row class="m-str-btn">
           <b-col>
-            <button @click="init">
+            <button @click="timeEnit">
               초기화
             </button>
           </b-col>
           <b-col>
-            <button v-on:click="isModalViewed = true">
+            <button @click="emitStretchData">
               추가하기
             </button>
           </b-col>
@@ -45,7 +44,6 @@
 @import "../assets/scss/components/modalTurtle.scss";
 </style>
 <script>
-import modalSmall from "../components/modalSmall";
 export default {
   props: {
     contentInfo: {
@@ -54,19 +52,49 @@ export default {
         return {
           id: '0',
           title: 'SAMPLE TITLE',
-          description: '스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명스트레칭 관련 설명',
-          playTime: '00:00',
+          description: '스트레칭 설명',
+          playTime: 0,
         };
       },
     },
   },
-  components: {
-    modalSmall,
+  data() {
+    return {
+      viewTime: '00 : 00'
+    };
+  },
+  created() {
+    this.timeEnit();
   },
   methods: {
-    closeModal() {
-      this.isModalViewed = false;
+    emitStretchData() {
+      this.$emit("stretchData", this.contentInfo);
     },
+    timeMinus() {
+      let time = this.viewTime.split(':');
+      let min = Number(time[0]) * 60;
+      let minusTime = min + Number(time[1]) - this.contentInfo.playTime;
+
+      if(0 >= minusTime) {
+        return;
+      }
+
+      min = parseInt((minusTime%3600)/60);
+      let sec = minusTime%60;
+      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+    },
+    timePlus() {
+      let time = this.viewTime.split(':');
+      let min = Number(time[0]) * 60;
+      let plusTime = min + Number(time[1]) + this.contentInfo.playTime;
+
+      min = parseInt((plusTime%3600)/60);
+      let sec = plusTime%60;
+      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+    },
+    timeEnit() {
+      this.viewTime = '00 : ' + this.contentInfo.playTime;
+    }
   },
 };
 </script>

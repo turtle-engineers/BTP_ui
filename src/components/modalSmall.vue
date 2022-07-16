@@ -9,8 +9,8 @@
 
       <div class="modal-bottom">
         <b-row class="m-str-btn">
-          <b-col>취소</b-col>
-          <b-col>시작하기</b-col>
+          <b-col @click="$emit('close-modal')">취소</b-col>
+          <b-col @click="$emit('saveMyroutine')">저장</b-col>
         </b-row>
       </div>
       
@@ -22,10 +22,4 @@
 @import "../assets/scss/variables.scss";
 @import "../assets/scss/common.scss";
 @import "../assets/scss/components/modalTurtle.scss";
-</style>
-<script>
-export default {};
-</script>
-
-<style>
 </style>

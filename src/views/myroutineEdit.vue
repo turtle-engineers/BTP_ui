@@ -1,5 +1,6 @@
 <template>
   <div>
+    <modalSmall v-if="isModalViewed" @close-modal="closeModal" @saveMyroutine="saveMyroutine"></modalSmall>
     <simpleheader></simpleheader>
     <div class="app-container">
       <div class="btp-container">
@@ -14,9 +15,9 @@
             <h1>마이 루틴 리스트</h1>
             <div class="listbox-content">
               <h2 class="listbox-timer">
-                총 <span>{{ totalTime.minutes }}</span
-                >분 <span>{{ totalTime.seconds }}</span
-                >초
+                총 
+                <span>{{ totalTime.minutes }}</span>분 
+                <span>{{ totalTime.seconds }}</span>초
               </h2>
               <div class="basic-scroll">
                 <draggable class="draggable-list" :list="routineArray" group="my-group">
@@ -31,7 +32,7 @@
               </div>
               <div class="button-box">
                 <button class="reset" @click="resetRoutine">Reset</button>
-                <button class="save" @click="saveMyroutine">저장하기</button>
+                <button class="save" @click="isModalViewed=true">저장하기</button>
               </div>
             </div>
           </section>
@@ -52,6 +53,7 @@
 import simpleheader from '../components/layout/simpleheader.vue';
 import myroutineList from '../components/myroutineList.vue';
 import StretchListMR from '../components/StretchList_myroutine.vue';
+import modalSmall from "../components/modalSmall";
 import draggable from 'vuedraggable';
 import axios from 'axios';
 import '../plugins/vue-toast';
@@ -69,6 +71,8 @@ export default {
       num: 0,
       backNum: 0,
       cardNum: 0,
+      
+      isModalViewed: false,
 
       routineArray: [],
       childData: {},
@@ -82,6 +86,7 @@ export default {
     myroutineList,
     draggable,
     StretchListMR,
+    modalSmall,
   },
   methods: {
     saveMyroutine() {
@@ -140,6 +145,8 @@ export default {
     },
     resetRoutine() {
       this.routineArray = [];
+      this.totalTime.minutes = 0;
+      this.totalTime.seconds = 0;
     },
     emitStretchData(data) {
       const routineData = {
@@ -154,6 +161,9 @@ export default {
       const updateRoutineArray = [...this.routineArray];
       updateRoutineArray.push(routineData);
       this.routineArray = updateRoutineArray;
+    },
+    closeModal() {
+      this.isModalViewed = false;
     },
   },
 };
