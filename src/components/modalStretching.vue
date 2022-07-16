@@ -60,37 +60,34 @@ export default {
   },
   data() {
     return {
-      viewTime: '00 : 00'
+      viewTime: '00 : 00',
+      repeatCnt: 1
     };
   },
   created() {
     this.timeEnit();
   },
+  watch: {
+    repeatCnt: function () {
+      let time = this.contentInfo.playTime * this.repeatCnt;
+      let min = parseInt((time%3600)/60);
+      let sec = time%60;
+      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+    }
+  },
   methods: {
     emitStretchData() {
+      this.contentInfo.repeatCnt = this.repeatCnt;
       this.$emit("stretchData", this.contentInfo);
     },
     timeMinus() {
-      let time = this.viewTime.split(':');
-      let min = Number(time[0]) * 60;
-      let minusTime = min + Number(time[1]) - this.contentInfo.playTime;
-
-      if(0 >= minusTime) {
+      if(0 >= this.repeatCnt-1) {
         return;
       }
-
-      min = parseInt((minusTime%3600)/60);
-      let sec = minusTime%60;
-      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+      this.repeatCnt -= 1;
     },
     timePlus() {
-      let time = this.viewTime.split(':');
-      let min = Number(time[0]) * 60;
-      let plusTime = min + Number(time[1]) + this.contentInfo.playTime;
-
-      min = parseInt((plusTime%3600)/60);
-      let sec = plusTime%60;
-      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+      this.repeatCnt += 1;
     },
     timeEnit() {
       this.viewTime = '00 : ' + this.contentInfo.playTime;

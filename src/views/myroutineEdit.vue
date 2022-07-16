@@ -90,11 +90,14 @@ export default {
   },
   methods: {
     saveMyroutine() {
+      
+      this.isModalViewed = false;
+
       let stretchIdResult = [];
       let repeatCountResult = [];
       for (const el in this.routineArray) {
         stretchIdResult.push(this.routineArray[el].StretchContentId);
-        repeatCountResult.push(1);
+        repeatCountResult.push(this.routineArray[el].repeatCount);
       }
       let routineRequest = {
         userId: this.user.id,
@@ -142,6 +145,7 @@ export default {
     },
     deleteRoutine(index) {
       this.routineArray.splice(index, 1);
+      this.timeCalculation();
     },
     resetRoutine() {
       this.routineArray = [];
@@ -153,14 +157,24 @@ export default {
         repeatCount: 1,
         StretchContentId: data.id,
         playTime: data.playTime,
+        repeatCount: data.repeatCnt,
         title: data.title,
       };
       this.addRoutineData(routineData);
+      this.timeCalculation();
     },
     addRoutineData(routineData) {
       const updateRoutineArray = [...this.routineArray];
       updateRoutineArray.push(routineData);
       this.routineArray = updateRoutineArray;
+    },
+    timeCalculation() {
+      let time = 0;
+      for (const el in this.routineArray) {
+        time += this.routineArray[el].playTime * this.routineArray[el].repeatCount;
+      }
+      this.totalTime.minutes = parseInt((time%3600)/60);
+      this.totalTime.seconds = time%60;
     },
     closeModal() {
       this.isModalViewed = false;

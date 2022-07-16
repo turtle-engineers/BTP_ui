@@ -16,9 +16,8 @@
         <!-- 시간, 시작 -->
         <article class="routine-starter">
           <p>
-            총 <span>{{ totalTime.minutes }}</span
-            >분 <span>{{ totalTime.seconds }}</span
-            >초
+            총 <span>{{ totalTime.minutes }}</span>분 
+            <span>{{ totalTime.seconds }}</span>초
           </p>
           <router-link to="/myroutine/stretching">
             <button type="button">마이 루틴 시작</button>

@@ -5,7 +5,7 @@
       <div>
         <!-- {{routineInfo}} -->
         <h1>{{ routineInfo.title }}</h1>
-        <span>00 : 00 : {{ routineInfo.playTime }}</span>
+        <span>00 : {{ timeMin }} : {{ timeSec }}</span>
       </div>
     </div>
     <button class="delete-btn" @click="emitRoutineData">
@@ -30,10 +30,22 @@ export default {
       type: Number,
     },
   },
+  computed: {
+    timeMin: function () {
+      let time = this.routineInfo.playTime * this.routineInfo.repeatCount;
+      let min = String(parseInt((time%3600)/60)).padStart(2,'0');
+      return min;
+    },
+    timeSec: function () {
+      let time = this.routineInfo.playTime * this.routineInfo.repeatCount;
+      let sec = String(time%60).padStart(2,'0');
+      return sec;
+    }
+  },
   methods: {
     emitRoutineData() {
       const routineData = Object.assign({ index: this.routineOrder }, this.routineInfo);
-      // console.log("", this.routineData);
+      // console.log(routineData);
       this.$emit('childData', routineData);
     },
   },
