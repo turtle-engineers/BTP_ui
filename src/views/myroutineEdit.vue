@@ -15,8 +15,8 @@
             <h1>마이 루틴 리스트</h1>
             <div class="listbox-content">
               <h2 class="listbox-timer">
-                총 
-                <span>{{ totalTime.minutes }}</span>분 
+                총
+                <span>{{ totalTime.minutes }}</span>분
                 <span>{{ totalTime.seconds }}</span>초
               </h2>
               <div class="basic-scroll">
@@ -71,7 +71,7 @@ export default {
       num: 0,
       backNum: 0,
       cardNum: 0,
-      
+
       isModalViewed: false,
 
       routineArray: [],
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     saveMyroutine() {
-      
+
       this.isModalViewed = false;
 
       let stretchIdResult = [];
@@ -154,7 +154,7 @@ export default {
     },
     emitStretchData(data) {
       const routineData = {
-        repeatCount: 1,
+        // repeatCount: 1,
         StretchContentId: data.id,
         playTime: data.playTime,
         repeatCount: data.repeatCnt,
