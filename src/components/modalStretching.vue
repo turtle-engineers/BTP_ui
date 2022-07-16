@@ -90,6 +90,7 @@ export default {
       this.repeatCnt += 1;
     },
     timeEnit() {
+      this.repeatCnt = 1;
       this.viewTime = '00 : ' + this.contentInfo.playTime;
     }
   },
