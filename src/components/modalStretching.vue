@@ -6,7 +6,7 @@
       
       <div class="modal-body">
         <h1>{{ contentInfo.title }}</h1>
-        <h3>{{ contentInfo.description }}</h3>
+        <h3 v-html="contentInfo.description"></h3>
 
         <div class="m-stretching-time">
           <button class="minus" @click="timeMinus">

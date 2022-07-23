@@ -93,5 +93,12 @@
   display: flex;
   max-width: 1202px;
   flex-wrap: wrap;
-  gap: 45px 30px;
+  // gap: 45px 30px;
+  
+  .st-3{
+    width: 33.3%
+  }
+  .st-4{
+    width: 25%
+  }
 }

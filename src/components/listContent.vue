@@ -1,10 +1,8 @@
 <template>
   <div class="content-wrap">
     <button @click="openModal">
-      <img
-        :src="
-          require(`@/assets/images/stretch_sample/stretching_${contentInfo.category}.png`)
-        "
+      <img class="preview"
+        :src="require(`@/assets/images/stretch/${imgUrl}`)"
         alt="sample img"
       />
     </button>
@@ -49,6 +47,11 @@ export default {
         };
       },
     },
+  },
+  computed: {
+    imgUrl: function () {
+      return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
+    }
   },
   created() {
     this.getUserID();

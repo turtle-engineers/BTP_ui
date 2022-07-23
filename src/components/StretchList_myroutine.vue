@@ -30,7 +30,7 @@
     </div>
     <div class="stretchList">
       <listContent
-        class="st-item"
+        class="st-item st-3"
         v-for="(contentInfo, i) in stretchContentList"
         :key="i"
         :contentInfo="contentInfo"
@@ -124,6 +124,7 @@ export default {
                 title: content.title,
                 description: res2.data.results.description,
                 playTime: res1.data.results.playTime,
+                imgUrl: content.image_url
               };
 
               this.stretchContentList.push(stretchData);

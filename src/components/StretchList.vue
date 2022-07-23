@@ -26,11 +26,10 @@
     </div>
     <div class="stretchList">
       <listContent
-        class="st-item"
+        class="st-item st-4"
         v-for="(contentInfo, i) in stretchContentList"
         :key="i"
         :contentInfo="contentInfo"
-        :category="contentInfo.category"
         v-bind:data-category="makeBindAttribute(contentInfo.category)"
       />
     </div>
@@ -93,6 +92,7 @@ export default {
               category: nowList.title,
               id: content.id,
               title: content.title,
+              imgUrl: content.image_url
             };
             this.stretchContentList.push(stretchData);
           });
