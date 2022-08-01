@@ -1,5 +1,11 @@
 <template>
   <section class="moreStretching">
+    <modalStretching 
+      v-if="isModalViewed" 
+      :contentInfo="modalInfo" 
+      @stretchData="emitStretchData"
+      @close-modal="closeModal" 
+    />
     <div class="category-wrap">
       <article class="category">
         <input type="radio" id="f1" data-category="all" name="categoryFilter" checked />
@@ -31,6 +37,7 @@
         :key="i"
         :contentInfo="contentInfo"
         v-bind:data-category="makeBindAttribute(contentInfo.category)"
+        @open-modal="openModal"
       />
     </div>
     <div class="timeCategoryList">
@@ -42,6 +49,7 @@
 <script>
 import listContent from "../components/listContent.vue";
 import stretchingMinute from "../components/Stretching_minute.vue";
+import modalStretching from '../components/modalStretching';
 import axios from "axios";
 
 export default {
@@ -49,11 +57,13 @@ export default {
     return {
       // 여기에 전달할 컴포넌트 데이터 담기
       category: ["eye", "neck", "shoulder", "wrist"],
+      modalInfo: {},
       stretchCategoryList: {},
       stretchContentList: [],
+      isModalViewed: false
     };
   },
-  components: { listContent, stretchingMinute },
+  components: { listContent, stretchingMinute, modalStretching },
   created() {
     this.getCategoryId();
   },
@@ -61,6 +71,17 @@ export default {
     this.categoryFilter();
   },
   methods: {
+    openModal(data) {
+      this.modalInfo = data;
+      this.isModalViewed = true;
+    },
+    closeModal() {
+      this.isModalViewed = false;
+    },
+    emitStretchData(data) {
+      this.$emit('stretchData', data);
+      this.isModalViewed = false;
+    },
     getCategoryId() {
       axios.get("http://127.0.0.1:3000/stretch/category/list").then((res) => {
         if (res.data.results != null) {
@@ -78,7 +99,6 @@ export default {
       }
     },
     getStretchContent(nowList) {
-      //   console.log(nowList.id, nowList.title);
       axios({
         method: "get",
         url: "http://127.0.0.1:3000/stretch/contents/list",
@@ -86,15 +106,33 @@ export default {
       }).then((res) => {
         if (res.data.result == "OK") {
           const eachStretch = res.data.results;
-
           eachStretch.forEach((content) => {
-            const stretchData = {
-              category: nowList.title,
-              id: content.id,
-              title: content.title,
-              imgUrl: content.image_url
-            };
-            this.stretchContentList.push(stretchData);
+            axios.all([
+              axios({
+                method: 'get',
+                url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                params: { id: content.id },
+              }),
+              axios({
+                method: 'get',
+                url: 'http://127.0.0.1:3000/stretch/contents/description',
+                params: { id: content.id },
+              })
+            ]).then(axios.spread((res1, res2) => {
+              
+              const stretchData = {
+                category: nowList.title,
+                id: content.id,
+                title: content.title,
+                description: res2.data.results.description,
+                playTime: res1.data.results.playTime,
+                imgUrl: content.image_url,
+                videoUrl: content.video_url
+              };
+
+              this.stretchContentList.push(stretchData);
+            
+            }));
           });
         } else {
           console.log(res.data);

@@ -48,13 +48,13 @@ export default {
       },
     },
   },
+  created() {
+    this.getUserID();
+  },
   computed: {
     imgUrl: function () {
       return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
     }
-  },
-  created() {
-    this.getUserID();
   },
   methods: {
     openModal() {

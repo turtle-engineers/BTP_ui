@@ -2,7 +2,9 @@
   <div id='modal' onselectstart='return false' >
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
-      <img src="../assets/images/ex-img.png">
+      <video playsinline autoplay muted loop poster='`../assets/images/stretch/${imgUrl}`'>
+        <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
+      </video>
       
       <div class="modal-body">
         <h1>{{ contentInfo.title }}</h1>
@@ -66,6 +68,14 @@ export default {
   },
   created() {
     this.timeEnit();
+  },
+  computed: {
+    imgUrl: function () {
+      return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
+    },
+    videoUrl: function () {
+      return this.contentInfo.videoUrl ? this.contentInfo.videoUrl : 'sample/' + this.contentInfo.category + '.mp4';
+    }
   },
   watch: {
     repeatCnt: function () {

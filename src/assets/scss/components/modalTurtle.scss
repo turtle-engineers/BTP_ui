@@ -25,6 +25,7 @@
   transform: translate(-50%,-50%);
   border-radius: $btp-border;
   user-select:all;
+  overflow: hidden;
   cursor: default;
   
   .btn-x {
@@ -75,12 +76,13 @@
   height: 80%;
 
   .modal-body {
-    padding: 3rem;
+    padding: 2.5rem;
   }
 
-  img {
+  video {
     width: 100%;
     height: 40%;
+    margin-top: 1.5rem;
   }
   h1 {
     margin-bottom: 2rem;
@@ -93,7 +95,7 @@
     font-size: 1.5rem;
     line-height: 1.8rem;
     color: #a4a4a4;
-    height: 80px;
+    max-height: 100px;
     overflow: auto;
   }
 }

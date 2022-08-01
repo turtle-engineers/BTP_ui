@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container app-container-center">
     <img class="login-img" src="@/assets/images/login.png" />
     <h1 class="login-title">
       Back to the people 프로젝트에 <br />
@@ -20,7 +20,7 @@ export default {
 };
 </script>
 <style>
-.app-container {
+.app-container-center {
   text-align: center;
   padding-bottom: 230px;
 }

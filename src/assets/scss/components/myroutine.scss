@@ -1,9 +1,5 @@
 $btp-green: #61c997;
 
-.app-container {
-  background-color: white;
-}
-
 .routine-title {
   display: flex;
   flex-direction: row;
@@ -45,10 +41,17 @@ $btp-green: #61c997;
 }
 
 .routine-menu {
-  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
-  a {
-    color: inherit;
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  button {
+    font-size: 2rem;
+    color: $btp-green;
   }
 }
 

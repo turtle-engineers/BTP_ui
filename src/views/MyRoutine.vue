@@ -25,15 +25,16 @@
         </article>
       </div>
       <article class="routine-menu">
+        <h1>마이루틴 리스트</h1>
         <router-link to="/myroutine/edit">
-          <button type="button">마이루틴 리스트 편집하기 ></button>
+          <button type="button">리스트 편집 ></button>
         </router-link>
       </article>
       <!-- 캐러셀 -->
       <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
-        <div class="slide-content" v-for="item in list()" v-bind:key="item.id">
+        <div class="slide-content" v-for="contentInfo in routineArray" v-bind:key="contentInfo.contentsOrder">
           <div class="content-img">
-            <listContent/>
+            <listContent :contentInfo="contentInfo" />
           </div>
         </div>
         <template #prevArrow="">
@@ -67,12 +68,6 @@ export default {
         seconds: '0',
       },
       routineArray: [],
-
-      list: function() {
-        var list = [];
-        for (var i = 1; i < 8; i += 1) list.push(i);
-        return list;
-      },
     };
   },
   components: {
@@ -95,22 +90,32 @@ export default {
       });
     },
     async getMyRoutine() {
-      await axios({
-        method: 'get',
-        url: 'http://127.0.0.1:3000/my-routine/list',
-        params: { userId: this.user.id },
-      }).then((res) => {
-        if (res.data.result == 'OK') {
-          let routineArray = res.data.results;
+      await axios.all([
+        axios({
+          method: 'get',
+          url: 'http://127.0.0.1:3000/my-routine/list',
+          params: { userId: this.user.id },
+        }),
+        axios({
+          method: 'get',
+          url: 'http://127.0.0.1:3000/stretch/category/list'
+        })
+      ]).then(axios.spread((res1, res2) => {
+        if (res1.data.result == 'OK' && res2.data.result == 'OK') {
+          let routineArray = res1.data.results;
+          const categoryList = res2.data.results;
 
           const timeResult = { minutes: routineArray.totalTimeMin, seconds: routineArray.totalTimeSec };
           this.totalTime = timeResult;
 
-          this.routineArray = routineArray.myRoutineList;
+          routineArray.myRoutineList.forEach((content) => {
+            content["category"] = categoryList[content.stretchCategoryId].title;
+          });
 
-          console.log(routineArray);
+          this.routineArray = routineArray.myRoutineList;
+          // console.log(this.routineArray);
         }
-      });
+      }));
     },
   },
 };
