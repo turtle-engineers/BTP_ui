@@ -31,31 +31,12 @@
         </router-link>
       </article>
       <!-- 캐러셀 -->
-      <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
-        <div class="slide-content" v-for="contentInfo in routineArray" v-bind:key="contentInfo.contentsOrder">
-          <div class="content-img">
-            <listContent :contentInfo="contentInfo" />
-          </div>
-        </div>
-        <template #prevArrow="">
-          <button class="arrow-btn">
-            <img src="../assets/icon/left_square.png" alt="arrow-left" />
-          </button>
-        </template>
-        <template #nextArrow="">
-          <button class="arrow-btn">
-            <img src="../assets/icon/right_square.png" alt="arrow-left" />
-          </button>
-        </template>
-      </VueSlickCarousel>
+      <Carousel :is="componentLoader" :routineArray="routineArray"></Carousel>
     </div>
   </div>
 </template>
 <script>
 import simpleheader from '../components/layout/simpleheader.vue';
-import listContent from '../components/listContent.vue';
-import VueSlickCarousel from 'vue-slick-carousel';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import axios from 'axios';
 export default {
   data() {
@@ -70,27 +51,30 @@ export default {
       routineArray: [],
     };
   },
+  async created() {
+    await this.getUser();
+    await this.getMyRoutine();
+  },
   components: {
     simpleheader,
-    VueSlickCarousel,
-    listContent,
   },
-  created() {
-    this.getUser();
+  computed: {
+    componentLoader() {
+      return () =>import(`@/components/Carousel.vue`);
+    }
   },
   methods: {
     getUser() {
       axios.get('http://127.0.0.1:3000/user/info').then((res) => {
         if (res.data.results != null) {
           this.user.id = res.data.results.id;
-          this.getMyRoutine();
         } else {
           window.location.replace('http://127.0.0.1:3000/oauth/kakao');
         }
       });
     },
-    async getMyRoutine() {
-      await axios.all([
+    getMyRoutine() {
+      axios.all([
         axios({
           method: 'get',
           url: 'http://127.0.0.1:3000/my-routine/list',
@@ -124,5 +108,4 @@ export default {
 @import '../assets/scss/variables.scss';
 @import '../assets/scss/common.scss';
 @import '../assets/scss/components/myroutine.scss';
-@import '../assets/scss/components/carousel.scss';
 </style>

@@ -3,7 +3,7 @@
     <modalStretching 
       v-if="isModalViewed" 
       :contentInfo="modalInfo" 
-      @stretchData="emitStretchData"
+      :modalAction="modalAction" 
       @close-modal="closeModal" 
     />
     <div class="category-wrap">
@@ -57,6 +57,7 @@ export default {
     return {
       // 여기에 전달할 컴포넌트 데이터 담기
       category: ["eye", "neck", "shoulder", "wrist"],
+      modalAction: "startStretchingVideo",
       modalInfo: {},
       stretchCategoryList: {},
       stretchContentList: [],
@@ -76,10 +77,6 @@ export default {
       this.isModalViewed = true;
     },
     closeModal() {
-      this.isModalViewed = false;
-    },
-    emitStretchData(data) {
-      this.$emit('stretchData', data);
       this.isModalViewed = false;
     },
     getCategoryId() {

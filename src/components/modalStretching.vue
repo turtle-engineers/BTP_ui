@@ -2,7 +2,7 @@
   <div id='modal' onselectstart='return false' >
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
-      <video playsinline autoplay muted loop poster='`../assets/images/stretch/${imgUrl}`'>
+      <video playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
         <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
       </video>
       
@@ -12,15 +12,15 @@
 
         <div class="m-stretching-time">
           <button class="minus" @click="timeMinus">
-            <img src="../assets/icon/btn-minus.png" />
+            <img src="@/assets/icon/btn-minus.png" />
           </button>
           <div class="time">{{ viewTime }}</div>
           <button class="plus" @click="timePlus">
-            <img src="../assets/icon/btn-plus.png" />
+            <img src="@/assets/icon/btn-plus.png" />
           </button>
         </div>
       </div>
-
+      
       <div class="modal-bottom">
         <b-row class="m-str-btn">
           <b-col>
@@ -29,8 +29,8 @@
             </button>
           </b-col>
           <b-col>
-            <button @click="emitStretchData">
-              추가하기
+            <button @click="modalActionSelect">
+              {{ btnText }}
             </button>
           </b-col>
         </b-row>
@@ -59,6 +59,10 @@ export default {
         };
       },
     },
+    modalAction: {
+      type: String,
+      default: 'emitStretchData'
+    }
   },
   data() {
     return {
@@ -75,6 +79,9 @@ export default {
     },
     videoUrl: function () {
       return this.contentInfo.videoUrl ? this.contentInfo.videoUrl : 'sample/' + this.contentInfo.category + '.mp4';
+    },
+    btnText: function () {
+      return this.modalAction == 'emitStretchData' ? '추가하기' : '시작하기';
     }
   },
   watch: {
@@ -82,13 +89,24 @@ export default {
       let time = this.contentInfo.playTime * this.repeatCnt;
       let min = parseInt((time%3600)/60);
       let sec = time%60;
-      this.viewTime = String(min).padStart(2,'0') + " : " + String(sec).padStart(2,'0');
+      this.viewTime = String(min).padStart(2,'0') + ' : ' + String(sec).padStart(2,'0');
     }
   },
   methods: {
-    emitStretchData() {
+    modalActionSelect() {
       this.contentInfo.repeatCnt = this.repeatCnt;
-      this.$emit("stretchData", this.contentInfo);
+      this.modalAction == 'emitStretchData' ? this.$emit('stretchData', this.contentInfo) : this.goStretchingVideo();
+    },
+    goStretchingVideo() {
+      this.$router.push({
+          name: '/stretchingVideo',
+          params: { 
+            title:this.contentInfo.title,
+            category:this.contentInfo.category,
+            imgName:this.contentInfo.imgUrl,
+            videoName:this.contentInfo.videoUrl
+          }
+        });
     },
     timeMinus() {
       if(0 >= this.repeatCnt-1) {
