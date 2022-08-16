@@ -20,10 +20,10 @@
         <label class="category-btn" for="4">손목</label>
       </article>
       <!-- on off버튼 -->
-      <article class="bookmark">
+      <article class="bookmark" @change="doBookmarkFilter">
         <span>북마크만 보기</span>
         <div class="onoff-button">
-          <input type="checkbox" id="stretching-switch" />
+          <input type="checkbox" id="stretching-switch" ref="bookmarkOnOffBtn" />
           <label for="stretching-switch"></label>
         </div>
       </article>
@@ -86,12 +86,12 @@ export default {
         }
       });
     },
-    resetStretchCategoryList() {
+    resetStretchList() {
       this.stretchContentList = [];
     },
     getEachCategoryContent() {
       let categoryId = document.querySelector('input[name=categoryFilter]:checked').id;
-      this.resetStretchCategoryList();
+      this.resetStretchList();
       if (categoryId === 'all') {
         this.stretchCategoryList.forEach((element) => {
           this.getStretchContent(element);
@@ -137,6 +137,40 @@ export default {
                 })
               );
           });
+
+          let result = this.$refs.bookmarkOnOffBtn.checked;
+          if (result) {
+            this.getBookmark(1);
+          }
+        } else {
+          console.log(res.data);
+        }
+      });
+    },
+    doBookmarkFilter() {
+      let result = this.$refs.bookmarkOnOffBtn.checked;
+      if (result) {
+        this.getBookmark(1);
+      }
+      if (!result) {
+        this.getEachCategoryContent();
+      }
+      // todo : 여기에 1 대신 user id 넣으면 됨
+    },
+    getBookmark(userId) {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/bookmark/list',
+        params: { uid: userId },
+      }).then((res) => {
+        if (res.data.results != null) {
+          const bookMarkList = res.data.results;
+
+          let filtered = this.stretchContentList.filter((contentList) =>
+            bookMarkList.some((eachBookmark) => contentList.id == eachBookmark.StretchContentId)
+          );
+          this.resetStretchList();
+          this.stretchContentList = filtered;
         } else {
           console.log(res.data);
         }
