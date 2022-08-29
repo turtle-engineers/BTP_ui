@@ -51,18 +51,19 @@
       <div class="main">
         <!-- 브랜드 소개 -->
         <div class="brand">
-          <h1>BTP PROJECT</h1>
+          <h1>PROJECT STORY</h1>
           <img src="../assets/images/brand.svg" />
           <p>
-            현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br />
-            거북이가 되면 육지를 떠나야한다는 사실을 알고 계십니까?<br />
-            BTP 프로젝트는 인류의 거북이화를 예방하기 위한 프로젝트로서<br />
-            당신은 이 프로젝트에 자유롭게 참여할 수 있습니다.<br />
+            인류는 새로운 진화의 국면에 접어들었습니다. 본 프로젝트의 과학자들은<br />
+            인류가 거북이로 진화하는 것을 막기위한 새로운 프로젝트:[Back to the people project…]를 시행,<br />
+            이는 인류에게 알려질 시 큰일이 날 수 있는 프로젝트, 비밀리에 시행되는 프로젝트에 당신은 선발되었습니다.<br />
+            프로젝트를 좀 더 알고 싶다면 아래 버튼을 클릭하세요.
           </p>
           <a href="#">
             <div class="showMore">MORE</div>
           </a>
         </div>
+
 
         <!-- 나의 거북이, 오늘의 목표 -->
         <b-container>
@@ -100,6 +101,7 @@
             </b-col>
           </b-row>
         </b-container>
+
 
         <!-- 메인 프로젝트 -->
         <div class="btp-menu">
@@ -179,65 +181,69 @@
             </div>
           </div>
         </div>
+
+
+        <!-- 스트레칭 캘린더 -->
+        <div class="title title-g">
+          <img />
+          <h1>RESEARCH RECORD</h1>
+          <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
+        </div>
+        <div class="calender-menu">
+          <b-row class="calendar-top" align-v="end">
+            <img
+              class="calendar-pad-img"
+              :src="require('@/assets/images/ipad_top.png')"
+            />
+          </b-row>
+          <b-row class="calendar-middle">
+            <img
+              class="calendar-pad-img"
+              :src="require('@/assets/images/ipad_middle.png')"
+            />
+            <div class="calendar-body">
+              <img
+                class="calendar-logo"
+                :src="require('@/assets/images/logo/process_logo.png')"
+              />
+              <hr />
+
+              <div class="title title-w">
+                <img />
+                <h1>STRETCHING CALENDAR</h1>
+              </div>
+              <Calendar></Calendar>
+
+              <!-- <div class="calendar-title title-w">
+                          <img><h1>MISSION TEN TIMES</h1>
+                      </div>
+                      <div class="mission-card">
+                          <table>
+                              <tr>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                                  <td><div class="circle"><span>C</span></div></td>
+                              </tr>
+                          </table>
+                      </div> -->
+            </div>
+          </b-row>
+          <b-row class="calendar-bottom">
+            <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
+          </b-row>
+        </div>
+
       </div>
     </div>
-    
-    <!-- 스트레칭 캘린더 -->
-    <div class="title title-g">
-      <img />
-      <h1>RESEARCH RECORD</h1>
-      <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
-    </div>
-    <div class="calender-menu">
-      <b-row class="calendar-top" align-v="end">
-        <img
-          class="calendar-pad-img"
-          :src="require('@/assets/images/ipad_top.png')"
-        />
-      </b-row>
-      <b-row class="calendar-middle">
-        <img
-          class="calendar-pad-img"
-          :src="require('@/assets/images/ipad_middle.png')"
-        />
-        <div class="calendar-body">
-          <img
-            class="calendar-logo"
-            :src="require('@/assets/images/logo/process_logo.png')"
-          />
-          <hr />
 
-          <div class="title title-w">
-            <img />
-            <h1>STRETCHING CALENDAR</h1>
-          </div>
-          <Calendar></Calendar>
 
-          <!-- <div class="calendar-title title-w">
-                      <img><h1>MISSION TEN TIMES</h1>
-                  </div>
-                  <div class="mission-card">
-                      <table>
-                          <tr>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                              <td><div class="circle"><span>C</span></div></td>
-                          </tr>
-                      </table>
-                  </div> -->
-        </div>
-      </b-row>
-      <b-row class="calendar-bottom">
-        <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
-      </b-row>
-    </div>
 
     <button id="topBtn">
       <a href="#"><img src="../assets/icon/to-up-btn.png"/></a>

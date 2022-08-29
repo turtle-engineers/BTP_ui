@@ -8,7 +8,7 @@ $bn-desc: white;
 .banner {
   display: block;
   width: 100%;
-  height: 668px;
+  height: 76vh;
   background-size: cover;
   background-position: 80% center;
   background-image: url('../assets/images/banner.png');
@@ -16,62 +16,62 @@ $bn-desc: white;
 }
 
 .banner-text{
-  // margin-left: 15%;
   margin: 80px 0 110px 15%;
   h1{
     color: $bn-title;
     font-weight: bold;
-    font-size: 70px;
-    margin-bottom: 49px;
+    font-size: 8vh;
+    margin-bottom: 4vh;
   }
   p{
     color: $bn-desc;
-    font-size: 20px;
+    font-size: 2.5vh;
+    line-height: 4.5vh;
   }
 }
 
 
 //-> brand
 .brand {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 160px auto;
+  margin: 18rem auto;
   text-align: center;
 
   h1 {
-    margin-top: 56px;
-    margin-bottom: 62px;
+    margin-bottom: 6vh;
     font-family:$btpfont, bold;
     font-weight: bold;
-    font-size: 106px;
-    line-height: 88px;
-    vertical-align: middle;  
+    font-size: 8vh;
     color: white;
   }
 
   p {
-    margin-top: 41px;
-    margin-bottom: 100px;
-    font-size:21px;
-    line-height: 32px;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
+    font-size: 2.2vh;
+    line-height: 3.5vh;
     color: $btpgray;
   }
+  
   img {
-    width: 70vw;
+    height: 40vh;
   }
-}
-.showMore {
-  display: inline-block;
-  width: 148.5px;
-  padding:3px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 26px;
-  color: white;
-  font-weight: bold;
-  background-color: $btpblack;
+
+  .showMore {
+    display: inline-block;
+    width: 13rem;
+    padding: 1.5rem 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 2.2vh;
+    color: white;
+    background-color: $btpblack;
+  }
+  
 }
 
 @media (max-width: $mobile) {
@@ -138,13 +138,13 @@ $bn-desc: white;
       margin-top: 32px;
       margin-bottom: 42px;
     }
-  }
 
-  .showMore {
-    width: 71px;
-    height: 23px;
-    font-size: 12px;
-    margin-bottom: 66px;
+    .showMore {
+      width: 71px;
+      height: 23px;
+      font-size: 12px;
+      margin-bottom: 66px;
+    }
   }
 
 }

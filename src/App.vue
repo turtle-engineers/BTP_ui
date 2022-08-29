@@ -15,14 +15,9 @@ import musicbar from '@/components/layout/musicbar.vue';
 
 export default {
   name: 'App',
-
   components: {
     musicbar,
     Footer // 푸터 컴포넌트 추가
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>

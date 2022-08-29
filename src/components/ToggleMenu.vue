@@ -7,13 +7,13 @@
     <div id = "line"></div>
       <ul id="nav-left">
       <a href="#" class="menu-item">
-          <li class="menu-text">스트레칭 가이드</li>
+          <li class="toggle-menu-text">스트레칭 가이드</li>
       </a>
       <a href="#" class="menu-item">
-          <li class="menu-text">마이 루틴</li>
+          <li class="toggle-menu-text">마이 루틴</li>
       </a>
       <a href="#" class="menu-item">
-          <li class="menu-text">프로젝트 소개</li>
+          <li class="toggle-menu-text">프로젝트 소개</li>
       </a>
     </ul>
   </div>
@@ -74,7 +74,7 @@ a { text-decoration: none; }
   margin-left: 43px;
 }
 
-.menu-text {
+.toggle-menu-text {
   font-size: 24px;
   line-height: 24px;
   margin-bottom: 43px;

@@ -121,7 +121,7 @@
         width: 100%;
         color: #FFFFFF;
         border: solid 3px #FFFFFF;
-        margin: 5rem auto;
+        margin: 5vh auto 4vh auto;
     }
 
     .calendar-middle {
@@ -141,9 +141,10 @@
             background-color: #FFFFFF;
             border-radius: 44px;
             margin: 0 auto;
-            padding: 4rem 3rem 0.5rem 3rem;
+            padding: 4vh 2vh 1vh 2vh;
 
             .arrow-left {
+                padding-left: 3vh;
                 text-align:left;
             }
             .arrow-left img {
@@ -151,6 +152,7 @@
                 content: url(../assets/icon/circle-down-btn.png)
             }
             .arrow-right {
+                padding-right: 3vh;
                 text-align:right;
             }
             .arrow-right img {
@@ -159,24 +161,24 @@
             }
 
             .calender-date {
-                font-size: 5.4rem;
+                font-size: 5.4vh;
                 font-weight: bold;
                 color: #343A40;
             }
 
             .calender-goal {
                 display: block;
-                margin-top: 3rem;
+                margin-top: 3vh;
                 color: #343A40;
 
                 .f1 {
-                    font-size: 25px;
+                    font-size: 2.5vh;
                     margin-right: 1rem;
                 }
                 .f2 {
-                    font-size: 71px;
+                    font-size: 7vh;
                     font-weight: bold;
-                    line-height: 71px;
+                    line-height: 7vh;
                     margin-right: 1rem;
                 }
             }
@@ -184,16 +186,14 @@
             .calender_target {
                 width: 100%;
                 border-collapse: separate;
-                border-spacing: 1rem 3rem;
+                border-spacing: 1vh 2vh;
                 table-layout: fixed;
             }
 
             .day {
-                height: 10rem;
-                border-top-left-radius: 2rem;
-                border-top-right-radius: 2rem;
-                border-bottom-left-radius: 2rem;
-                font-size: 5rem;
+                height: 10vh;
+                border-radius:2vh 2vh 0 2vh;
+                font-size: 5vh;
                 text-align: center;
             }
 
