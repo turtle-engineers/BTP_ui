@@ -6,7 +6,7 @@
 }
 
 .body {
-  padding-bottom: 10rem;
+  padding-bottom: 10vh;
   background-color: #1A5EFF;
 }
 
@@ -197,6 +197,10 @@
 
 @media (max-width: $mobile) {
 
+  .body {
+    padding-bottom: 5vh;
+  }
+
   .title{
     margin-left: 2rem;
     margin-bottom: 0;
@@ -238,7 +242,7 @@
     // width: 700px;
     // width: max-content;
     width: 100%;
-    margin: 0 auto 10rem auto;
+    // margin: 0 auto 10rem auto;
   }
   
   .project-menu {

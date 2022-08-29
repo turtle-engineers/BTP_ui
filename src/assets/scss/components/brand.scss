@@ -38,7 +38,7 @@ $bn-desc: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 18rem auto;
+  margin: 18vh auto;
   text-align: center;
 
   h1 {
@@ -83,25 +83,52 @@ $bn-desc: white;
     background-position: 80% 80%;
     height:  300px;
     h1{
-      font-size: 30px;
+      font-size: 4vh;
       margin-top: 42px;
       margin-bottom: 17px;
     }
     p{
       margin-bottom: 32px;
       font-weight: regular;
-      font-size: 10px;
-      line-height: 15px;
+      font-size: 1.5vh;
+      line-height: 2.5vh;
       color: $mob-gray;
     }
   }
 
   .brand{
+    height: auto;
     text-align: left;
-    margin: 0 auto;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: max-content;
+    margin: 8vh auto;
+
+    h1{
+      font-size: 4vh;
+      line-height: 4vh;
+      margin-bottom: 17px;
+    }
+
+    p{
+      color: $mob-gray;
+      font-weight: regular;
+      font-size: 1.5vh;
+      line-height: 2.5vh;
+      margin: 0;
+      br {
+        display: none;
+      }
+    }
+
+    img {
+      width: 305px;
+      height: auto;
+      margin: 5vh 0;
+    }
+
+    .showMore {
+      width: 13rem;
+      border-radius: 15vw;
+      padding: 1rem 0;
+    }
 
     :nth-child(1){
       order: 1;
@@ -120,31 +147,6 @@ $bn-desc: white;
       margin: 0 auto;
     }
 
-    h1{
-      font-size: 30px;
-      line-height: 30px;
-      margin-top: 42px;
-      margin-bottom: 17px;
-    }
-    p{
-      color: $mob-gray;
-      font-weight: regular;
-      font-size: 10px;
-      line-height: 15px;
-      margin: 0;
-    }
-    img {
-      width: 305px;
-      margin-top: 32px;
-      margin-bottom: 42px;
-    }
-
-    .showMore {
-      width: 71px;
-      height: 23px;
-      font-size: 12px;
-      margin-bottom: 66px;
-    }
   }
 
 }

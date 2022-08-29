@@ -78,18 +78,23 @@ nav {
 @media (max-width: $mobile) {
   .header {
     position: relative;
-    height: 86px;
+    height: 8.6rem;
   }
-  .header-logo img{
-    margin: 18px 0 0px 0;
-    height: 40px;
+
+  .header-logo {
+    width: auto;
+    img{
+      width: 30%;
+      margin-top: 18px;
+    }
   }
   .toggleOpen{
     display: inline-block;
     position: absolute;
-    bottom: 30px;
-    left: 40px;
-    img { width: 40px; }
+    top: 50%;
+    left: 5vh;
+    transform: translate(0, -50%);
+    img { width: 4vh; }
   }
 
   .toggleClose {
@@ -98,21 +103,17 @@ nav {
     left: 331px;
     top: 67px;
     z-index: 100;
-    img { width: 40px; }
+    img { width: 4vh; }
   }
 
   nav {
-    background-color: white;
     display: none;
-  }
-  .nav-container{
-    position: relative;
   }
   .my-menu {
     position: absolute;
-    bottom: 0px;
-    right: 5%; //임의
-    a{ margin-left: 20px;}
+    top: 50%;
+    right: 5vh;
+    transform: translate(0, -50%);
   }
   .my-menu img{
     display: inline-block;
