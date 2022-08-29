@@ -3,12 +3,18 @@
     <simpleheader></simpleheader>
     <div class="btp-container">
       <section class="btp-title">
-        <h3>{{ $route.params.category }} 스트레칭</h3>
+        <h3>{{ titleChange }} 스트레칭</h3>
         <h1>{{ $route.params.title }}</h1>
       </section>
-      <video controls playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
-        <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
-      </video>
+      <div class="video-view">
+        <video controls playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
+          <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
+        </video>
+        <div>
+          <div class="speech-bubble">인간이 될 준비는 끝났나요?<br>20초 후에 스트레칭이 시작합니다.</div>
+          <img :src="require(`@/assets/images/robot.png`)" />
+        </div>
+      </div>
       
       <h2>다른 스트레칭 살펴보기</h2>
       <!-- 스트레칭 메뉴 -->
@@ -44,6 +50,10 @@ export default {
     StretchList,
   },
   computed: {
+    titleChange: function () {
+      const name = { 'eye' : '눈', 'neck' : '목', 'shoulder' : '어깨', 'wrist' : '손목' };
+      return name[this.$route.params.category];
+    },
     imgUrl: function () {
       return this.$route.params.imgName ? this.$route.params.imgName : 'sample/' + this.$route.params.category + '.png';
     },
