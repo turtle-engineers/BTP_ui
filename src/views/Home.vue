@@ -59,14 +59,14 @@
             이는 인류에게 알려질 시 큰일이 날 수 있는 프로젝트, 비밀리에 시행되는 프로젝트에 당신은 선발되었습니다.<br />
             프로젝트를 좀 더 알고 싶다면 아래 버튼을 클릭하세요.
           </p>
-          <a href="#">
+          <router-link to="/story">
             <div class="showMore">MORE</div>
-          </a>
+          </router-link>
         </div>
 
 
         <!-- 나의 거북이, 오늘의 목표 -->
-        <b-container>
+        <b-container :class="[loginStatus ? 'loginOpen' : 'loginClose']">
           <b-row class="myturtle" align-h="between">
             <b-col class="myturtle-title">
               <h1>BTP<br />PROJECT</h1>
@@ -87,11 +87,11 @@
                 <cm-t>오늘의 목표</cm-t>
                 <cm-m>
                   <input type="checkbox" id="g1" name="today-goal" disabled />
-                  <label for="g1"><span></span>스트레칭 합산 5분 이상</label><br />
+                  <label for="g1"><span></span>스트레칭 시작하기</label><br />
                   <input type="checkbox" id="g2" name="today-goal" disabled />
-                  <label for="g2"><span></span>랜덤 챌린지 3회 이상</label><br />
+                  <label for="g2"><span></span>오늘 목표치의 50% 달성하기</label><br />
                   <input type="checkbox" id="g3" name="today-goal" disabled />
-                  <label for="g3"><span></span>랜덤 챌린지 3회 이상</label>
+                  <label for="g3"><span></span>오늘 목표치 100% 달성하기</label>
                 </cm-m>
                 <cm-b>
                   <f1>실험 참여 횟수</f1>
@@ -131,9 +131,9 @@
               <button class="showbtn" @click="showDesc1">
                 <img src="../assets/icon/question-btn.png" />
               </button>
-              <a href="#">
+              <router-link to="/stretchingGuide">
                 <div class="start">START</div>
-              </a>
+              </router-link>
             </div>
             <div :class="[side2 ? 'project-item-front' : 'project-item-back']">
               <!-- <div class="project-item-back"> -->
@@ -153,9 +153,9 @@
               <button class="showbtn" @click="showDesc2">
                 <img src="../assets/icon/question-btn.png" />
               </button>
-              <a href="#">
+              <router-link to="/myroutine">
                 <div class="start">START</div>
-              </a>
+              </router-link>
             </div>
             <div :class="[side3 ? 'project-item-front' : 'project-item-back']">
               <!-- <div class="project-item-back"> -->
@@ -175,70 +175,73 @@
               <button class="showbtn" @click="showDesc3">
                 <img src="../assets/icon/question-btn.png" />
               </button>
-              <a href="#">
+              <router-link to="/alarm">
                 <div class="start">START</div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
 
 
         <!-- 스트레칭 캘린더 -->
-        <div class="title title-g">
-          <img />
-          <h1>RESEARCH RECORD</h1>
-          <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
-        </div>
-        <div class="calender-menu">
-          <b-row class="calendar-top" align-v="end">
-            <img
-              class="calendar-pad-img"
-              :src="require('@/assets/images/ipad_top.png')"
-            />
-          </b-row>
-          <b-row class="calendar-middle">
-            <img
-              class="calendar-pad-img"
-              :src="require('@/assets/images/ipad_middle.png')"
-            />
-            <div class="calendar-body">
+        <div :class="[loginStatus ? 'loginOpen' : 'loginClose']">
+          <div class="title title-g">
+            <img />
+            <h1>RESEARCH RECORD</h1>
+            <p>지금까지 진행한 현황을 볼 수 있습니다.</p>
+          </div>
+          <div class="calender-menu">
+            <b-row class="calendar-top" align-v="end">
               <img
-                class="calendar-logo"
-                :src="require('@/assets/images/logo/process_logo.png')"
+                class="calendar-pad-img"
+                :src="require('@/assets/images/ipad_top.png')"
               />
-              <hr />
+            </b-row>
+            <b-row class="calendar-middle">
+              <img
+                class="calendar-pad-img"
+                :src="require('@/assets/images/ipad_middle.png')"
+              />
+              <div class="calendar-body">
+                <img
+                  class="calendar-logo"
+                  :src="require('@/assets/images/logo/process_logo.png')"
+                />
+                <hr />
 
-              <div class="title title-w">
-                <img />
-                <h1>STRETCHING CALENDAR</h1>
+                <div class="title title-w">
+                  <img />
+                  <h1>STRETCHING CALENDAR</h1>
+                </div>
+                <Calendar></Calendar>
+
+                <!-- <div class="calendar-title title-w">
+                            <img><h1>MISSION TEN TIMES</h1>
+                        </div>
+                        <div class="mission-card">
+                            <table>
+                                <tr>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                    <td><div class="circle"><span>C</span></div></td>
+                                </tr>
+                            </table>
+                        </div> -->
               </div>
-              <Calendar></Calendar>
-
-              <!-- <div class="calendar-title title-w">
-                          <img><h1>MISSION TEN TIMES</h1>
-                      </div>
-                      <div class="mission-card">
-                          <table>
-                              <tr>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                                  <td><div class="circle"><span>C</span></div></td>
-                              </tr>
-                          </table>
-                      </div> -->
-            </div>
-          </b-row>
-          <b-row class="calendar-bottom">
-            <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
-          </b-row>
+            </b-row>
+            <b-row class="calendar-bottom">
+              <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
+            </b-row>
+          </div>
         </div>
+
 
       </div>
     </div>
@@ -282,6 +285,7 @@ export default {
       imgName3: "",
 
       toggleOn: false, //이따 false
+      loginStatus: false,
 
       sessionId: "",
 
@@ -303,7 +307,19 @@ export default {
       },
     };
   },
+  async created() {
+    await this.getUser();
+  },
   methods: {
+    getUser() {
+      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+        if (res.data.results != null) {
+          this.loginStatus = true;
+        } else {
+          this.loginStatus = false;
+        }
+      });
+    },
     async loginAtBackServer(link) {
       await axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.status == 200) {

@@ -26,6 +26,9 @@ import LoginRedirect from "./views/LoginRedirect.vue";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
   mode: "history",
   routes: [
     { path: "/", component: Home },

@@ -65,23 +65,27 @@ export default {
         },
         arrowLeftEvent() {
             const param = [];
-            if (this.month - 1 == -1) {
+            if (this.month - 1 == 0) {
                 param[0] = this.year - 1;
+                param[1] = 12;
             } else {
                 param[0] = this.year;
+                param[1] = this.month - 1;
             }
 
-            param[1] = this.month - 1;
             this.init(param);
         },
         arrowRightEvent() {
             const param = [];
-            if (this.month + 1 == 12) {
+            console.log(this.month);
+            if (parseInt(this.month) + 1 == 13) {
                 param[0] = parseInt(this.year) + 1;
+                param[1] = 1;
             } else {
                 param[0] = this.year;
+                param[1] = parseInt(this.month) + 1;
             }
-            param[1] = parseInt(this.month) + 1;
+            
             this.init(param);
         },
         calendarEvent() {
