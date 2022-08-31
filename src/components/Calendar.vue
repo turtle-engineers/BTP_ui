@@ -77,7 +77,6 @@ export default {
         },
         arrowRightEvent() {
             const param = [];
-            console.log(this.month);
             if (parseInt(this.month) + 1 == 13) {
                 param[0] = parseInt(this.year) + 1;
                 param[1] = 1;
