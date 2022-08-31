@@ -2,9 +2,18 @@
   <div id='modal' onselectstart='return false' >
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
-      <video playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
+      <div class="video-wrap">
+        <iframe 
+          :src='`${videoUrl}`' 
+          title="Stretching video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <!-- <video playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
         <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
-      </video>
+      </video> -->
       
       <div class="modal-body">
         <h1>{{ contentInfo.title }}</h1>
@@ -78,7 +87,8 @@ export default {
       return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
     },
     videoUrl: function () {
-      return this.contentInfo.videoUrl ? this.contentInfo.videoUrl : 'sample/' + this.contentInfo.category + '.mp4';
+      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + this.$route.params.videoName : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
+      // return this.contentInfo.videoUrl ? this.contentInfo.videoUrl : 'sample/' + this.contentInfo.category + '.mp4';
     },
     btnText: function () {
       return this.modalAction == 'emitStretchData' ? '추가하기' : '시작하기';

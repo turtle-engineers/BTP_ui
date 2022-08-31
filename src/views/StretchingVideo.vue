@@ -7,9 +7,18 @@
         <h1>{{ $route.params.title }}</h1>
       </section>
       <div class="video-view">
-        <video controls playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
+        <div class="video-wrap">
+          <iframe 
+            :src='`${videoUrl}`' 
+            title="Stretching video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <!-- <video controls playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
           <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
-        </video>
+        </video> -->
         <div>
           <div class="speech-bubble">인간이 될 준비는 끝났나요?<br>20초 후에 스트레칭이 시작합니다.</div>
           <img :src="require(`@/assets/images/robot.png`)" />
@@ -58,7 +67,7 @@ export default {
       return this.$route.params.imgName ? this.$route.params.imgName : 'sample/' + this.$route.params.category + '.png';
     },
     videoUrl: function () {
-      return this.$route.params.videoName ? this.$route.params.videoName : 'sample/' + this.$route.params.category + '.mp4';
+      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + this.$route.params.videoName : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
     }
   },
 };
