@@ -3,9 +3,12 @@
     <!-- 헤더(흰색) -->
     <header class="header">
       <div class="header-logo">
-        <a href="#"><img src="..\assets\images\logo\logo.svg"/></a>
+        <a href="#"><img src="../assets/images/logo/logo.svg"/></a>
       </div>
-      <button @click="toggleOnOff" :class="[toggleOn ? 'toggleClose' : 'toggleOpen']">
+      <button
+        @click="toggleOnOff"
+        :class="[toggleOn ? 'toggleClose' : 'toggleOpen']"
+      >
         <img src="../assets/icon/menu.svg" />
       </button>
       <div class="toggle-menu" v-if="toggleOn">
@@ -26,8 +29,14 @@
           </ul>
         </nav>
         <div class="my-menu">
-          <img src="../assets/icon/mypage.svg" @click="loginAtBackServer('/account')" />
-          <img src="../assets/icon/notification.svg" @click="loginAtBackServer('/alarm')"/>
+          <img
+            src="../assets/icon/mypage.svg"
+            @click="loginAtBackServer('/account')"
+          />
+          <img
+            src="../assets/icon/notification.svg"
+            @click="loginAtBackServer('/alarm')"
+          />
         </div>
       </div>
     </header>
@@ -37,7 +46,8 @@
       <div class="banner-text">
         <h1>BTP PROJECT</h1>
         <p>
-          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가 되어버립니다.<br />
+          현대사회 사람은 지속해서 스트레칭 하지 않으면 거북이가
+          되어버립니다.<br />
           거북이가 되면 육지를 떠나야한다는 사실을 알고 계십니까?<br />
           BTP 프로젝트는 인류의 거북이화를 예방하기 위한 프로젝트로서<br />
           당신은 이 프로젝트에 자유롭게 참여할 수 있습니다.<br />
@@ -54,16 +64,18 @@
           <h1>PROJECT STORY</h1>
           <img src="../assets/images/brand.svg" />
           <p>
-            인류는 새로운 진화의 국면에 접어들었습니다. 본 프로젝트의 과학자들은<br />
-            인류가 거북이로 진화하는 것을 막기위한 새로운 프로젝트:[Back to the people project…]를 시행,<br />
-            이는 인류에게 알려질 시 큰일이 날 수 있는 프로젝트, 비밀리에 시행되는 프로젝트에 당신은 선발되었습니다.<br />
+            인류는 새로운 진화의 국면에 접어들었습니다. 본 프로젝트의
+            과학자들은<br />
+            인류가 거북이로 진화하는 것을 막기위한 새로운 프로젝트:[Back to the
+            people project…]를 시행,<br />
+            이는 인류에게 알려질 시 큰일이 날 수 있는 프로젝트, 비밀리에
+            시행되는 프로젝트에 당신은 선발되었습니다.<br />
             프로젝트를 좀 더 알고 싶다면 아래 버튼을 클릭하세요.
           </p>
           <router-link to="/story">
             <div class="showMore">MORE</div>
           </router-link>
         </div>
-
 
         <!-- 나의 거북이, 오늘의 목표 -->
         <b-container :class="[loginStatus ? 'loginOpen' : 'loginClose']">
@@ -89,7 +101,8 @@
                   <input type="checkbox" id="g1" name="today-goal" disabled />
                   <label for="g1"><span></span>스트레칭 시작하기</label><br />
                   <input type="checkbox" id="g2" name="today-goal" disabled />
-                  <label for="g2"><span></span>오늘 목표치의 50% 달성하기</label><br />
+                  <label for="g2"><span></span>오늘 목표치의 50% 달성하기</label
+                  ><br />
                   <input type="checkbox" id="g3" name="today-goal" disabled />
                   <label for="g3"><span></span>오늘 목표치 100% 달성하기</label>
                 </cm-m>
@@ -102,7 +115,6 @@
           </b-row>
         </b-container>
 
-
         <!-- 메인 프로젝트 -->
         <div class="btp-menu">
           <div class="title title-g">
@@ -114,7 +126,10 @@
           <div class="project-menu">
             <div :class="[side1 ? 'project-item-front' : 'project-item-back']">
               <!-- <div class="project-item-front"> -->
-              <img class="project-icon" :src="require(`../assets/images/stretching${imgName1}.png`)" />
+              <img
+                class="project-icon"
+                :src="require(`../assets/images/stretching${imgName1}.png`)"
+              />
 
               <div class="container">
                 <div class="project-title">
@@ -137,7 +152,10 @@
             </div>
             <div :class="[side2 ? 'project-item-front' : 'project-item-back']">
               <!-- <div class="project-item-back"> -->
-              <img class="project-icon" :src="require(`../assets/images/myroutine${imgName2}.png`)" />
+              <img
+                class="project-icon"
+                :src="require(`../assets/images/myroutine${imgName2}.png`)"
+              />
               <div class="container">
                 <div class="project-title">
                   <h1>마이 루틴</h1>
@@ -159,7 +177,12 @@
             </div>
             <div :class="[side3 ? 'project-item-front' : 'project-item-back']">
               <!-- <div class="project-item-back"> -->
-              <img class="project-icon" :src="require(`../assets/images/random_challenge${imgName3}.png`)" />
+              <img
+                class="project-icon"
+                :src="
+                  require(`../assets/images/random_challenge${imgName3}.png`)
+                "
+              />
               <div class="container">
                 <div class="project-title">
                   <h1>랜덤 챌린지</h1>
@@ -181,7 +204,6 @@
             </div>
           </div>
         </div>
-
 
         <!-- 스트레칭 캘린더 -->
         <div :class="[loginStatus ? 'loginOpen' : 'loginClose']">
@@ -237,16 +259,15 @@
               </div>
             </b-row>
             <b-row class="calendar-bottom">
-              <img class="calendar-pad-img" :src="require('@/assets/images/ipad_bottom.png')" />
+              <img
+                class="calendar-pad-img"
+                :src="require('@/assets/images/ipad_bottom.png')"
+              />
             </b-row>
           </div>
         </div>
-
-
       </div>
     </div>
-
-
 
     <button id="topBtn">
       <a href="#"><img src="../assets/icon/to-up-btn.png"/></a>
@@ -312,7 +333,7 @@ export default {
   },
   methods: {
     getUser() {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
         if (res.data.results != null) {
           this.loginStatus = true;
         } else {
