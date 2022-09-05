@@ -330,10 +330,13 @@ export default {
   },
   async created() {
     await this.getUser();
+    console.log(process.env);
+    console.log(process.env.BASE_URL);
   },
   methods: {
     getUser() {
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      // axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      axios.get( process.env.BASE_URL + "user/info").then((res) => {
         if (res.data.results != null) {
           this.loginStatus = true;
         } else {
