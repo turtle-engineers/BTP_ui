@@ -330,13 +330,10 @@ export default {
   },
   async created() {
     await this.getUser();
-    console.log(process.env);
-    console.log(process.env.VUE_APP_URL);
   },
   methods: {
     getUser() {
-      // axios.get("http://127.0.0.1:3000/user/info").then((res) => {
-      axios.get( process.env.VUE_APP_URL + "user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
         if (res.data.results != null) {
           this.loginStatus = true;
         } else {
@@ -345,13 +342,13 @@ export default {
       });
     },
     async loginAtBackServer(link) {
-      await axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      await axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
             console.log(res.data.result);
             window.location.replace(link);
           } else {
-            window.location.replace("http://127.0.0.1:3000/oauth/kakao");
+            window.location.replace(process.env.VUE_APP_URL + "oauth/kakao");
           }
         }
       });
