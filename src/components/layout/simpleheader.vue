@@ -14,10 +14,21 @@
           </router-link>
         </ul>
       </nav>
-      <a href="/"><img class="logo" src="..\..\assets\images\logo\logo.svg" alt="BTP 메인 이동 로고"/></a>
+      <a href="/"
+        ><img
+          class="logo"
+          src="../../assets/images/logo/logo.svg"
+          alt="BTP 메인 이동 로고"
+      /></a>
       <div class="my-menu">
-        <img src="../../assets/icon/mypage.svg" @click="loginLink('/account')" />
-        <img src="../../assets/icon/notification.svg" @click="loginLink('/alarm')" />
+        <img
+          src="../../assets/icon/mypage.svg"
+          @click="loginLink('/account')"
+        />
+        <img
+          src="../../assets/icon/notification.svg"
+          @click="loginLink('/alarm')"
+        />
       </div>
     </div>
   </header>

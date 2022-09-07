@@ -1,7 +1,6 @@
 <template>
   <div>
     <modalTurtle v-if="isModalViewed" @close-modal="closeModal"></modalTurtle>
-    <modalStretching v-if="isModalViewed" @close-modal="closeModal"></modalStretching>
     <simpleheader></simpleheader>
 
     <div class="app-container">
@@ -70,7 +69,6 @@ import axios from "axios";
 import simpleheader from "../components/layout/simpleheader.vue";
 import Calendar from "../components/Calendar.vue";
 import modalTurtle from "../components/modalTurtle";
-import modalStretching from "../components/modalStretching";
 
 export default {
   data() {
@@ -88,26 +86,27 @@ export default {
     simpleheader,
     Calendar,
     modalTurtle,
-    modalStretching,
   },
   created() {
     this.login();
   },
   methods: {
     login() {
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
-        if (res.data != null) {
+      axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
+        if (res.data.results != null) {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
           this.nickname = loginData.nickname;
           this.promise = loginData.title;
           this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
+        } else {
+          window.location.replace(process.env.VUE_APP_URL + "oauth/kakao");
         }
       });
     },
     logout() {
-      axios.get("http://127.0.0.1:3000/oauth/logout").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "oauth/logout").then((res) => {
         console.log(res.data.result === "OK");
         //로그아웃 성공 시
         if (res.data.resultcode === "0") {

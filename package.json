@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --mode production",
+    "lint": "vue-cli-service lint",
+    "production": "vue-cli-service serve --mode production",
+    "development": "vue-cli-service serve --mode development"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -19,6 +21,7 @@
     "vue": "^2.6.14",
     "vue-axios-cors": "^1.0.1",
     "vue-router": "^3.5.2",
+    "vue-slick-carousel": "^1.0.6",
     "vue-toastification": "^1.7.14",
     "vuetify": "^2.4.0"
   },
@@ -34,6 +37,7 @@
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.3",
     "vue-template-compiler": "^2.6.11",
+    "vuedraggable": "^2.24.3",
     "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {

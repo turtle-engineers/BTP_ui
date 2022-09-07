@@ -1,88 +1,140 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-.app-container{
+.app-container {
   padding: 0;
   margin: 0;
   background-color: #333333;
+  text-align: center;
 }
 
-#desc{
-  width: 62.5vw;
-  margin: 0 auto;
-  padding-top: 70px;
-  margin-bottom: 54px;
-  color: white;
-  // white-space: nowrap;
-  h1{
-    margin-bottom: 40px;
-    font-weight: bold;
+.btp-title {
+  h1 {
+    margin-bottom: 10px;
     font-size: 52px;
-    line-height :65.1px;
+    font-weight: 700;
+    line-height: 65px;
+    text-align: left;
+    color: white;
   }
-  p{
+
+  p {
     font-size: 20px;
+    font-weight: 500;
     line-height: 27px;
+    text-align: left;
     color: #D9E0E2;
+  }
+
+  padding-bottom: 54px;
+}
+
+.slick-slider {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slide-content {
+  position: relative;
+
+  img {
+    width: 100%;
+    border-radius: 26px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 66px 0;
+    text-align: center;
+    color: white;
+  }
+
+  .y-btn {
+    position: absolute;
+    width: 31.5%;
+    top: 15.2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: blink-effect 1s step-end infinite;
+
+    @keyframes blink-effect {
+      50% {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 30%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.slick-prev {
+  top: 35%;
+  // top: 200px+10px;
+  left: -57px-30px;
+  transform: translate(0, 50%);
+}
+
+.slick-next {
+  // top: 200px;
+  top: 35%;
+  right: -20px-30px;
+  transform: translate(0, -50%);
+}
+
+.arrow-btn {
+  border: none;
+
+  img {
+    height: 58px;
   }
 }
 
 .story-page {
   text-align: center;
 }
-#story-container{
+
+#story-container {
   display: flex;
   width: fit-content;
   margin: 0 auto;
 }
 
 #slider {
-  overflow : hidden;
+  overflow: hidden;
   min-width: 700px; //임의
   width: 62.5vw;
   height: 86vh;
   margin: 0 30px;
 }
 
-@for $cardnum from 1 to 9 {
-  .card#{$cardnum}{
-    width:100%;
-    height:100%;
-    background-image:url("../assets/images/story/BS"+ $cardnum + ".png");
-    background-size: cover;
-    background-position: top center;
-  }
-}
-
-#finalimg{
-  position: relative;
-}
-.story-btn{
-  position: absolute;
-  top: 17%;
-  left: 448.5px; //43.7%;
-}
-
-@keyframes blink-effect {
-  50% {
-    opacity: 0;
-  }
-}
-#blink {
-  animation: blink-effect 1s step-end infinite;
-}
-
-
-#go-stretching {
-  margin-top: 30px;
-  margin-bottom: 76px;
+.go-stretching-btn {
+  margin: 0 auto;
   background-color: $color-w;
   padding: 14px 48px;
   border-radius: 46px;
   font-weight: bold;
-font-size: 24px;
-line-height: 30px;
-color: $btpblack;
-white-space: nowrap;
+  font-size: 24px;
+  line-height: 30px;
+  color: $btpblack;
+  white-space: nowrap;
 }

@@ -1,6 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-html { font-size:10px; }
-body { font-family: $body-font-family; }
-a { text-decoration: none; }
+html {
+  font-size: 10px;
+}
+body {
+  font-family: $body-font-family;
+  background-color: #1a5eff;
+}
+a {
+  text-decoration: none;
+}
+.basic-scroll {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 8px;
+    // background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  // &::-webkit-scrollbar-track {
+  //   background: #ffffff;
+  // }
+}
+.app-container {
+  background-color: white;
+}
