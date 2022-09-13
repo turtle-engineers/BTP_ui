@@ -67,7 +67,7 @@ export default {
       return this.$route.params.imgName ? this.$route.params.imgName : 'sample/' + this.$route.params.category + '.png';
     },
     videoUrl: function () {
-      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + this.$route.params.videoName : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
+      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3' : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
     }
   },
 };
