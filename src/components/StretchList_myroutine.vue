@@ -1,29 +1,29 @@
 <template>
   <section class="moreStretching">
-    <modalStretching 
-      v-if="isModalViewed" 
-      :contentInfo="modalInfo" 
+    <modalStretching
+      v-if="isModalViewed"
+      :contentInfo="modalInfo"
       @stretchData="emitStretchData"
-      @close-modal="closeModal" 
+      @close-modal="closeModal"
     />
     <div class="category-wrap">
-      <article class="category">
-        <input type="radio" id="f1" data-category="all" name="categoryFilter" checked />
-        <label class="category-btn" for="f1">전체 스트레칭</label>
-        <input type="radio" id="f2" data-category="eye" name="categoryFilter" />
-        <label class="category-btn" for="f2">눈</label>
-        <input type="radio" id="f3" data-category="neck" name="categoryFilter" />
-        <label class="category-btn" for="f3">목</label>
-        <input type="radio" id="f4" data-category="shoulder" name="categoryFilter" />
-        <label class="category-btn" for="f4">어깨</label>
-        <input type="radio" id="f5" data-category="wrist" name="categoryFilter" />
-        <label class="category-btn" for="f5">손목</label>
+      <article class="category" @change="getEachCategoryContent">
+        <input type="radio" id="all" name="categoryFilter" checked />
+        <label class="category-btn" for="all">전체 스트레칭</label>
+        <input type="radio" id="1" name="categoryFilter" />
+        <label class="category-btn" for="1">눈</label>
+        <input type="radio" id="2" name="categoryFilter" />
+        <label class="category-btn" for="2">목</label>
+        <input type="radio" id="3" name="categoryFilter" />
+        <label class="category-btn" for="3">어깨</label>
+        <input type="radio" id="4" name="categoryFilter" />
+        <label class="category-btn" for="4">손목</label>
       </article>
       <!-- on off버튼 -->
-      <article class="bookmark">
+      <article class="bookmark" @change="doBookmarkFilter">
         <span>북마크만 보기</span>
         <div class="onoff-button">
-          <input type="checkbox" id="stretching-switch" />
+          <input type="checkbox" id="stretching-switch" ref="bookmarkOnOffBtn" />
           <label for="stretching-switch"></label>
         </div>
       </article>
@@ -34,7 +34,6 @@
         v-for="(contentInfo, i) in stretchContentList"
         :key="i"
         :contentInfo="contentInfo"
-        v-bind:data-category="makeBindAttribute(contentInfo.category)"
         @open-modal="openModal"
       />
     </div>
@@ -65,9 +64,6 @@ export default {
   created() {
     this.getCategoryId();
   },
-  updated() {
-    this.categoryFilter();
-  },
   methods: {
     openModal(data) {
       this.modalInfo = data;
@@ -90,71 +86,95 @@ export default {
         }
       });
     },
+    resetStretchList() {
+      this.stretchContentList = [];
+    },
     getEachCategoryContent() {
-      for (const list in this.stretchCategoryList) {
-        const nowList = this.stretchCategoryList[list];
-        this.getStretchContent(nowList);
+      let categoryId = document.querySelector('input[name=categoryFilter]:checked').id;
+      this.resetStretchList();
+      if (categoryId === 'all') {
+        this.stretchCategoryList.forEach((element) => {
+          this.getStretchContent(element);
+        });
+      } else {
+        this.getStretchContent(this.stretchCategoryList[categoryId - 1]);
       }
     },
-    getStretchContent(nowList) {
+    getStretchContent(category) {
       axios({
         method: 'get',
         url: 'http://127.0.0.1:3000/stretch/contents/list',
-        params: { cid: nowList.id },
+        params: { cid: category.id },
       }).then((res) => {
         if (res.data.result == 'OK') {
           const eachStretch = res.data.results;
           eachStretch.forEach((content) => {
-            axios.all([
-              axios({
-                method: 'get',
-                url: 'http://127.0.0.1:3000/stretch/contents/playtime',
-                params: { id: content.id },
-              }),
-              axios({
-                method: 'get',
-                url: 'http://127.0.0.1:3000/stretch/contents/description',
-                params: { id: content.id },
-              })
-            ]).then(axios.spread((res1, res2) => {
-              
-              const stretchData = {
-                category: nowList.title,
-                id: content.id,
-                title: content.title,
-                description: res2.data.results.description,
-                playTime: res1.data.results.playTime,
-                imgUrl: content.image_url,
-                videoUrl: content.video_url
-              };
+            axios
+              .all([
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                  params: { id: content.id },
+                }),
+                axios({
+                  method: 'get',
+                  url: 'http://127.0.0.1:3000/stretch/contents/description',
+                  params: { id: content.id },
+                }),
+              ])
+              .then(
+                axios.spread((res1, res2) => {
+                  const stretchData = {
+                    category: category.title,
+                    id: content.id,
+                    title: content.title,
+                    description: res2.data.results.description,
+                    playTime: res1.data.results.playTime,
+                    imgUrl: content.image_url,
+                  };
 
-              this.stretchContentList.push(stretchData);
-            
-            }));
+                  this.stretchContentList.push(stretchData);
+                })
+              );
           });
+
+          let result = this.$refs.bookmarkOnOffBtn.checked;
+          if (result) {
+            this.getBookmark(1);
+          }
         } else {
           console.log(res.data);
         }
       });
     },
-    categoryFilter() {
-      let categoryBtn = document.querySelectorAll('input[name=categoryFilter]');
-      const listItem = document.querySelectorAll('.st-item');
-      categoryBtn.forEach((btn) => {
-        btn.addEventListener('change', function(e) {
-          const filter = e.target.dataset.category;
-          listItem.forEach((item) => {
-            if (filter === 'all') {
-              item.style.display = 'inline';
-            } else {
-              item.style.display = item.dataset.category === filter ? 'block' : 'none';
-            }
-          });
-        });
-      });
+    doBookmarkFilter() {
+      let result = this.$refs.bookmarkOnOffBtn.checked;
+      if (result) {
+        this.getBookmark(1);
+      }
+      if (!result) {
+        this.getEachCategoryContent();
+      }
+      // todo : 여기에 1 대신 user id 넣으면 됨
     },
-    makeBindAttribute(item) {
-      return item;
+    getBookmark(userId) {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:3000/bookmark/list',
+        params: { uid: userId },
+      }).then((res) => {
+        if (res.data.results != null) {
+          const bookMarkList = res.data.results;
+
+          let filtered = this.stretchContentList.filter((contentList) =>
+            bookMarkList.some((eachBookmark) => contentList.id == eachBookmark.StretchContentId)
+          );
+          this.resetStretchList();
+          this.stretchContentList = filtered;
+        } else {
+          console.log(res.data);
+        }
+      });
     },
   },
 };
