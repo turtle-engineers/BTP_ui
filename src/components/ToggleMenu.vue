@@ -6,15 +6,15 @@
     </div>
     <div id = "line"></div>
       <ul id="nav-left">
-      <a href="#" class="menu-item">
+      <router-link to="/stretchingGuide"  class="menu-item">
           <li class="toggle-menu-text">스트레칭 가이드</li>
-      </a>
-      <a href="#" class="menu-item">
+      </router-link>
+      <router-link to="/myroutine" class="menu-item">
           <li class="toggle-menu-text">마이 루틴</li>
-      </a>
-      <a href="#" class="menu-item">
+      </router-link>
+      <router-link to="/story" class="menu-item">
           <li class="toggle-menu-text">프로젝트 소개</li>
-      </a>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -23,7 +23,7 @@
 export default {
   data(){
     return{
-      
+
     }
   },
   methods: {
@@ -39,11 +39,11 @@ a { text-decoration: none; }
 
 #sidemenu {
     position: fixed;
-    top:0px; 
-    left:0px;  
+    top:0px;
+    left:0px;
     width:410px;
     height: 30px;
-    height: 100%; 
+    height: 100%;
     background-color: white;
     z-index: 99;
 }
