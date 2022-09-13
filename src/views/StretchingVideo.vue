@@ -16,9 +16,6 @@
             allowfullscreen>
           </iframe>
         </div>
-        <!-- <video controls playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
-          <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
-        </video> -->
         <div>
           <div class="speech-bubble">인간이 될 준비는 끝났나요?<br>20초 후에 스트레칭이 시작합니다.</div>
           <img :src="require(`@/assets/images/robot.png`)" />
@@ -67,7 +64,15 @@ export default {
       return this.$route.params.imgName ? this.$route.params.imgName : 'sample/' + this.$route.params.category + '.png';
     },
     videoUrl: function () {
-      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3' : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
+      var url = "";
+      if(this.$route.params.videoName){
+        var urlSplit = this.$route.params.videoName.split("/");
+        var urlName = urlSplit[urlSplit.length - 1];
+        url = this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + urlName;
+      }else{
+        url = "https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=UnKPaWC5zDg";
+      }
+      return url;
     }
   },
 };
