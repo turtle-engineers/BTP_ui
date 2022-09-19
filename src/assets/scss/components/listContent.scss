@@ -1,9 +1,12 @@
 .content-wrap {
   display: flex;
+  width: 400px;
   flex-direction: column;
-  // flex: none;
   justify-content: space-between;
   padding: 1rem;
+}
+.content-wrap:hover {
+  transform: scale(1.1);
 }
 .preview {
   width: 100%;
@@ -32,5 +35,33 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .caption-wrap {
+    display: flex;
+    flex-direction: row;
+    padding: 14px 14px 14px 5px;
+    img {
+      cursor: pointer;
+      margin: auto 0;
+      padding-right: 14px;
+      height: 2.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 23px;
+      margin-bottom: 4px;
+    }
+    p {
+      margin: 0;
+      color: $btp-light-gray;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+    }
   }
 }
