@@ -111,13 +111,19 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
+    align-items: flex-end;
   
     .category {
+      text-align: center;
       .category-btn {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 500;
         border-radius: 10px;
         padding: 8px 20px;
+      }
+      .category-btn:not(:last-child) {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -126,7 +132,6 @@
     display: flex;
     max-width: 1200px;
     flex-wrap: wrap;
-    // gap: 45px 30px;
     
     .st-3{
       width: 33.3%
@@ -136,4 +141,23 @@
     }
   }
   
+  .bookmark {
+    span {
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  
+    .onoff-button {
+      label {
+        width: 5.4rem;
+        height: 2.4rem;
+      }
+  
+      label:after {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
 }

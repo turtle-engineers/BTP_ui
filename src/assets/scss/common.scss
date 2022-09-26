@@ -56,6 +56,11 @@ a {
   }
 }
 @media (max-width: $mobile) {
+  .btp-container {
+    width: 90%;
+    padding-bottom: 0;
+  }
+
   .btp-title {
     padding-top: 6rem;
     padding-bottom: 2rem;
