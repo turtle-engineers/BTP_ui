@@ -126,3 +126,131 @@ $btnGreen: #61c997;
     margin: 0 15px 45px 15px;
   }
 }
+
+@media (max-width: $mobile) {
+  
+  .btp-title {
+    p {
+      font-size: 15px;
+    }
+  }
+  
+  .myroutine-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+  
+  .listbox {
+    margin-right: 0;
+    margin-bottom: 50px;
+  
+    h1 {
+      margin: 0;
+      padding-bottom: 15px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 20px;
+    }
+  
+    .listbox-content {
+      position: relative;
+      width: auto;
+      padding: 15px;
+      border-radius: 20px;
+      background-color: rgb(196, 196, 196, 0.2);
+      text-align: center;
+    }
+  
+    .listbox-timer {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      color: $btpblack;
+  
+      span {
+        color: $btnGreen;
+      }
+    }
+  
+    .button-box {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+  
+      button {
+        padding: 7px 33px;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: center;
+        color: white;
+      }
+  
+      .reset {
+        background-color: #949494;
+      }
+  
+      .save {
+        background-color: #61c997;
+      }
+  
+    }
+  
+    .routineComponent {
+      padding: 5px 0px 5px 0px;
+      margin-right: 7px;
+    }
+  
+    .basic-scroll {
+      position: relative;
+      left: 3px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width: 250px;
+      height: 150px;
+      margin: 0 auto;
+    }
+  }
+  
+  .stretch-container {
+    flex-grow: 1;
+    //   float: right;
+    position: relative;
+  }
+  
+  .category {
+    margin-bottom: 50px;
+  
+    .category-btn {
+      height: 30px;
+      border-radius: 10px;
+      padding: 0px 20px;
+    }
+  
+    .category-btn:not(:last-child) {
+      margin-right: 10px;
+    }
+  
+    .on {
+      background-color: #61c997;
+      color: white;
+    }
+  
+    .off {
+      background-color: #ecf0f4;
+    }
+  }
+  
+  .stretch-card {
+    position: relative;
+    right: 15px;
+  
+    .stretching-card {
+      margin: 0 15px 45px 15px;
+    }
+  }
+}

@@ -63,3 +63,9 @@
     height: 58px;
   }
 }
+
+@media (max-width: $mobile) {
+  .slick-slider {
+    width: 100%;
+  }
+}

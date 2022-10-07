@@ -122,7 +122,7 @@
             </span>
           </div>
         </section>
-        <section class="alarm-scientist alarm-container">
+        <section class="alarm-scientist alarm-container alarm_right">
           <img src="../assets/images/alarm-circle.png" alt="알람 원" />
           <img src="../assets/images/alarm-scientist.png" alt="알람 과학자" />
           <img src="../assets/images/alarm-balloon.png" alt="알람 말풍선" />
