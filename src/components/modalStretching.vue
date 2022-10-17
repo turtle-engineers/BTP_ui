@@ -87,8 +87,15 @@ export default {
       return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
     },
     videoUrl: function () {
-      return this.$route.params.videoName ? this.$route.params.videoName + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + this.$route.params.videoName : 'https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&playlist=UnKPaWC5zDg&controls=0&mute=1&iv_load_policy=3';
-      // return this.contentInfo.videoUrl ? this.contentInfo.videoUrl : 'sample/' + this.contentInfo.category + '.mp4';
+      var url = "";
+      if(this.contentInfo.videoUrl){
+        var urlSplit = this.contentInfo.videoUrl.split("/");
+        var urlName = urlSplit[urlSplit.length - 1];
+        url = this.contentInfo.videoUrl + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + urlName;
+      }else{
+        url = "https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=UnKPaWC5zDg";
+      }
+      return url;
     },
     btnText: function () {
       return this.modalAction == 'emitStretchData' ? '추가하기' : '시작하기';

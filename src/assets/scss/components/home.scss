@@ -19,6 +19,9 @@
     width: 4vw;
   }
 }
+#topBtn:hover {
+  transform: scale(1.1);
+}
 
 .title{
   img { 
@@ -148,6 +151,12 @@
       }
     }
     
+}
+.project-item-front:hover {
+  transform: scale( 1.1 );
+}
+.project-item-front .start:hover {
+  background-color: #E04F53;
 }
 
 .project-item-back{
@@ -362,6 +371,14 @@
     }
     a{
       bottom: 44px;
+    }
+  }
+
+  #topBtn {
+    bottom: 5%;
+    right: 5%;
+    img {
+      width: 6vw;
     }
   }
   

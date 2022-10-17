@@ -16,7 +16,7 @@
         <button @click="openModal">
           <h1>[{{ contentInfo.category }}] {{ contentInfo.title }}</h1>
         </button>
-        <p>00 : 00 : {{ contentInfo.playTime }}</p>
+        <p>00 : 00 : {{ playTime }}</p>
       </div>
     </div>
   </div>
@@ -52,6 +52,9 @@ export default {
     this.getUserID();
   },
   computed: {
+    playTime : function() {
+      return this.contentInfo.playTime.toString().padStart(2, "0");
+    },
     imgUrl: function () {
       return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
     }

@@ -333,7 +333,7 @@ export default {
   },
   methods: {
     getUser() {
-      axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/user/info").then((res) => {
         if (res.data.results != null) {
           this.loginStatus = true;
         } else {
@@ -342,13 +342,12 @@ export default {
       });
     },
     async loginAtBackServer(link) {
-      await axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
+      await axios.get(process.env.VUE_APP_URL + "/user/info").then((res) => {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
-            console.log(res.data.result);
             window.location.replace(link);
           } else {
-            window.location.replace(process.env.VUE_APP_URL + "oauth/kakao");
+            window.location.replace(process.env.VUE_APP_URL + "/oauth/kakao");
           }
         }
       });
