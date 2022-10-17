@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="4" :infinite="false">
+    <VueSlickCarousel ref="c2" :arrows="true" :asNavFor="$refs.c1" :slidesToShow="`${slidersNum}`" :infinite="false">
       <div class="slide-content" v-for="contentInfo in routineArray" v-bind:key="contentInfo.contentsOrder">
         <div class="content-img">
           <listContent :contentInfo="contentInfo" />
@@ -48,6 +48,16 @@ export default {
   components: {
     VueSlickCarousel,
     listContent,
+  },
+  computed: {
+    slidersNum : function() {
+      let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+      let num = 4;
+      if(flag){
+        num = 2;
+      }
+      return num;
+    },
   },
 }
 </script>

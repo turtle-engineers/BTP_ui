@@ -16,7 +16,7 @@
             allowfullscreen>
           </iframe>
         </div>
-        <div>
+        <div class="robot">
           <div class="speech-bubble">인간이 될 준비는 끝났나요?<br>20초 후에 스트레칭이 시작합니다.</div>
           <img :src="require(`@/assets/images/robot.png`)" />
         </div>
