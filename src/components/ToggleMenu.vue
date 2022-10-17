@@ -7,13 +7,13 @@
     <div id="line"></div>
     <ul id="nav-left">
       <router-link to="/stretchingGuide" class="menu-item">
-        <li class="toggle-menu-text">스트레칭 가이드</li>
+        <li class="toggle-menu-text"><span>스트레칭 가이드</span></li>
       </router-link>
       <router-link to="/myroutine" class="menu-item">
-        <li class="toggle-menu-text">마이 루틴</li>
+        <li class="toggle-menu-text"><span>마이 루틴</span></li>
       </router-link>
       <router-link to="/story" class="menu-item">
-        <li class="toggle-menu-text">프로젝트 소개</li>
+        <li class="toggle-menu-text"><span>프로젝트 소개</span></li>
       </router-link>
     </ul>
   </div>
@@ -70,21 +70,13 @@ a {
 }
 
 #nav-left {
+  list-style-image: url('../assets/icon/gray-circle-menu.png');
   margin-top: 43px;
   margin-left: 43px;
 }
-
-#nav-left li:before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  left: 30px;
-  margin-top: 3px;
-  position: absolute;
-  /* 흰 아이콘으로 수정*/
-  background-image: url('../assets/icon/circle-green.png'); 
-  background-size: cover;
-  background-position: center;
+#nav-left span {
+  position: relative;
+  left: 20px;
 }
 
 .toggle-menu-text {
