@@ -44,7 +44,7 @@ export default {
     // getUser() {
     //   axios
     //     .get(
-    //       "http://127.0.0.1:3000/oauth/kakao/callback?authorize_code=" +
+    //       "http://127.0.0.1:30ks00/oauth/kakao/callback?authorize_code=" +
     //         this.codes
     //     )
     //     .then((res) => {
@@ -55,7 +55,7 @@ export default {
     // },
     login() {
       //VueCookies.set("connect.sid", this.sessionId)
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
         if (res.data != null) {
           this.results = res.data.results;
           //   this.$router.push("/");

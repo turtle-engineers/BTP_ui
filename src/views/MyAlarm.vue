@@ -155,7 +155,7 @@ export default {
   methods: {
     stretchingOnOff() {
       //valid에 checked(true, false)값 넣기
-      axios.put("http://127.0.0.1:3000/user/alarm", {
+      axios.put(process.env.VUE_APP_URL + "/user/alarm", {
         valid: document.getElementById("stretching-switch").checked ? "1" : "0",
       });
     },
@@ -167,12 +167,12 @@ export default {
         this.isChecked[element.value] = element.checked ? 1 : 0;
       });
       //db에 보내기
-      axios.put("http://127.0.0.1:3000/user/alarm", {
+      axios.put(process.env.VUE_APP_URL + "/user/alarm", {
         day: this.isChecked.join(""), //날짜
       });
     },
     getAlarm() {
-      axios.get("http://127.0.0.1:3000/user/alarm").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/user/alarm").then((res) => {
         if (res.data != null) {
           const weekData = res.data.results;
           //day가 111000 string으로 오므로 배열로 바꾸기
@@ -199,7 +199,7 @@ export default {
       let clockOption = document.querySelector("select[name=start-clock] > option:checked").value;
       //시작 시간
       axios
-        .put("http://127.0.0.1:3000/user/alarm", { startTime: clockOption })
+        .put(process.env.VUE_APP_URL + "/user/alarm", { startTime: clockOption })
         .then(function(response) {
           if(response.data.resultcode === '-200'){
             alert(response.data.message);
@@ -214,7 +214,7 @@ export default {
       let clockOption = document.querySelector("select[name=end-clock] > option:checked").value;
       //종료 시간
       axios
-        .put("http://127.0.0.1:3000/user/alarm", { endTime: clockOption })
+        .put(process.env.VUE_APP_URL + "/user/alarm", { endTime: clockOption })
         .then(function(response) {
           if(response.data.resultcode === '-200'){
             alert(response.data.message);

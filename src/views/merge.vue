@@ -114,7 +114,7 @@ export default {
       this.newData.newNickname = this.results.nickname;
       this.newData.newTitle = this.results.title;
       await axios
-        .put("http://127.0.0.1:3000/user/info", this.newData)
+        .put(process.env.VUE_APP_URL + "user/info", this.newData)
         .then((res) => {
           if (res.data.result == "OK") {
             // console.log(this.results);
@@ -169,7 +169,7 @@ export default {
           formData.append("uploadFile", this.files[index]);
         }
         axios
-          .post("http://127.0.0.1:3000/user/profile", formData, {
+          .post(process.env.VUE_APP_URL + "/user/profile", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           })
           .then((response) => {

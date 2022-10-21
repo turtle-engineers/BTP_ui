@@ -65,11 +65,11 @@ export default {
   },
   methods: {
     getUser() {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get(process.env.VUE_APP_URL + '/user/info').then((res) => {
         if (res.data.results != null) {
           this.user.id = res.data.results.id;
         } else {
-          window.location.replace('http://127.0.0.1:3000/oauth/kakao');
+          window.location.replace(process.env.VUE_APP_URL + '/oauth/kakao');
         }
       });
     },
@@ -77,12 +77,12 @@ export default {
       axios.all([
         axios({
           method: 'get',
-          url: 'http://127.0.0.1:3000/my-routine/list',
+          url: process.env.VUE_APP_URL + '/my-routine/list',
           params: { userId: this.user.id },
         }),
         axios({
           method: 'get',
-          url: 'http://127.0.0.1:3000/stretch/category/list'
+          url: process.env.VUE_APP_URL + '/stretch/category/list'
         })
       ]).then(axios.spread((res1, res2) => {
         if (res1.data.result == 'OK' && res2.data.result == 'OK') {

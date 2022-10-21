@@ -105,7 +105,7 @@ export default {
         repeatCount: repeatCountResult,
       };
       axios
-        .post('http://127.0.0.1:3000/my-routine/save', routineRequest)
+        .post(process.env.VUE_APP_URL + '/my-routine/save', routineRequest)
         .then((response) => {
           console.log(response);
           if (response.data.result == 'OK') this.$toast.success('저장되었습니다!');
@@ -115,19 +115,19 @@ export default {
         });
     },
     getUser() {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get(process.env.VUE_APP_URL + '/user/info').then((res) => {
         if (res.data.results != null) {
           this.user.id = res.data.results.id;
           this.getMyRoutine();
         } else {
-          window.location.replace('http://127.0.0.1:3000/oauth/kakao');
+          window.location.replace(process.env.VUE_APP_URL + '/oauth/kakao');
         }
       });
     },
     async getMyRoutine() {
       await axios({
         method: 'get',
-        url: 'http://127.0.0.1:3000/my-routine/list',
+        url: process.env.VUE_APP_URL + '/my-routine/list',
         params: { userId: this.user.id },
       }).then((res) => {
         if (res.data.result == 'OK') {

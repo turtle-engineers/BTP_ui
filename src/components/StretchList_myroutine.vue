@@ -77,7 +77,7 @@ export default {
       this.isModalViewed = false;
     },
     getCategoryId() {
-      axios.get('http://127.0.0.1:3000/stretch/category/list').then((res) => {
+      axios.get(process.env.VUE_APP_URL + '/stretch/category/list').then((res) => {
         if (res.data.results != null) {
           this.stretchCategoryList = res.data.results;
           this.getEachCategoryContent();
@@ -103,7 +103,7 @@ export default {
     getStretchContent(category) {
       axios({
         method: 'get',
-        url: 'http://127.0.0.1:3000/stretch/contents/list',
+        url: process.env.VUE_APP_URL + '/stretch/contents/list',
         params: { cid: category.id },
       }).then((res) => {
         if (res.data.result == 'OK') {
@@ -113,12 +113,12 @@ export default {
               .all([
                 axios({
                   method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                  url: process.env.VUE_APP_URL + '/stretch/contents/playtime',
                   params: { id: content.id },
                 }),
                 axios({
                   method: 'get',
-                  url: 'http://127.0.0.1:3000/stretch/contents/description',
+                  url: process.env.VUE_APP_URL + '/stretch/contents/description',
                   params: { id: content.id },
                 }),
               ])
@@ -160,7 +160,7 @@ export default {
     getBookmark(userId) {
       axios({
         method: 'get',
-        url: 'http://127.0.0.1:3000/bookmark/list',
+        url: process.env.VUE_APP_URL + '/bookmark/list',
         params: { uid: userId },
       }).then((res) => {
         if (res.data.results != null) {

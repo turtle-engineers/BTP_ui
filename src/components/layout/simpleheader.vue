@@ -67,12 +67,12 @@ export default {
       }
     },
     loginLink(link) {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get(process.env.VUE_APP_URL + '/user/info').then((res) => {
         if (res.status == 200) {
           if (res.data.result != 'FAIL') {
             window.location.replace(link);
           } else {
-            window.location.replace('http://127.0.0.1:3000/oauth/kakao');
+            window.location.replace(process.env.VUE_APP_URL + '/oauth/kakao');
           }
         }
       });

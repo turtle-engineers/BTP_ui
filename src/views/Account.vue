@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     login() {
-      axios.get(process.env.VUE_APP_URL + "user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/user/info").then((res) => {
         if (res.data.results != null) {
           const loginData = res.data.results;
           this.imgsrc = loginData.picture;
@@ -101,12 +101,12 @@ export default {
           this.monthTimes = loginData.monthTimes;
           this.progress = loginData.point;
         } else {
-          window.location.replace(process.env.VUE_APP_URL + "oauth/kakao");
+          window.location.replace(process.env.VUE_APP_URL + "/oauth/kakao");
         }
       });
     },
     logout() {
-      axios.get(process.env.VUE_APP_URL + "oauth/logout").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/oauth/logout").then((res) => {
         console.log(res.data.result === "OK");
         //로그아웃 성공 시
         if (res.data.resultcode === "0") {

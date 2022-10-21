@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     getAttendance() {
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/user/info").then((res) => {
         if (res.status == 200) {
           if (res.data.result != "FAIL") {
             const doneDay = res.data.results.dd;

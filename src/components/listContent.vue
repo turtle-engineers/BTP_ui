@@ -69,7 +69,7 @@ export default {
 
         axios({
           method: "post",
-          url: "http://127.0.0.1:3000/bookmark/add",
+          url: process.env.VUE_APP_URL + "/bookmark/add",
           data: {
             userId: this.userID,
             stretchContentId: this.contentInfo.id,
@@ -87,7 +87,7 @@ export default {
 
         axios({
           method: "post",
-          url: "http://127.0.0.1:3000/bookmark/delete",
+          url: process.env.VUE_APP_URL + "/bookmark/delete",
           data: {
             userId: this.userID,
             stretchContentId: this.contentInfo.id,
@@ -103,7 +103,7 @@ export default {
       }
     },
     getUserID() {
-      axios.get("http://127.0.0.1:3000/user/info").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/user/info").then((res) => {
         if (res.data != null) {
           const loginData = res.data.results;
           this.userID = loginData.id;
@@ -115,7 +115,7 @@ export default {
     getBookmark() {
       axios({
         method: "get",
-        url: "http://127.0.0.1:3000/bookmark/list",
+        url: process.env.VUE_APP_URL + "/bookmark/list",
         params: { uid: this.userID },
       }).then((res) => {
         if (res.data.results != null) {

@@ -80,7 +80,7 @@ export default {
       this.isModalViewed = false;
     },
     getCategoryId() {
-      axios.get("http://127.0.0.1:3000/stretch/category/list").then((res) => {
+      axios.get(process.env.VUE_APP_URL + "/stretch/category/list").then((res) => {
         if (res.data.results != null) {
           this.stretchCategoryList = res.data.results;
           this.getEachCategoryContent();
@@ -98,7 +98,7 @@ export default {
     getStretchContent(nowList) {
       axios({
         method: "get",
-        url: "http://127.0.0.1:3000/stretch/contents/list",
+        url: process.env.VUE_APP_URL + "/stretch/contents/list",
         params: { cid: nowList.id },
       }).then((res) => {
         if (res.data.result == "OK") {
@@ -107,12 +107,12 @@ export default {
             axios.all([
               axios({
                 method: 'get',
-                url: 'http://127.0.0.1:3000/stretch/contents/playtime',
+                url: process.env.VUE_APP_URL + '/stretch/contents/playtime',
                 params: { id: content.id },
               }),
               axios({
                 method: 'get',
-                url: 'http://127.0.0.1:3000/stretch/contents/description',
+                url: process.env.VUE_APP_URL + '/stretch/contents/description',
                 params: { id: content.id },
               })
             ]).then(axios.spread((res1, res2) => {

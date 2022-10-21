@@ -102,7 +102,7 @@ export default {
       this.getUser();
     },
     getUser() {
-      axios.get('http://127.0.0.1:3000/user/info').then((res) => {
+      axios.get(process.env.VUE_APP_URL + '/user/info').then((res) => {
         if (res.data != null) {
           this.results = res.data.results;
         }
@@ -152,7 +152,7 @@ export default {
           formData.append('uploadFile', this.files[index]);
         }
         axios
-          .post('http://127.0.0.1:3000/user/profile', formData, {
+          .post(process.env.VUE_APP_URL + '/user/profile', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
           })
           .then((response) => {
