@@ -79,3 +79,9 @@ video {
   margin-left: -23px;
 	margin-bottom: -23px;
 }
+
+@media (max-width: $mobile) {
+  .robot {
+    display: none;
+  }
+}

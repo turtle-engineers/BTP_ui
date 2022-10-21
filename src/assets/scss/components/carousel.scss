@@ -63,3 +63,30 @@
     height: 58px;
   }
 }
+
+@media (max-width: $mobile) {
+  .slick-slider {
+    width: 80%;
+    margin: auto;
+  }
+
+  .slick-prev {
+    top: 50%;
+    left: -40px;
+    transform: translate(0, -50%);
+  }
+  
+  .slick-next {
+    top: 50%;
+    right: -35px;
+    transform: translate(0, -50%);
+  }
+
+  .arrow-btn {
+    z-index: 100;
+
+    img {
+      height: 30px;
+    }
+  }
+}
