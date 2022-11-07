@@ -2,6 +2,10 @@
 // $carousel-height: 282px;
 .slick-slider {
   width: 1202px;
+
+  .content-wrap {
+    margin-right: 1rem;
+  }
 }
 .slick-prev,
 .slick-next {
@@ -68,6 +72,9 @@
   .slick-slider {
     width: 80%;
     margin: auto;
+    .content-wrap {
+      margin-right: 0.5rem;
+    }
   }
 
   .slick-prev {

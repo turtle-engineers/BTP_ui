@@ -38,7 +38,7 @@
                 type="text"
                 name="title"
                 maxlength="40"
-                placeholder="닉네임을 입력해보세요."
+                placeholder="나의 다짐을 입력해주세요."
                 class="input-default promise"
                 v-model="results.title"
               />

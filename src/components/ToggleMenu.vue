@@ -45,7 +45,7 @@ a {
   height: 30px;
   height: 100%;
   background-color: white;
-  z-index: 99;
+  z-index: 300;
 }
 
 #top {

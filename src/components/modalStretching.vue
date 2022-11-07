@@ -3,22 +3,20 @@
     <div class="black-bg" @click="$emit('close-modal')"></div>
     <div class="content mg-wh ms-m">
       <div class="video-wrap">
-        <iframe 
-          :src='`${videoUrl}`' 
-          title="Stretching video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+        <youtube 
+          style="width:100%; height: 100%; position:absolute; top:0; left:0;"
+          :video-id="`${videoId}`"
+          :player-vars="playerVars"
+          @ready="ready"
+          @playing="playing"
+          @ended="ended"
+          @error="error"
+          ref="youtube" />
       </div>
-      <!-- <video playsinline autoplay muted loop poster='`@/assets/images/stretch/${imgUrl}`'>
-        <source :src='require(`@/assets/videos/stretching/${videoUrl}`)' type='video/mp4'>
-      </video> -->
       
       <div class="modal-body">
         <h1>{{ contentInfo.title }}</h1>
         <h3 v-html="contentInfo.description"></h3>
-
         <div class="m-stretching-time">
           <button class="minus" @click="timeMinus">
             <img src="@/assets/icon/btn-minus.png" />
@@ -29,7 +27,6 @@
           </button>
         </div>
       </div>
-      
       <div class="modal-bottom">
         <b-row class="m-str-btn">
           <b-col>
@@ -44,7 +41,6 @@
           </b-col>
         </b-row>
       </div>
-      
       <button type="button" class="btn-x" @click="$emit('close-modal')">✕</button>
     </div>
   </div>
@@ -55,6 +51,9 @@
 @import "../assets/scss/components/modalTurtle.scss";
 </style>
 <script>
+import Vue from "vue";
+import VueYoutube from "vue-youtube";
+Vue.use(VueYoutube);
 export default {
   props: {
     contentInfo: {
@@ -76,24 +75,44 @@ export default {
   data() {
     return {
       viewTime: '00 : 00',
-      repeatCnt: 1
+      repeatCnt: 1,
     };
   },
   created() {
     this.timeEnit();
   },
   computed: {
+    playerVars() {
+      return {
+        controls: 0,
+        player3: Object,
+        rel: 0,
+        autoplay: 1,
+        enablejsapi: 1,
+        fs: 0,
+        playsinline: 1,
+        ivLoadPolicy2: 1,
+        playlist: this.videoId,
+        muted: 1,
+        loop: 1,
+        // iv_load_policy:3,
+        start: this.start,
+        end: this.end
+      };
+    },
     imgUrl: function () {
       return this.contentInfo.imgUrl ? this.contentInfo.imgUrl : 'sample/' + this.contentInfo.category + '.png';
     },
-    videoUrl: function () {
+    videoId: function () {
       var url = "";
+      console.log(this.contentInfo)
       if(this.contentInfo.videoUrl){
+        console.log("testset")
         var urlSplit = this.contentInfo.videoUrl.split("/");
-        var urlName = urlSplit[urlSplit.length - 1];
-        url = this.contentInfo.videoUrl + '?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=' + urlName;
+        url = urlSplit[urlSplit.length - 1];
       }else{
-        url = "https://www.youtube.com/embed/UnKPaWC5zDg?autoplay=1&loop=1&controls=0&mute=1&iv_load_policy=3&playlist=UnKPaWC5zDg";
+        console.log("testsetdaa")
+        url = "UnKPaWC5zDg";
       }
       return url;
     },
@@ -110,6 +129,10 @@ export default {
     }
   },
   methods: {
+    ready(){},
+    playing(){},
+    ended(){},
+    error(){},
     modalActionSelect() {
       this.contentInfo.repeatCnt = this.repeatCnt;
       this.modalAction == 'emitStretchData' ? this.$emit('stretchData', this.contentInfo) : this.goStretchingVideo();

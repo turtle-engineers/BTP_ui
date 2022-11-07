@@ -59,3 +59,30 @@ $btp-green: #61c997;
 .timeCategoryList {
   display: none;
 }
+
+@media (max-width: $mobile) {
+  .progress-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 35px;
+    }
+  
+    p {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+      color: rgb(0, 0, 0, 0.47);
+    }
+  }
+}

@@ -96,22 +96,27 @@
   display: flex;
   max-width: 1200px;
   flex-wrap: wrap;
-  // gap: 45px 30px;
+  gap: 1rem;
   
   .st-3{
-    width: 33.3%
+    width: calc(33.3% - 1rem);
   }
   .st-4{
-    width: 25%
+    width: calc(25% - 1rem);
   }
 }
 
 @media (max-width: $mobile) {
   .category-wrap {
+    position: sticky;
+    top: 0px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
+    padding: 2rem 0;
     align-items: flex-end;
+    background-color: #fff;
+    z-index: 200;
   
     .category {
       text-align: center;
@@ -128,16 +133,21 @@
     }
   }
 
+  .myroutine-container {
+    .category-wrap {
+      top: 240px;
+      padding: 0px;
+    }
+  }
+
   .stretchList {
-    display: flex;
-    max-width: 1200px;
-    flex-wrap: wrap;
+    gap: 1rem;
     
     .st-3{
-      width: 50%
+      width: calc(50% - 1rem);
     }
     .st-4{
-      width: 50%
+      width: calc(50% - 1rem);
     }
   }
   

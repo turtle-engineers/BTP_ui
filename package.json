@@ -23,6 +23,7 @@
     "vue-router": "^3.5.2",
     "vue-slick-carousel": "^1.0.6",
     "vue-toastification": "^1.7.14",
+    "vue-youtube": "^1.4.0",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {

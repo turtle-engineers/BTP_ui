@@ -37,6 +37,13 @@ video {
   height:100%;
 }
 
+.robot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
 .speech-bubble {
   position: relative;
 	background: #FFFFFF;

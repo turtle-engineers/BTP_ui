@@ -57,7 +57,9 @@
           </button>
         </template>
       </VueSlickCarousel>
-      <button type="button" class="go-stretching-btn">훈련하러 가기</button>
+      <router-link to="/stretchingGuide">
+        <button type="button" class="go-stretching-btn">훈련하러 가기</button>
+      </router-link>
     </div>
   </div>
 </template>
